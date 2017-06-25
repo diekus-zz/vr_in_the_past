@@ -1,0 +1,21 @@
+{
+  "name": "vr_in_the_past",
+  "version": "1.0.0",
+  "description": "VR in the past: Game based learning of Archaeological processes with A-Frame, Samsung GearVR and report",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "vrinthepast"
+  ],
+  "author": "prakash.uday.bayas@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "aframe": "^0.5.0",
+    "express": "^4.15.3",
+    "fs": "0.0.1-security",
+    "nodemailer": "^4.0.1"
+  }
+}
