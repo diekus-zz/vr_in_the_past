@@ -48,7 +48,7 @@ function showSummary(){
   entityEl.setAttribute('id','feedbackPl');
   //entityEl.setAttribute('id','resStatus'+ idNum +'Pl');
 
-entityEl.setAttribute('onclick',"window.open('/');");
+entityEl.setAttribute('onclick',"window.open('/', '_self');");
   //entityEl.setAttribute('onclick','window.location.reload();');
   var avaTxt = "- You explored: ";
 
