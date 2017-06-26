@@ -1,5 +1,5 @@
 function exploreSite(objId){
-alert('Hi');
+//alert('Hi');
   // if tools and processes are visible
   if(tlPrVisibility)
   showChoices();
