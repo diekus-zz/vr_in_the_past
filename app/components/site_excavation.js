@@ -30,20 +30,26 @@ function presentScene2(){
 var isZoom = false;
 function found(idNum){
 
+  //console.log(tlPrVisibility);
   if(toolSelected === '' && processSelected === ''){
 
     alert('Please select a tool and a process');
-    return;
+
+    return false;
   }else if(toolSelected === ''){
 
     alert('Please select a tool');
-    return;
+
+    return false;
   }
   else if(processSelected === ''){
 
     alert('Please select a process');
-    return;
+
+    return false;
   }
+
+
 
   //alert(idNum);
   if(idNum == 5){
@@ -88,9 +94,10 @@ function found(idNum){
     entityEl.setAttribute('color', 'gray');
 
     entityEl.setAttribute('geometry', {
-      primitive: 'plane',
+      primitive: 'box',
       height: 7,
-      width: 40
+      width: 40,
+      depth: -1
     });
 
     entityEl.setAttribute('position', {

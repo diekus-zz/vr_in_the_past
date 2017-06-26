@@ -15,14 +15,15 @@ function showChoices(){
     //console.log(tlEls[i]);
   }
 
+// move at start of each new game only
   //alert(toolNames);
-  if(tlPrVisibility) // For each visibility request, randomize tool names
-  toolNames = shuffle(toolNames);
+//  if(tlPrVisibility) // For each visibility request, randomize tool names
+//  toolNames = shuffle(toolNames);
   //alert(toolNames);
 
   for (var i = 0; i < tlEls.length; i++) {
     tlEls[i].setAttribute('visible', tlPrVisibility);
-    tlEls[i].setAttribute('text', 'color: ; alphaTest: 0; align: left; wrapCount: 15; letterSpacing: 4; value: '+toolNames[i]);
+    tlEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value: '+toolNames[i]);
     //console.log(tlEls[i]);
   }
 
@@ -36,14 +37,15 @@ function showChoices(){
     //console.log(tlEls[i]);
   }
 
+// move shuffle to beginning of each new game
   //alert(toolNames);
-  if(tlPrVisibility) // For each visibility request, randomize process names
-  processNames = shuffle(processNames);
+//  if(tlPrVisibility) // For each visibility request, randomize process names
+//  processNames = shuffle(processNames);
   //alert(processNames);
 
   for (var i = 0; i < prEls.length; i++) {
     prEls[i].setAttribute('visible', tlPrVisibility);
-    prEls[i].setAttribute('text', 'color: ; alphaTest: 0; align: left; wrapCount: 19; letterSpacing: 4; value: '+processNames[i]);
+    prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value: '+processNames[i]);
     //console.log(prEls[i]);
   }
 
@@ -57,11 +59,11 @@ function selectChoice(tlPrId, objCl){
   var objEls = document.querySelector('a-scene').querySelectorAll('.'+objCl);
 
   for (var i = 0; i < objEls.length; i++) {
-    objEls[i].setAttribute('color', 'gray');
+    objEls[i].setAttribute('color', '#cccccc');
     //console.log(tlEls[i]);
   }
 
-  document.querySelector('#'+tlPrId).setAttribute('color', '#0080ff');
+  document.querySelector('#'+tlPrId).setAttribute('color', 'gray');
   if(objCl === 'tools')
   toolSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
 

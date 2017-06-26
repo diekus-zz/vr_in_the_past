@@ -1,6 +1,9 @@
 map of scotland
 https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Map_of_Scotland_within_the_United_Kingdom.svg/2000px-Map_of_Scotland_within_the_United_Kingdom.svg.png
 
+map edit to retain transparency
+http://www168.lunapic.com/editor/
+
 A-Frame Docs
 https://aframe.io/docs/0.5.0/introduction/
 

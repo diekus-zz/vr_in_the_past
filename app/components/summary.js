@@ -27,9 +27,10 @@ function showSummary(){
   //entityEl.setAttribute('do-something-once-loaded', '');
 
   entityEl.setAttribute('geometry', {
-    primitive: 'plane',
+    primitive: 'box',
     height: 21,
-    width: 40
+    width: 40,
+    depth: -1
   });
 
   entityEl.setAttribute('position', {
