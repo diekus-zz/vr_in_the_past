@@ -4,6 +4,42 @@ var model1Found = false;
 var model2Found = false;
 function show3dVR(objIdNum){
   //alert('screen ' + objIdNum);
+//alert(objIdNum);
+  //console.log(tlPrVisibility);
+  if(toolSelected === 'Expert in the field' && processSelected === 'Macroscopic Analysis'){
+
+    alertInfo('Please select a tool and a process');
+    //alert('Please select a tool and a process');
+
+    return false;
+  }/*else if(objIdNum == 1 && toolSelected != 'Riso Minisys Machine'){
+
+    alertInfo('Please select a tool for inorganic-dating');
+    //alert('Please select a tool');
+
+    return false;
+  }
+  else if(objIdNum == 1 && processSelected != 'Thermoluminescence Dating'){
+
+    alertInfo('Please select a process for inorganic-dating');
+    //alert('Please select a process');
+
+    return false;
+  } */else if(objIdNum == 1 && (toolSelected != 'Riso Minisys Machine' || processSelected != 'Thermoluminescence Dating')){
+
+    alertInfo('Reselect for correct inorganic-dating');
+    //alert('Please select a tool and a process');
+
+    return false;
+  } else if(objIdNum == 2 && (toolSelected != 'Accelerator Mass Spectrometry' || processSelected != 'Radiocarbon Dating')){
+
+    alertInfo('Reselect for correct organic-dating');
+    //alert('Please select a tool and a process');
+
+    return false;
+  }
+//alert(toolSelected);
+//alert(processSelected);
 
   if(objIdNum == 1) model1Found = true;
   if(objIdNum == 2) model2Found = true;
@@ -19,6 +55,25 @@ function show3dVR(objIdNum){
       //alert('screen 3');
       document.querySelector('#model' + objIdNum + 'En').setAttribute('visible', 'false');
       isContinue = false;
+
+      // reset tool to excavation state
+      toolSelected = 'Expert in the field';
+      processSelected = 'Macroscopic Analysis';
+
+      var tlEls = document.querySelector('a-scene').querySelectorAll('.tools');
+
+      for (var i = 0; i < tlEls.length; i++) {
+        tlEls[i].setAttribute('color', '#cccccc');
+        //console.log(tlEls[i]);
+      }
+
+      var prEls = document.querySelector('a-scene').querySelectorAll('.processes');
+
+      for (var i = 0; i < prEls.length; i++) {
+        prEls[i].setAttribute('color', '#cccccc');
+        //console.log(tlEls[i]);
+      }
+
       presentScene2();
     }else{
 

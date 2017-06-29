@@ -28,7 +28,7 @@ function showSummary(){
 
   entityEl.setAttribute('geometry', {
     primitive: 'box',
-    height: 30,
+    height: 50,
     width: 60,
     depth: -1
   });
@@ -89,9 +89,10 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
     }
     avaTxt += sites + "\n\n";
   }
-
-
-  avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + " for carrying out the excavation at Achavanich.\n";
+avaTxt += "\tYou earned the stickers 'Associate' and 'Professional'\n\n";
+avaTxt += "\tYou selected the tool 'Expert in the field' and the process 'Macroscopic Analysis' for carrying out the excavation at Achavanich.\n\n";
+avaTxt += "\tYou selected the tool 'Riso Minisys Machine' and the process 'Thermoluminescence Dating' for carrying out the inorganic dating at Achavanich.\n\n";
+avaTxt += "\tYou selected the tool 'Accelerator Mass Spectrometry' and the process 'Radiocarbon Dating' for carrying out the organic at Achavanich.\n\n";  //avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + " for carrying out the excavation at Achavanich.\n";
 //  avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + "for dating of the beaker artifact.\n";
 //  avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + "for dating of the skull/bones remains.\n";
 

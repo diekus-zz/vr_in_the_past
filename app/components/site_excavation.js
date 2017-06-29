@@ -58,7 +58,29 @@ function found(idNum){
     return false;
   }
 
+  var tlEls = document.querySelector('a-scene').querySelectorAll('.tools');
+  var prEls = document.querySelector('a-scene').querySelectorAll('.processes');
 
+  var processNames = [];
+
+  var arrLen = tlEls.length;
+  for (var i = 0; i < arrLen; i++) {
+    if(tlEls[i].getAttribute('text').value === 'Expert in the field'){
+      document.querySelector('#tlprEn').removeChild(document.querySelector('#tlprEn').querySelector('#'+tlEls[i].getAttribute('id')));
+    }
+    //console.log(tlEls[i]);
+  }
+
+  arrLen = prEls.length;
+  for (var i = 0; i < arrLen; i++) {
+    if(prEls[i].getAttribute('text').value === 'Macroscopic Analysis'){
+      document.querySelector('#tlprEn').removeChild(document.querySelector('#tlprEn').querySelector('#'+prEls[i].getAttribute('id')));
+    }
+    //console.log(tlEls[i]);
+  }
+
+
+//document.querySelector('a-scene').removeChild(document.querySelector('a-scene').querySelector('#alertInfoPl'));
 
   //alert(idNum);
   if(idNum == 5){
@@ -129,7 +151,8 @@ function found(idNum){
     //color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:
     if(idNum == 1){
       entityEl.setAttribute('onclick','show3dVR(1)');
-      avaTxt = "Congratulations! You have just found a beaker\nClick here to explore it.";
+      avaTxt = "Beaker artifact found! Select tool/process\nfor dating and click here";
+      //avaTxt = "Congratulations! You have just found a beaker\nClick here to explore it.";
     }
 
     if(idNum == 2)
@@ -140,7 +163,8 @@ function found(idNum){
 
     if(idNum == 4){
       entityEl.setAttribute('onclick','show3dVR(2)');
-      avaTxt = "Congratulations! You have just found the Ava's skull\nClick here to explore it.";
+      avaTxt = "Skull remains found! Select tool/process\nfor dating and click here";
+      //avaTxt = "Congratulations! You have just found the Ava's skull\nClick here to explore it.";
     }
 
     entityEl.setAttribute('material', 'color', 'gray');
