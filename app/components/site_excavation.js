@@ -33,18 +33,27 @@ function found(idNum){
   //console.log(tlPrVisibility);
   if(toolSelected === '' && processSelected === ''){
 
-    alert('Please select a tool and a process');
+    alertInfo('Please select a tool and a process');
+    //alert('Please select a tool and a process');
 
     return false;
   }else if(toolSelected === ''){
 
-    alert('Please select a tool');
+    alertInfo('Please select a tool');
+    //alert('Please select a tool');
 
     return false;
   }
   else if(processSelected === ''){
 
-    alert('Please select a process');
+    alertInfo('Please select a process');
+    //alert('Please select a process');
+
+    return false;
+  } if(toolSelected != 'Expert in the field' || processSelected != 'Macroscopic Analysis'){
+
+    alertInfo('Reselect for correct site-identity');
+    //alert('Please select a tool and a process');
 
     return false;
   }

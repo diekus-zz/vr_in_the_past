@@ -47,29 +47,35 @@ function exploreSite(objId){
     var yCamOffset = document.querySelector('a-camera').getAttribute('position').y-20;
 
     entityEl.setAttribute('position', {
-      x: 5,//xCamOffset, //-30
-      y: -5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
-      z: 40
+      x: 0,//5,//xCamOffset, //-30
+      y: -2,//-5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
+      z: -5//40
     });
 
     entityEl.setAttribute('id','briefPl');
     entityEl.setAttribute('onclick','hideBriefPl()');
+    //entityEl.setAttribute('text-align','justify');
 
     var avaTxt = "Welcome to the Achavanich Beaker Burial Project!\n\nIn 1987 the remains of an individual buried over 3,700 years ago was discovered at Achavanich in Caithness in the north of Scotland. The site was rescued and excavated by the Highland Regional Council Archaeology Unit. However, unfortunate circumstances led to the site being mostly forgotten about over the next three decades, but it still had so much to offer and to teach us about the Middle Bronze Age in Northern Scotland.\n";
 
     entityEl.setAttribute('material', 'color', 'gray');
-    entityEl.setAttribute('text', 'align: justify; value: ' + avaTxt);
+    entityEl.setAttribute('material', 'opacity', '0.8');
+    entityEl.setAttribute('text', 'align: left; value: ' + avaTxt);
 
     //reset camera to initial rotation
     var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
 
-    entityEl.setAttribute('rotation', cameraEl.getAttribute('rotation'));
+    //entityEl.setAttribute('rotation', cameraEl.getAttribute('rotation'));
 
+    //document.querySelector('#posCam').appendChild(entityEl);
+    document.querySelector('a-camera').appendChild(entityEl);
+    //sceneEl.appendChild(entityEl);
 
-    sceneEl.appendChild(entityEl);
   } else {
 
-    sceneEl.removeChild(sceneEl.querySelector('#briefPl'));
+    //document.querySelector('#posCam').removeChild(sceneEl.querySelector('#briefPl'));
+    document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
+    //sceneEl.removeChild(sceneEl.querySelector('#briefPl'));
 
     var animationEl = document.createElement('a-animation');
     sceneEl.querySelector('#'+objId).appendChild(animationEl);
@@ -83,5 +89,7 @@ function exploreSite(objId){
  function hideBriefPl(){
 
    if(document.querySelector('a-scene').querySelector('#briefPl')!= null)
-    document.querySelector('a-scene').removeChild(document.querySelector('a-scene').querySelector('#briefPl'));
+    //document.querySelector('#posCam').removeChild(document.querySelector('#posCam').querySelector('#briefPl'));
+    document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
+    //document.querySelector('a-scene').removeChild(document.querySelector('a-scene').querySelector('#briefPl'));
  }

@@ -64,12 +64,35 @@ function selectChoice(tlPrId, objCl){
   }
 
   document.querySelector('#'+tlPrId).setAttribute('color', 'gray');
-  if(objCl === 'tools')
-  toolSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
+  if(objCl === 'tools'){
+    toolSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
+    //tip(toolSelected);
+  }
 
-  if(objCl === 'processes')
-  processSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
+
+  if(objCl === 'processes'){
+    processSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
+    //tip(processSelected);
+  }
+
 
   //alert(toolSelected);
   //alert(processSelected);
+}
+
+function tip(tlPrSelectedTxt){
+
+  if (tlPrSelectedTxt === 'Expert in the field') {
+    alertInfo('Identification');
+  } else if (tlPrSelectedTxt === 'Riso Minisys Machine') {
+    alertInfo('Dating of inorganic material');
+  } else if (tlPrSelectedTxt === 'Accelerator Mass Spectrometry') {
+    alertInfo('Dating of organic material');
+  } else if (tlPrSelectedTxt === 'Macroscopic Analysis') {
+    alertInfo('Identification');
+  } else if (tlPrSelectedTxt === 'Thermoluminescence Dating') {
+    alertInfo('Dating of inorganic material');
+  } else if (tlPrSelectedTxt === 'Radiocarbon Dating') {
+    alertInfo('Dating of organic material');
+  }
 }

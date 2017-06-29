@@ -78,3 +78,119 @@ var x = setInterval(function() {
     document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Out of\n Funds');
   }
 }, 1000);
+
+// Alert plane
+function alertInfo(infoTxt){
+
+  var sceneEl =  document.querySelector('a-scene');
+
+  if(!sceneEl.querySelector('#alertInfoPl')){
+
+
+    // create a plane entity
+    var entityEl = document.createElement('a-entity');
+    //entityEl.setAttribute('do-something-once-loaded', '');
+
+    entityEl.setAttribute('geometry', {
+      primitive: 'plane',
+      height: 0.5,
+      width: 4//,
+      //depth: -1
+    });
+
+//document.querySelector('a-camera')
+//sceneEl.querySelector('#posCam')
+//document.querySelector('a-cursor')
+    var xCamOffset = document.querySelector('a-camera').getAttribute('position').x-20;
+    var yCamOffset = document.querySelector('a-camera').getAttribute('position').y-20;
+
+    entityEl.setAttribute('position', {
+      x: 0,//5,//xCamOffset, //-30
+      y: -0.3,//-5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
+      z: -5//40
+    });
+
+    entityEl.setAttribute('id','alertInfoPl');
+    //entityEl.setAttribute('onclick',"removePl('alertInfoPl')");
+
+    entityEl.setAttribute('material', 'color', 'gray');
+    entityEl.setAttribute('material', 'opacity', '0.8');
+    entityEl.setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 30; letterSpacing: 1; value: ' + infoTxt);
+
+    //reset camera to initial rotation
+    var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
+
+    //entityEl.setAttribute('rotation', cameraEl.getAttribute('rotation'));
+
+    //document.querySelector('#posCam').appendChild(entityEl);
+    document.querySelector('a-camera').appendChild(entityEl);
+    //sceneEl.appendChild(entityEl);
+
+    //Add animation of scaling down to zero
+    var animationEl = document.createElement('a-animation');
+
+    //animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('delay', '2000');
+    animationEl.setAttribute('dur', '1000');
+    animationEl.setAttribute('attribute', 'scale');
+    animationEl.setAttribute('from', '1 1 1');
+    animationEl.setAttribute('to', '0 0 0');
+    entityEl.appendChild(animationEl);
+
+    //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
+
+
+  } else {
+
+    //document.querySelector('#posCam').removeChild(sceneEl.querySelector('#briefPl'));
+    document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
+    //sceneEl.removeChild(sceneEl.querySelector('#briefPl'));
+  }
+
+
+
+}
+
+function removePl(alertInfoPl){
+
+  if(document.querySelector('a-scene').querySelector('#'+alertInfoPl)!= null)
+    document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#'+alertInfoPl));
+
+}
+
+// Component to change to random color on click.
+AFRAME.registerComponent('cursor-listener', {
+  init: function () {
+    //var COLORS = ['red', 'green', 'blue'];
+    this.el.addEventListener('click', function (evt) {
+      //alert('click');
+
+      tip(this.getAttribute('text').value);
+
+      //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
+      //var randomIndex = Math.floor(Math.random() * COLORS.length);
+      //this.setAttribute('material', 'color', COLORS[randomIndex]);
+      //console.log('I was clicked at: ', evt.detail.intersection.point);
+    });
+    this.el.addEventListener('mouseenter', function (evt) {
+      //alert('mouseenter');
+
+      //tlPrId, objCl
+      //alert(this.getAttribute('id'));
+      //alert(this.getAttribute('class'));
+
+      //var randomIndex = Math.floor(Math.random() * COLORS.length);
+      //this.setAttribute('material', 'color', COLORS[randomIndex]);
+      //console.log('I was clicked at: ', evt.detail.intersection.point);
+    });
+    this.el.addEventListener('mouseleave', function (evt) {
+      //alert('mouseleave');
+
+      if(document.querySelector('a-scene').querySelector('#alertInfoPl') != null)
+      document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#alertInfoPl'));
+      //var randomIndex = Math.floor(Math.random() * COLORS.length);
+      //this.setAttribute('material', 'color', COLORS[randomIndex]);
+      //console.log('I was clicked at: ', evt.detail.intersection.point);
+    });
+  }
+});

@@ -3,7 +3,7 @@
 <head>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>VR in the Past - UoE</title>
-  
+
   <script src="https://aframe.io/releases/0.5.0/aframe.js"></script>
 
   <script src="../components/utility.js"></script>
@@ -21,12 +21,13 @@
     <img id="terrain2Image" src="views/img/GrassLakes14_WEB.jpg">
     <img id="terrain3Image" src="views/img/NE306_salisbury.jpg">
     <img id="terrain4Image" src="views/img/Skull-shown-in-excavation.jpg">
+    <img id="tooltip" src="views/img/tooltip.png">
   </a-assets>
 
   <script>
   </script>
 
-<a-scene>
+<a-scene  physics="debug: false">
 
   <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
 
@@ -80,7 +81,9 @@
 
   <!-- progress status -->
   <a-box id='screenPl' class='' height='5' width='20' depth='-1' position='32 4 6' rotation='15 -33 0' color='gray'
-  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Explore\nthe sites"></a-box>
+  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Explore\nthe sites">
+
+</a-box>
 
 
   <!-- Tools/Processes -->
@@ -89,26 +92,29 @@
     <a-box id='toolPrPl' height='5' width='20' depth='-1'  color='gray'
     onclick='showChoices()' text='color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Tools/\nProcesses'></a-box>
 
-    <a-box id='tool1Pl' class='tools' position='0 -6 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('tool1Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value:Expert in the field'></a-box>
+    <a-box id='tool1Pl' cursor-listener class='tools' position='0 -6 0' height='5' width='20' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('tool1Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value:Expert in the field'>
+    </a-box>
 
-    <a-box id='tool2Pl' class='tools' position='0 -12 0' height='5' width='20' depth='-1' color='#cccccc'
+    <a-box id='tool2Pl' cursor-listener class='tools' position='0 -12 0' height='5' width='20' depth='-1' color='#cccccc'
     visible="false" onclick="selectChoice('tool2Pl','tools')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value:Riso Minisys Machine'></a-box>
 
-    <a-box id='tool3Pl' class='tools' position='0 -18 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('tool3Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value: Accelerator Mass Spectrometry'></a-box>
+    <a-box id='tool3Pl' cursor-listener class='tools' position='0 -18 0' height='5' width='20' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('tool3Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value:Accelerator Mass Spectrometry'></a-box>
 
-    <a-box id='process1Pl' class='processes' position='0 -24 0' height='5' width='20' depth='-1' color='#cccccc'
+    <a-box id='process1Pl' cursor-listener class='processes' position='0 -24 0' height='5' width='20' depth='-1' color='#cccccc'
     visible="false" onclick="selectChoice('process1Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value:Macroscopic Analysis'></a-box>
 
-    <a-box id='process2Pl' class='processes' position='0 -30 0' height='5' width='20' depth='-1' color='#cccccc'
+    <a-box id='process2Pl' cursor-listener class='processes' position='0 -30 0' height='5' width='20' depth='-1' color='#cccccc'
     visible="false" onclick="selectChoice('process2Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value:Thermoluminescence Dating'></a-box>
 
-    <a-box id='process3Pl' class='processes' position='0 -36 0' height='5' width='20' depth='-1' color='#cccccc'
+    <a-box id='process3Pl' cursor-listener class='processes' position='0 -36 0' height='5' width='20' depth='-1' color='#cccccc'
     visible="false" onclick="selectChoice('process3Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value:Radiocarbon Dating'></a-box>
 
 
   </a-entity>
+
+  </a-box>
 
   <a-plane id="terrain1Pl" onclick="found(1)" src="#terrain1Image" visible=false position="-10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
   <a-plane id="terrain2Pl" onclick="found(2)" src="#terrain2Image" visible=false position="10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
