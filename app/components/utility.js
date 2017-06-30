@@ -42,6 +42,8 @@ function shuffle(array) {
   return array;
 }
 
+// penality for each try
+var daysSpentLearning = 0;
 
 // timer in days / 4 weeks
 //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
@@ -69,14 +71,43 @@ var x = setInterval(function() {
   // Time calculations for minutes
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
+  // pass 1 more day if learning thorugh alertInfo
+  minutes = minutes - daysSpentLearning;
+
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+  //console.log('daysSpentLearning ' + daysSpentLearning + ' minutes ' + minutes + ' seconds ' + seconds);
   // Output the result in an element with id="timerPl"
   document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:' + minutes  +' Day(s)/\n 4 Weeks');
 
+  //alert('min b4 penality ' + minutes);
+
+  //alert('min after penality ' + minutes);
   // If the count down is over, write some text
+
+
+  /*if(minutes == 20 && seconds < 58 && seconds > 56)
+    alertInfo(minutes + ' days remaining');*/
+
+  if(minutes == 4 && seconds < 50 && seconds > 48)
+    alertInfo(minutes + ' days remaining');
+
+  if(minutes == 3 && seconds < 50 && seconds > 48)
+      alertInfo(minutes + ' days remaining');
+
+  if(minutes == 2 && seconds < 50 && seconds > 48)
+      alertInfo(minutes + ' days remaining');
+
+  if(minutes == 1 && seconds < 50 && seconds > 48)
+      alertInfo(minutes + ' day remaining');
+
   if (minutes < 1) {
     clearInterval(x);
     document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Out of\n Funds');
+    window.open('/', '_self');
   }
+  //daysSpentLearning = 0;
 }, 1000);
 
 // Alert plane
@@ -107,7 +138,7 @@ function alertInfo(infoTxt){
     entityEl.setAttribute('position', {
       x: 0,//5,//xCamOffset, //-30
       y: -0.3,//-5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
-      z: -5//40
+      z: -4.5//40
     });
 
     entityEl.setAttribute('id','alertInfoPl');
@@ -130,7 +161,7 @@ function alertInfo(infoTxt){
     var animationEl = document.createElement('a-animation');
 
     //animationEl.setAttribute('begin', '');
-    animationEl.setAttribute('delay', '2000');
+    animationEl.setAttribute('delay', '1000');
     animationEl.setAttribute('dur', '1000');
     animationEl.setAttribute('attribute', 'scale');
     animationEl.setAttribute('from', '1 1 1');

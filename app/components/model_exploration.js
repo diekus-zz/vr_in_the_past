@@ -8,9 +8,9 @@ function show3dVR(objIdNum){
   //console.log(tlPrVisibility);
   if(toolSelected === 'Expert in the field' && processSelected === 'Macroscopic Analysis'){
 
-    alertInfo('Please select a tool and a process');
+    alertInfo('Please select a tool and a process for dating');
     //alert('Please select a tool and a process');
-
+    daysSpentLearning++;
     return false;
   }/*else if(objIdNum == 1 && toolSelected != 'Riso Minisys Machine'){
 
@@ -29,13 +29,13 @@ function show3dVR(objIdNum){
 
     alertInfo('Reselect for correct inorganic-dating');
     //alert('Please select a tool and a process');
-
+    daysSpentLearning++;
     return false;
   } else if(objIdNum == 2 && (toolSelected != 'Accelerator Mass Spectrometry' || processSelected != 'Radiocarbon Dating')){
 
     alertInfo('Reselect for correct organic-dating');
     //alert('Please select a tool and a process');
-
+    daysSpentLearning++;
     return false;
   }
 //alert(toolSelected);
@@ -76,6 +76,13 @@ function show3dVR(objIdNum){
 
       presentScene2();
     }else{
+
+      //2st sticker earned
+      if (!document.querySelector('#sti2Im').getAttribute('visible')) {
+
+        alertInfo('Sticker earned!');
+        document.querySelector('#sti2Im').setAttribute('visible', 'true');
+      }
 
       renderModel(objIdNum);
 

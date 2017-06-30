@@ -35,13 +35,14 @@ function found(idNum){
 
     alertInfo('Please select a tool and a process');
     //alert('Please select a tool and a process');
-
+    daysSpentLearning++;
+    console.log(daysSpentLearning);
     return false;
   }else if(toolSelected === ''){
 
     alertInfo('Please select a tool');
     //alert('Please select a tool');
-
+    daysSpentLearning++;
     return false;
   }
   else if(processSelected === ''){
@@ -54,7 +55,7 @@ function found(idNum){
 
     alertInfo('Reselect for correct site-identity');
     //alert('Please select a tool and a process');
-
+    daysSpentLearning++;
     return false;
   }
 
@@ -66,7 +67,8 @@ function found(idNum){
   var arrLen = tlEls.length;
   for (var i = 0; i < arrLen; i++) {
     if(tlEls[i].getAttribute('text').value === 'Expert in the field'){
-      document.querySelector('#tlprEn').removeChild(document.querySelector('#tlprEn').querySelector('#'+tlEls[i].getAttribute('id')));
+      document.querySelector('#'+tlEls[i].getAttribute('id')).setAttribute('class','excavated');
+      //document.querySelector('#tlprEn').removeChild(document.querySelector('#tlprEn').querySelector('#'+tlEls[i].getAttribute('id')));
     }
     //console.log(tlEls[i]);
   }
@@ -74,13 +76,22 @@ function found(idNum){
   arrLen = prEls.length;
   for (var i = 0; i < arrLen; i++) {
     if(prEls[i].getAttribute('text').value === 'Macroscopic Analysis'){
-      document.querySelector('#tlprEn').removeChild(document.querySelector('#tlprEn').querySelector('#'+prEls[i].getAttribute('id')));
+      document.querySelector('#'+prEls[i].getAttribute('id')).setAttribute('class','excavated');
+      //document.querySelector('#tlprEn').removeChild(document.querySelector('#tlprEn').querySelector('#'+prEls[i].getAttribute('id')));
     }
     //console.log(tlEls[i]);
   }
 
 
 //document.querySelector('a-scene').removeChild(document.querySelector('a-scene').querySelector('#alertInfoPl'));
+
+//1st sticker earned
+if (!document.querySelector('#sti1Im').getAttribute('visible')) {
+
+  alertInfo('Sticker earned!');
+  document.querySelector('#sti1Im').setAttribute('visible', 'true');
+}
+
 
   //alert(idNum);
   if(idNum == 5){

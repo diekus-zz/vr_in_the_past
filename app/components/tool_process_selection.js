@@ -49,6 +49,17 @@ function showChoices(){
     //console.log(prEls[i]);
   }
 
+  var exEls = document.querySelector('a-scene').querySelectorAll('.excavated');
+
+  if (true) {
+
+  }
+  for (var i = 0; i < exEls.length; i++) {
+    exEls[i].setAttribute('visible', tlPrVisibility);
+    //prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value: '+processNames[i]);
+    //console.log(prEls[i]);
+  }
+
 }
 
 var toolSelected = '';

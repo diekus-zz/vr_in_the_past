@@ -1,6 +1,6 @@
 // screen 5 summary
 function summary(){
-  alert('summary');
+  //alert('summary');
 
   // hide game planes
   hideGamePanes();
@@ -15,6 +15,8 @@ function hideGamePanes(){
   document.querySelector('#progressPl').setAttribute('visible', 'false');
   document.querySelector('#screenPl').setAttribute('visible', 'false');
   document.querySelector('#toolPrPl').setAttribute('visible', 'false');
+  document.querySelector('#sti1Im').setAttribute('visible', 'false');
+  document.querySelector('#sti2Im').setAttribute('visible', 'false');
   // if tools and processes are visible
   if(tlPrVisibility)
     showChoices();
@@ -89,7 +91,10 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
     }
     avaTxt += sites + "\n\n";
   }
-avaTxt += "\tYou earned the stickers 'Associate' and 'Professional'\n\n";
+
+avaTxt += "\tYou earned the stickers 'I Am Archaeological Museum Keeper' and 'I Dig Archaeology'\n\n";
+
+avaTxt += "\tYou spent around " + daysSpentLearning + " days on this Archaeological adventure.\n\n";
 avaTxt += "\tYou selected the tool 'Expert in the field' and the process 'Macroscopic Analysis' for carrying out the excavation at Achavanich.\n\n";
 avaTxt += "\tYou selected the tool 'Riso Minisys Machine' and the process 'Thermoluminescence Dating' for carrying out the inorganic dating at Achavanich.\n\n";
 avaTxt += "\tYou selected the tool 'Accelerator Mass Spectrometry' and the process 'Radiocarbon Dating' for carrying out the organic at Achavanich.\n\n";  //avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + " for carrying out the excavation at Achavanich.\n";

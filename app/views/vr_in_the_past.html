@@ -16,12 +16,22 @@
 
 <body>
   <a-assets>
+  <!-- <a-assets timeout="60000"> -->
     <img id="transpImage" src="views/img/map2.png">
+
+    <img id="sti1Image" src="views/img/sticker1.png">
+    <img id="sti2Image" src="views/img/sticker2.png">
+
     <img id="terrain1Image" src="views/img/1987-excavations.jpg">
     <img id="terrain2Image" src="views/img/GrassLakes14_WEB.jpg">
     <img id="terrain3Image" src="views/img/NE306_salisbury.jpg">
     <img id="terrain4Image" src="views/img/Skull-shown-in-excavation.jpg">
     <img id="tooltip" src="views/img/tooltip.png">
+
+  <!--  <a-asset-item id="object_beaker" src="models/beaker_real/beaker_real.obj"></a-asset-item>
+    <a-asset-item id="material_beaker" src="models/beaker_real/beaker_real.mtl"></a-asset-item> -->
+    <!-- <a-asset-item id="object_beaker" src="models/pokeball-vray.obj"></a-asset-item>
+    <a-asset-item id="material_beaker" src="models/pokeball-vray.mtl"></a-asset-item> -->
   </a-assets>
 
   <script>
@@ -30,6 +40,11 @@
 <a-scene  physics="debug: false">
 
   <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
+
+  <!-- stickers -->
+  <a-image id="sti1Im" visible=false begin="click" position="1.6 -3.45 43" width="1" height="0.5" rotation="-0.2 -38 0" src="#sti1Image" transparent="true" alpha-test="0.5"></a-image>
+  <a-image id="sti2Im" visible=false begin="click" position="1.6 -4.2 43" width="1" height="1" rotation="-16 -33 0" src="#sti2Image" transparent="true" alpha-test="0.5"></a-image>
+
 
   <!-- Basic plane. -->
   <!-- <a-plane color="red" height="20" width="20"></a-plane> -->
@@ -123,6 +138,11 @@
 
   <!-- screen 4 -->
   <!-- model 1 -->
+  <!-- <a-obj-model src="#object_beaker" mtl="#material_beaker">
+  </a-obj-model> -->
+  <!-- <a-obj-model src="#object_beaker" mtl="#material_beaker" scale="0.1 0.1 0.1">
+  </a-obj-model> -->
+
   <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 40">
     <a-box  onclick="show3dVR(1)" color="#ff6fcf"></a-box>
     <a-animation attribute="rotation"
