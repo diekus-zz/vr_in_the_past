@@ -28,6 +28,7 @@
     <img id="terrain4Image" src="views/img/Skull-shown-in-excavation.jpg">
     <img id="tooltip" src="views/img/tooltip.png">
 
+    <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
   <!--  <a-asset-item id="object_beaker" src="models/beaker_real/beaker_real.obj"></a-asset-item>
     <a-asset-item id="material_beaker" src="models/beaker_real/beaker_real.mtl"></a-asset-item> -->
     <!-- <a-asset-item id="object_beaker" src="models/pokeball-vray.obj"></a-asset-item>
@@ -37,7 +38,7 @@
   <script>
   </script>
 
-<a-scene  physics="debug: false">
+<a-scene sound="volume: 100; autoplay: true; loop:true; src: #backgroundMusic" physics="debug: false">
 
   <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
 
@@ -161,7 +162,7 @@
   <!-- <a-obj-model src="#object_beaker" mtl="#material_beaker" scale="0.1 0.1 0.1">
   </a-obj-model> -->
 
-  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 40">
+  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
     <a-box  onclick="show3dVR(1)" color="#ff6fcf"></a-box>
     <a-animation attribute="rotation"
                  dur="10000"
@@ -171,7 +172,7 @@
   </a-entity>
 
   <!-- model 2 -->
-  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 40">
+  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 37">
     <a-plane  onclick="show3dVR(2)" color="#ff6fcf"></a-plane>
     <a-animation attribute="rotation"
                  dur="10000"

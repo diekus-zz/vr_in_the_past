@@ -64,7 +64,7 @@ function exploreSite(objId){
     }
     if(objId === 'mysteriesOfMummies'){
 
-      avaTxt = 'Cladh Hallan prehistoric village - Machair, South Uist\nWhat lies beneath?: the mysteries of the Cladh Hallan mummies\n\nUnder the floor of one of the houses, archaeologists made the very unusual discovery of two mummified bodies – male remains, dated to around 1600BC, and a female who died around 300 years later. But the surprises didn’t stop there. Radiocarbon dating of the remains and charred grain on the floor of the house suggests they spent hundreds of years out of the ground before being buried under the roundhouse.\n';
+      avaTxt = 'Cladh Hallan prehistoric village - Machair, South Uist\nWhat lies beneath?: the mysteries of the Cladh Hallan mummies\n\nUnder the floor of one of the houses, archaeologists made the very unusual discovery of two mummified bodies – male remains, dated to around 1600BC, and a female who died around 300 years later. But the surprises did not stop there. Radiocarbon dating of the remains and charred grain on the floor of the house suggests they spent hundreds of years out of the ground before being buried under the roundhouse.\n';
     }
     if(objId === 'rignOfStones'){
       avaTxt = "Delfour ring cairn and stone circle - Alvie, Highland\nWhat is this ring of Stones?\n\nIn the 1845 Statistical Account of Scotland, the Reverend John MacDonald of Alvie describes this monument as '...the remains of a Druidical Cairn, enclosed by a circle of large stones, closely set up on end.' Delfour is classified as a 'Clava cairn' and is thought to date to the Early Bronze Age, while the name, itself, is derived from the famous cairns at Balnuaran of Clava.\n";
