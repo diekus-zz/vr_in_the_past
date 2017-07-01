@@ -30,7 +30,7 @@ function showSummary(){
 
   entityEl.setAttribute('geometry', {
     primitive: 'box',
-    height: 50,
+    height: 60,
     width: 60,
     depth: -1
   });
@@ -68,16 +68,19 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
     for(var i=0; i < accessLog.length; i++){
 
       if(accessLog[i] === 'avaCo'){
-        accessLog[i] = 'Achavanich';
+        accessLog[i] = 'Achavanich Beaker Burial Site';
       }
-      if(accessLog[i] === 'avaCo1'){
-        accessLog[i] = 'Edinburgh';
+      if(accessLog[i] === 'mysteriesOfMummies'){
+        accessLog[i] = 'Cladh Hallan prehistoric village - Machair, South Uist';
       }
-      if(accessLog[i] === 'avaCo2'){
-        accessLog[i] = 'Glassgow';
+      if(accessLog[i] === 'rignOfStones'){
+        accessLog[i] = 'Delfour ring cairn and stone circle - Alvie, Highland';
       }
-      if(accessLog[i] === 'avaCo3'){
-        accessLog[i] = 'Dundee';
+      if(accessLog[i] === 'edinburghCastle'){
+        accessLog[i] = 'Edinburgh Castle';
+      }
+      if(accessLog[i] === 'herosCairn'){
+        accessLog[i] = "Swaites Hill 'Hero's cairn' - South Lanarkshire";
       }
 
       if(i < accessLog.length-2)
