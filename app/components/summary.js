@@ -95,12 +95,16 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
     avaTxt += sites + "\n\n";
   }
 
-avaTxt += "\tYou earned the stickers 'I Am Archaeological Museum Keeper' and 'I Dig Archaeology'\n\n";
-
-avaTxt += "\tYou spent around " + daysSpentLearning + " days on this Archaeological adventure.\n\n";
+avaTxt += "\tStickers earned:\n'I Am Archaeological Museum Keeper'\n'I Dig Archaeology'\n\n";
+avaTxt += "\tDays spent learning: " + daysSpentLearning + "\n\n";
+avaTxt += "\tDays spent overall: " + daysSpentInTotal + "\n\n";
+/*avaTxt += "\tYou spent around " + daysSpentLearning + " days in learning.\n\n";
+avaTxt += "\tYou spent overall " + daysSpentInTotal + " days on this Archaeological adventure.\n\n";
 avaTxt += "\tYou selected the tool 'Expert in the field' and the process 'Macroscopic Analysis' for carrying out the excavation at Achavanich.\n\n";
 avaTxt += "\tYou selected the tool 'Riso Minisys Machine' and the process 'Thermoluminescence Dating' for carrying out the inorganic dating at Achavanich.\n\n";
 avaTxt += "\tYou selected the tool 'Accelerator Mass Spectrometry' and the process 'Radiocarbon Dating' for carrying out the organic at Achavanich.\n\n";  //avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + " for carrying out the excavation at Achavanich.\n";
+*/
+
 //  avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + "for dating of the beaker artifact.\n";
 //  avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + "for dating of the skull/bones remains.\n";
 

@@ -43,8 +43,9 @@ function shuffle(array) {
 }
 
 // penality for each try
+var minutes = 0; // day eq in-game minute
 var daysSpentLearning = 0;
-
+var daysSpentInTotal = 0;
 // timer in days / 4 weeks
 //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
 //https://stackoverflow.com/questions/1197928/how-to-add-30-minutes-to-a-javascript-date-object
@@ -69,10 +70,11 @@ var x = setInterval(function() {
   var distance = countDownDate - now;
 
   // Time calculations for minutes
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
   // pass 1 more day if learning thorugh alertInfo
   minutes = minutes - daysSpentLearning;
+  daysSpentInTotal = 20 - minutes;
 
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
