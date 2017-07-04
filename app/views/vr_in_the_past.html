@@ -29,6 +29,12 @@
     <img id="tooltip" src="views/img/tooltip.png">
 
     <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
+
+    <a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
+    <a-asset-item id="material_beaker" src="models/beaker/beaker_real.mtl"></a-asset-item>
+    <a-asset-item id="object_avaskull" src="models/ava_skull/ava_skull.obj"></a-asset-item>
+    <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
+
   <!--  <a-asset-item id="object_beaker" src="models/beaker_real/beaker_real.obj"></a-asset-item>
     <a-asset-item id="material_beaker" src="models/beaker_real/beaker_real.mtl"></a-asset-item> -->
     <!-- <a-asset-item id="object_beaker" src="models/pokeball-vray.obj"></a-asset-item>
@@ -157,29 +163,50 @@
 
   <!-- screen 4 -->
   <!-- model 1 -->
+  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
+    <a-obj-model onclick="show3dVR(1)" src="#object_beaker" mtl="#material_beaker" >
+    </a-obj-model>
+    <a-animation attribute="rotation"
+                dur="10000"
+                fill="forwards"
+                to="0 360 0"
+                repeat="indefinite"></a-animation>
+  </a-entity>
+
+  <!-- model 2 -->
+  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -12.5 8">
+      <a-obj-model onclick="show3dVR(2)" src="#object_avaskull" mtl="#material_avaskull" >
+      </a-obj-model>
+      <a-animation attribute="rotation"
+                  dur="10000"
+                  fill="forwards"
+                  to="0 360 0"
+                  repeat="indefinite"></a-animation>
+    </a-entity>
+
   <!-- <a-obj-model src="#object_beaker" mtl="#material_beaker">
   </a-obj-model> -->
   <!-- <a-obj-model src="#object_beaker" mtl="#material_beaker" scale="0.1 0.1 0.1">
   </a-obj-model> -->
 
-  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
+<!--  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
     <a-box  onclick="show3dVR(1)" color="#ff6fcf"></a-box>
     <a-animation attribute="rotation"
                  dur="10000"
                  fill="forwards"
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
-  </a-entity>
+  </a-entity> -->
 
   <!-- model 2 -->
-  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 37">
+<!--  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 37">
     <a-plane  onclick="show3dVR(2)" color="#ff6fcf"></a-plane>
     <a-animation attribute="rotation"
                  dur="10000"
                  fill="forwards"
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
-  </a-entity>
+  </a-entity> -->
 
 
   <a-entity id="posCam" position="0 -5 45">
