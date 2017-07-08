@@ -28,17 +28,27 @@
     <img id="terrain4Image" src="views/img/Skull-shown-in-excavation.jpg">
     <img id="tooltip" src="views/img/tooltip.png">
 
-    <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
+    <img id="tool1Image" src="views/img/expert1.jpg">
+    <img id="tool2Image" src="views/img/Reso.jpg">
+    <img id="tool3Image" src="views/img/AMS_system_layout.jpg">
+    <img id="process1Image" src="views/img/macroscopicAnalysis.jpg">
+    <img id="process2Image" src="views/img/art-tl-thermo.jpg">
+    <img id="process3Image" src="views/img/RadiocarbonDating.gif">
 
-    <a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
+    <img id="tool1ZoomedImage" src="views/img/archae7.gif">
+    <img id="tool2ZoomedImage" src="views/img/Reso.jpg">
+    <img id="tool3ZoomedImage" src="views/img/1_MV_accelerator_mass_spectrometer.jpg">
+    <img id="process1ZoomedImage" src="views/img/macroscopicAnalysis.jpg">
+    <img id="process2ZoomedImage" src="views/img/art-tl-thermo.jpg">
+    <img id="process3ZoomedImage" src="views/img/radiocarbonZoomed.jpg">
+
+  <!-- working  <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
+-->
+<!-- working   <a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
     <a-asset-item id="material_beaker" src="models/beaker/beaker_real.mtl"></a-asset-item>
     <a-asset-item id="object_avaskull" src="models/ava_skull/ava_skull.obj"></a-asset-item>
     <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
-
-  <!--  <a-asset-item id="object_beaker" src="models/beaker_real/beaker_real.obj"></a-asset-item>
-    <a-asset-item id="material_beaker" src="models/beaker_real/beaker_real.mtl"></a-asset-item> -->
-    <!-- <a-asset-item id="object_beaker" src="models/pokeball-vray.obj"></a-asset-item>
-    <a-asset-item id="material_beaker" src="models/pokeball-vray.mtl"></a-asset-item> -->
+-->
   </a-assets>
 
   <script>
@@ -60,54 +70,42 @@
 
   <a-cone id='avaCo' onclick="exploreSite('avaCo')" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" position="3 5 0" rotation="0 0 0" >
 
-    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
-
-    <!-- <a-animation attribute="position" begin="click" repeat="indefinite" to="3 20 -3" ></a-animation> -->
-    <!-- <a-event name="mouseenter" color="#FF0000"></a-event> -->
+  <!--  <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
+-->
   </a-cone>
 
   <a-cone id='avaExCo' onclick="presentScene2()" color="#00FF00" radius-bottom="1" height="2" radius-top="0" position="5 5 3" rotation="0 0 0" >
 
-    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
-
-    <!-- <a-animation attribute="position" begin="click" repeat="indefinite" to="3 20 -3" ></a-animation> -->
-    <!-- <a-event name="mouseenter" color="#FF0000"></a-event> -->
+<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
+-->
   </a-cone>
 
 
   <a-cone id='mysteriesOfMummies' onleave="exploreSite('mysteriesOfMummies')" position="-19.8 -6.8 0"  onclick="exploreSite('mysteriesOfMummies')" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
 
-    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
-
-    <!-- <a-animation attribute="position" begin="click" repeat="indefinite" to="3 20 -3" ></a-animation> -->
-    <!-- <a-event name="mouseenter" color="#FF0000"></a-event> -->
+<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
+-->
   </a-cone>
 
 
   <a-cone id='rignOfStones' onclick="exploreSite('rignOfStones')" position="2.6 -8.6 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
 
-    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
-
-    <!-- <a-animation attribute="position" begin="click" repeat="indefinite" to="3 20 -3" ></a-animation> -->
-    <!-- <a-event name="mouseenter" color="#FF0000"></a-event> -->
+<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
+-->
   </a-cone>
 
 
   <a-cone id='edinburghCastle' onclick="exploreSite('edinburghCastle')" position="8.5 -22.7 0"  color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
 
-    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
-
-    <!-- <a-animation attribute="position" begin="click" repeat="indefinite" to="3 20 -3" ></a-animation> -->
-    <!-- <a-event name="mouseenter" color="#FF0000"></a-event> -->
+<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
+-->
   </a-cone>
 
 
   <a-cone id='herosCairn' onclick="exploreSite('herosCairn')" position="4 -28 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
 
-    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
-
-    <!-- <a-animation attribute="position" begin="click" repeat="indefinite" to="3 20 -3" ></a-animation> -->
-    <!-- <a-event name="mouseenter" color="#FF0000"></a-event> -->
+<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
+-->
   </a-cone>
 
 
@@ -127,29 +125,55 @@
 
 
   <!-- Tools/Processes -->
-  <a-entity id="tlprEn" position='-36 20 9' rotation='0 45 0'>
+  <a-entity id="tlprEn" position='-36 16 9' rotation='0 45 0'>
 
-    <a-box id='toolPrPl' height='5' width='20' depth='-1'  color='gray'
-    onclick='showChoices()' text='color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Tools/\nProcesses'></a-box>
+    <a-box id='toolPrPl' height='5' width='12' depth='-1'  color='gray'
+    onclick='showChoices()' text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: Tool\nProcess'></a-box>
 
-    <a-box id='tool1Pl' cursor-listener class='tools' position='0 -6 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('tool1Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value:Expert in the field'>
+    <a-box id='tool1Pl' cursor-listener src="#tool1Image" class='tools' position='-3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('tool1Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T1'>
     </a-box>
 
-    <a-box id='tool2Pl' cursor-listener class='tools' position='0 -12 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('tool2Pl','tools')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value:Riso Minisys Machine'></a-box>
+    <a-box id='tool1PlInfo' class='toolsInfo' position='3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="exploreToolProcess('tool1PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+    </a-box>
 
-    <a-box id='tool3Pl' cursor-listener class='tools' position='0 -18 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('tool3Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value:Accelerator Mass Spectrometry'></a-box>
+    <a-box id='tool2Pl' cursor-listener src="#tool2Image" class='tools' position='-3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('tool2Pl','tools')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T2'></a-box>
 
-    <a-box id='process1Pl' cursor-listener class='processes' position='0 -24 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('process1Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value:Macroscopic Analysis'></a-box>
+    <a-box id='tool2PlInfo' class='toolsInfo' position='3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="exploreToolProcess('tool2PlInfo')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'></a-box>
 
-    <a-box id='process2Pl' cursor-listener class='processes' position='0 -30 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('process2Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value:Thermoluminescence Dating'></a-box>
+    <a-box id='tool3Pl' cursor-listener src="#tool3Image" class='tools' position='-3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('tool3Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T3'></a-box>
 
-    <a-box id='process3Pl' cursor-listener class='processes' position='0 -36 0' height='5' width='20' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('process3Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value:Radiocarbon Dating'></a-box>
+    <a-box id='tool3PlInfo' class='toolsInfo' position='3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="exploreToolProcess('tool3PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+    </a-box>
+
+
+    <a-box id='process1Pl' cursor-listener src="#process1Image" class='processes' position='-3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('process1Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P1'></a-box>
+
+    <a-box id='process1PlInfo' class='processesInfo' position='3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="exploreToolProcess('process1PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+    </a-box>
+
+
+    <a-box id='process2Pl' cursor-listener src="#process2Image" class='processes' position='-3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('process2Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P2'></a-box>
+
+    <a-box id='process2PlInfo' class='processesInfo' position='3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="exploreToolProcess('process2PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+    </a-box>
+
+
+    <a-box id='process3Pl' cursor-listener src="#process3Image" class='processes' position='-3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="selectChoice('process3Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P3'></a-box>
+
+    <a-box id='process3PlInfo' class='processesInfo' position='3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
+    visible="false" onclick="exploreToolProcess('process3PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+    </a-box>
 
 
   </a-entity>
@@ -162,8 +186,8 @@
   <a-plane id="terrain4Pl" onclick="found(4)" src="#terrain4Image" visible=false position="10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
 
   <!-- screen 4 -->
-  <!-- model 1 -->
-  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
+  <!-- model 1  and 2-->
+  <!-- working  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
     <a-obj-model onclick="show3dVR(1)" src="#object_beaker" mtl="#material_beaker" >
     </a-obj-model>
     <a-animation attribute="rotation"
@@ -173,7 +197,7 @@
                 repeat="indefinite"></a-animation>
   </a-entity>
 
-  <!-- model 2 -->
+
   <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -12.5 8">
       <a-obj-model onclick="show3dVR(2)" src="#object_avaskull" mtl="#material_avaskull" >
       </a-obj-model>
@@ -183,30 +207,27 @@
                   to="0 360 0"
                   repeat="indefinite"></a-animation>
     </a-entity>
+-->
+<!-- model 1 and 2 -->
 
-  <!-- <a-obj-model src="#object_beaker" mtl="#material_beaker">
-  </a-obj-model> -->
-  <!-- <a-obj-model src="#object_beaker" mtl="#material_beaker" scale="0.1 0.1 0.1">
-  </a-obj-model> -->
-
-<!--  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
+  <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
     <a-box  onclick="show3dVR(1)" color="#ff6fcf"></a-box>
     <a-animation attribute="rotation"
                  dur="10000"
                  fill="forwards"
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
-  </a-entity> -->
+  </a-entity>
 
-  <!-- model 2 -->
-<!--  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 37">
+
+  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 37">
     <a-plane  onclick="show3dVR(2)" color="#ff6fcf"></a-plane>
     <a-animation attribute="rotation"
                  dur="10000"
                  fill="forwards"
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
-  </a-entity> -->
+  </a-entity>
 
 
   <a-entity id="posCam" position="0 -5 45">

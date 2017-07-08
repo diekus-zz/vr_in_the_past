@@ -48,3 +48,13 @@ https://achavanichbeakerburial.wordpress.com/about/ Achavanich Beaker Burial Pro
 Sound
 background music
 https://freesound.org/people/frankum/sounds/320497/
+
+Tool/Process images
+Expert in the Field http://archaeology.mrdonn.org/
+Riso Minisys Machine http://www.oxfordauthentication.com/about-us/the-laboratory-and-the-tl-testing-process/reso/
+Accelerator Mass Spectrometry https://en.wikipedia.org/wiki/Accelerator_mass_spectrometry
+https://www.physics.purdue.edu/ams/introduction/ams.html
+Macroscopic Analysis http://enthusio.com/best/13050/Best-Archaeology-Books
+Thermoluminescence Dating http://www.scientificarttests.com/images/art-tl-thermo.jpg
+Radiocarbon Dating http://722836920996307078.weebly.com/radiocarbon-dating.html
+http://rses.anu.edu.au/files/radiocarbon_sub1.jpg

@@ -197,8 +197,10 @@ AFRAME.registerComponent('cursor-listener', {
     //var COLORS = ['red', 'green', 'blue'];
     this.el.addEventListener('click', function (evt) {
       //alert('click');
-
-      tip(this.getAttribute('text').value);
+//alert(this.getAttribute('id'));
+      exploreWithPic(this.getAttribute('id'));
+      //tip(this.getAttribute('id'));
+      //tip(this.getAttribute('text').value);
 
       //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
       //var randomIndex = Math.floor(Math.random() * COLORS.length);

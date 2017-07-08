@@ -21,13 +21,13 @@ function exploreSite(objId){
 
   if(!sceneEl.querySelector('#briefPl')){
 
-    var animationEl = document.createElement('a-animation');
+    /*var animationEl = document.createElement('a-animation');
 
     animationEl.setAttribute('begin', 'click');
     animationEl.setAttribute('attribute', 'scale');
     animationEl.setAttribute('from', '2 2 2');
     animationEl.setAttribute('to', '1 1 1');
-    sceneEl.querySelector('#'+objId).appendChild(animationEl);
+    sceneEl.querySelector('#'+objId).appendChild(animationEl);*/
 
 
     // create a plane entity
@@ -48,7 +48,7 @@ function exploreSite(objId){
 
     entityEl.setAttribute('position', {
       x: 0,//5,//xCamOffset, //-30
-      y: -2,//-5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
+      y: -1,//-5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
       z: -5//40
     });
 
@@ -95,19 +95,17 @@ function exploreSite(objId){
     document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
     //sceneEl.removeChild(sceneEl.querySelector('#briefPl'));
 
-    var animationEl = document.createElement('a-animation');
+    /*var animationEl = document.createElement('a-animation');
     sceneEl.querySelector('#'+objId).appendChild(animationEl);
     animationEl.setAttribute('begin', 'click');
     animationEl.setAttribute('attribute', 'scale');
     animationEl.setAttribute('from', '1 1 1');
-    animationEl.setAttribute('to', '2 2 2');
+    animationEl.setAttribute('to', '2 2 2');*/
   }
 }
 
  function hideBriefPl(){
-
-   if(document.querySelector('a-scene').querySelector('#briefPl')!= null)
-    //document.querySelector('#posCam').removeChild(document.querySelector('#posCam').querySelector('#briefPl'));
-    document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
-    //document.querySelector('a-scene').removeChild(document.querySelector('a-scene').querySelector('#briefPl'));
+   if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
+     document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
+   }
  }
