@@ -13,8 +13,8 @@ function presentScene2(){
   //reset camera to initial values
   document.querySelector('a-camera').setAttribute('rotation', "0 0 0");
 
-  document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Progress\n1-'2'-3-4");
-  document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavate\nthe site');
+  document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-O-O");
+  //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavate\nthe site');
   //create scene 2 elements
   document.querySelector('#terrain1Pl').setAttribute('visible', true);
   document.querySelector('#terrain2Pl').setAttribute('visible', true);
@@ -103,8 +103,8 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
       document.querySelector('#terrain'+ i + 'Pl').setAttribute('visible', 'true');
     }
 
-    document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Progress\n1-'2'-3-4");
-    document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavate\nthe site');
+    document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-O-O");
+    //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavate\nthe site');
 
   } else {
     //hide all default terrain planes
@@ -163,7 +163,7 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
     //color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:
     if(idNum == 1){
       entityEl.setAttribute('onclick','show3dVR(1)');
-      avaTxt = "Beaker artifact found! Select tool/process\nfor dating and click here";
+      avaTxt = "Beaker artifact found! Select tool/process\nfor inorganic dating";
       //avaTxt = "Congratulations! You have just found a beaker\nClick here to explore it.";
     }
 
@@ -175,7 +175,7 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
 
     if(idNum == 2){
       entityEl.setAttribute('onclick','show3dVR(2)');
-      avaTxt = "Skull remains found! Select tool/process\nfor dating and click here";
+      avaTxt = "Skull remains found! Select tool/process\nfor organic dating";
       //avaTxt = "Congratulations! You have just found the Ava's skull\nClick here to explore it.";
     }
 
@@ -186,8 +186,8 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
 
     document.querySelector('a-scene').appendChild(entityEl);
 
-    document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Progress\n1-2-'3'-4");
-    document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavation\nResult');
+    document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-X-O");
+    //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavation\nResult');
 
 
   }

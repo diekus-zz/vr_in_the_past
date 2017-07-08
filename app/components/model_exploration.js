@@ -127,8 +127,8 @@ function show3dVR(objIdNum){
       //if(tlPrVisibility)
         //showChoices();
 
-      document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Progress\n1-2-3-'4'");
-      document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Explore\nthe model');
+      document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-X-X");
+      //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Explore\nthe model');
 
       isContinue = true;
     }

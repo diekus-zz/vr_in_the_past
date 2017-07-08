@@ -13,7 +13,7 @@ function summary(){
 function hideGamePanes(){
   document.querySelector('#timerPl').setAttribute('visible', 'false');
   document.querySelector('#progressPl').setAttribute('visible', 'false');
-  document.querySelector('#screenPl').setAttribute('visible', 'false');
+  //document.querySelector('#screenPl').setAttribute('visible', 'false');
   document.querySelector('#toolPrPl').setAttribute('visible', 'false');
   document.querySelector('#sti1Im').setAttribute('visible', 'false');
   document.querySelector('#sti2Im').setAttribute('visible', 'false');
@@ -98,6 +98,12 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
 avaTxt += "\tStickers earned:\n'I Am Archaeological Museum Keeper'\n'I Dig Archaeology'\n\n";
 avaTxt += "\tDays spent learning: " + daysSpentLearning + "\n\n";
 avaTxt += "\tDays spent overall: " + daysSpentInTotal + "\n\n";
+avaTxt += "\tSite exploration completed on day : " + 0 + "\n\n";
+avaTxt += "\t1st excavation activity completed on day : " + 0 + "\n\n";
+avaTxt += "\t2nd excavation activity completed on day : " + 0 + "\n\n";
+/*avaTxt += "\tCumulative Days spent in exploration of the sites: " + 0 + "\n\n";
+avaTxt += "\tCumulative Days spent in excavation of the 1st site: " + 0 + "\n\n";
+avaTxt += "\tCumulative Days spent in excavation of the 2nd site: " + 0 + "\n\n";*/
 /*avaTxt += "\tYou spent around " + daysSpentLearning + " days in learning.\n\n";
 avaTxt += "\tYou spent overall " + daysSpentInTotal + " days on this Archaeological adventure.\n\n";
 avaTxt += "\tYou selected the tool 'Expert in the field' and the process 'Macroscopic Analysis' for carrying out the excavation at Achavanich.\n\n";
