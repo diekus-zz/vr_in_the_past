@@ -116,7 +116,8 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
 
     //id="terrain4Pl" onclick="found(4)" src="#terrain4Image" visible=false position="10 -10 0" rotation="0 0 0" width="20" height="20"
     largePlEl.setAttribute('id', 'terrain'+ i + 'Pl');
-    largePlEl.setAttribute('onclick','found(5)');
+    largePlEl.setAttribute('onclick','show3dVR('+idNum+')');
+    //largePlEl.setAttribute('onclick','found(5)');
     largePlEl.setAttribute('src', '#terrain' + idNum + 'Image');
     largePlEl.setAttribute('position', '0 0 0');
     largePlEl.setAttribute('width', 40);
@@ -166,13 +167,13 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
       //avaTxt = "Congratulations! You have just found a beaker\nClick here to explore it.";
     }
 
-    if(idNum == 2)
+    if(idNum == 3)
     avaTxt = "This riverbank does not have any archaeological artifacts\nPlease try again!";
 
-    if(idNum == 3)
+    if(idNum == 4)
     avaTxt = "This plane does not have any archaeological remains\nPlease try again";
 
-    if(idNum == 4){
+    if(idNum == 2){
       entityEl.setAttribute('onclick','show3dVR(2)');
       avaTxt = "Skull remains found! Select tool/process\nfor dating and click here";
       //avaTxt = "Congratulations! You have just found the Ava's skull\nClick here to explore it.";

@@ -6,6 +6,32 @@ function show3dVR(objIdNum){
   //alert('screen ' + objIdNum);
 //alert(objIdNum);
   //console.log(tlPrVisibility);
+
+  if(objIdNum == 3 || objIdNum == 4){
+
+    // reset tool to excavation state
+    toolSelected = 'Expert in the field';
+    processSelected = 'Macroscopic Analysis';
+
+    var tlEls = document.querySelector('a-scene').querySelectorAll('.tools');
+
+    for (var i = 0; i < tlEls.length; i++) {
+      tlEls[i].setAttribute('color', '#cccccc');
+      //console.log(tlEls[i]);
+    }
+
+    var prEls = document.querySelector('a-scene').querySelectorAll('.processes');
+
+    for (var i = 0; i < prEls.length; i++) {
+      prEls[i].setAttribute('color', '#cccccc');
+      //console.log(tlEls[i]);
+    }
+
+    //presentScene2();
+    found(5);
+    return false;
+  }
+
   if(toolSelected === 'Expert in the field' && processSelected === 'Macroscopic Analysis'){
 
     alertInfo('Please select a tool and a process for dating');
@@ -64,6 +90,7 @@ function show3dVR(objIdNum){
 
       for (var i = 0; i < tlEls.length; i++) {
         tlEls[i].setAttribute('color', '#cccccc');
+        tlEls[i].setAttribute('text', 'color', '#ccff66');
         //console.log(tlEls[i]);
       }
 
@@ -71,8 +98,18 @@ function show3dVR(objIdNum){
 
       for (var i = 0; i < prEls.length; i++) {
         prEls[i].setAttribute('color', '#cccccc');
+        prEls[i].setAttribute('text', 'color', '#66ccff');
         //console.log(tlEls[i]);
       }
+
+      // reset to excavation status
+      if(document.querySelector('#tool1Pl') != ''){
+        document.querySelector('#tool1Pl').setAttribute('text', 'color', 'red');
+      }
+      if(document.querySelector('#process1Pl') != ''){
+        document.querySelector('#process1Pl').setAttribute('text', 'color', 'red');
+      }
+
 
       presentScene2();
     }else{

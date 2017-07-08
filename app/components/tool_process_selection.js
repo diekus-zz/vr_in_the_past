@@ -78,10 +78,19 @@ for (var i = 0; i < prInfoEls.length; i++) {
     //console.log(prEls[i]);
   }
 
+// reset to excavation status
+  if(document.querySelector('#'+toolSelectedId) != ''){
+    document.querySelector('#'+toolSelectedId).setAttribute('text', 'color', 'red');
+  }
+  if(document.querySelector('#'+processSelectedId) != ''){
+    document.querySelector('#'+processSelectedId).setAttribute('text', 'color', 'red');
+  }
 }
 
 var toolSelected = '';
 var processSelected = '';
+var toolSelectedId = '';
+var processSelectedId = '';
 function selectChoice(tlPrId, objCl){
   //alert(tlPrId);
 
@@ -89,13 +98,22 @@ function selectChoice(tlPrId, objCl){
 
   for (var i = 0; i < objEls.length; i++) {
     objEls[i].setAttribute('color', '#cccccc');
+
     //console.log(tlEls[i]);
+
+    if(objCl === 'tools'){
+      objEls[i].setAttribute('text', 'color', '#ccff66');
+    }
+    if(objCl === 'processes'){
+      objEls[i].setAttribute('text', 'color', '#66ccff');
+    }
   }
 
-  document.querySelector('#'+tlPrId).setAttribute('color', 'gray');
+  document.querySelector('#'+tlPrId).setAttribute('text', 'color', 'red');
 
   if(objCl === 'tools'){
     toolSelected = getSelectedTlPr(tlPrId);
+    toolSelectedId = tlPrId;
     //toolSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
     //tip(toolSelected);
   }
@@ -103,6 +121,7 @@ function selectChoice(tlPrId, objCl){
 
   if(objCl === 'processes'){
     processSelected = getSelectedTlPr(tlPrId);
+    processSelectedId = tlPrId;
     //processSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
     //tip(processSelected);
   }
@@ -219,7 +238,7 @@ function exploreToolProcess(objId){
       tlPrTxt = "Process:-Thermoluminescence Dating is done for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is carried out with the tool Riso Minisys Machine.\n\nIt costs £250 per sample.\n";
     }
     if(objId === 'process3PlInfo'){
-      tlPrTxt = "Process:-Radiocarbon Dating is done for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is carried out with the tool Accelerator Mass Spectrometry.\n\nIt costs £350 per sample..\n";
+      tlPrTxt = "Process:-Radiocarbon Dating is done for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is carried out with the tool Accelerator Mass Spectrometry.\n\nIt costs £350 per sample.\n";
     }
 
     entityEl.setAttribute('material', 'color', 'gray');
