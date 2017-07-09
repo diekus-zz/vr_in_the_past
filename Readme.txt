@@ -10,6 +10,16 @@ https://aframe.io/docs/0.5.0/introduction/
 skybox image
 https://www.architectsjournal.co.uk/pictures/2000x2000fit/1/0/2/1265102_AJ01___AndrewLee_NMS_4.jpg
 
+skybox image update with google street view
+google maps : national museum of scotland
+street view : panaroma id F:-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB
+panaroma url : https://www.google.com/maps/@55.9472138,-3.1888878,3a,75y,226.15h,90t/data=!3m8!1e1!3m6!1s-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB!2e4!3e11!6s//lh4.googleusercontent.com/-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB/w203-h100-k-no-pi-0-ya51.24083-ro-0-fo100/!7i6144!8i3072
+Image courtesy of  Davide Rizzo
+application used : https://istreetview.com/F:-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB
+and Street View 360 Windows application
+- also possible with google streetview android app like home one
+
+
 DOM introduction
 https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction
 
@@ -58,5 +68,3 @@ Macroscopic Analysis http://enthusio.com/best/13050/Best-Archaeology-Books
 Thermoluminescence Dating http://www.scientificarttests.com/images/art-tl-thermo.jpg
 Radiocarbon Dating http://722836920996307078.weebly.com/radiocarbon-dating.html
 http://rses.anu.edu.au/files/radiocarbon_sub1.jpg
-
-Pano2VR
