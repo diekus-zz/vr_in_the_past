@@ -46,6 +46,9 @@ function shuffle(array) {
 var minutes = 0; // day eq in-game minute
 var daysSpentLearning = 0;
 var daysSpentInTotal = 0;
+var exploredByDay = 0;
+var firstSiteExcavatedByDay = 0;
+var secondSiteExcavatedByDay = 0;
 // timer in days / 4 weeks
 //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
 //https://stackoverflow.com/questions/1197928/how-to-add-30-minutes-to-a-javascript-date-object
@@ -74,14 +77,15 @@ var x = setInterval(function() {
 
   // pass 1 more day if learning thorugh alertInfo
   minutes = minutes - daysSpentLearning;
-  daysSpentInTotal = 20 - minutes;
+  daysSpentInTotal = 21 - minutes;
 
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 
   //console.log('daysSpentLearning ' + daysSpentLearning + ' minutes ' + minutes + ' seconds ' + seconds);
   // Output the result in an element with id="timerPl"
-  document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:' + minutes  +' Day(s)/\n 4 Weeks');
+  document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: Day ' + daysSpentInTotal  +'/\n 4 Weeks');
+  //document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:' + minutes  +' Day(s)/\n 4 Weeks');
 
   //alert('min b4 penality ' + minutes);
 
@@ -229,3 +233,20 @@ AFRAME.registerComponent('cursor-listener', {
     });
   }
 });
+
+
+function progressStatus(levelId){
+
+  if(levelId === 'level1'){
+    alertInfo('Explore Archaeological sites marked with the yellow cones!');
+  }
+  if(levelId === 'level2'){
+    alertInfo('Excavate Achavanich Beaker Burial site with the green cone marker!');
+  }
+  if(levelId === 'level3'){
+    alertInfo('Excavation results!');
+  }
+  if (levelId === 'level4') {
+    alertInfo('3D model!');
+  }
+}

@@ -1,5 +1,7 @@
 function presentScene2(){
 
+  if(exploredByDay == 0)
+    exploredByDay = daysSpentInTotal;
   //alert('scene 2');
   //alert(accessLog);
 
@@ -13,7 +15,12 @@ function presentScene2(){
   //reset camera to initial values
   document.querySelector('a-camera').setAttribute('rotation', "0 0 0");
 
-  document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-O-O");
+  document.querySelector('#level2').setAttribute('color', '#ef2d5e');
+  document.querySelector('#level3').setAttribute('color', '#fff855');
+  document.querySelector('#level4').setAttribute('color', '#fff855');
+
+
+  //document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-O-O");
   //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavate\nthe site');
   //create scene 2 elements
   document.querySelector('#terrain1Pl').setAttribute('visible', true);
@@ -103,7 +110,11 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
       document.querySelector('#terrain'+ i + 'Pl').setAttribute('visible', 'true');
     }
 
-    document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-O-O");
+    document.querySelector('#level2').setAttribute('color', '#ef2d5e');
+    document.querySelector('#level3').setAttribute('color', '#fff855');
+    document.querySelector('#level4').setAttribute('color', '#fff855');
+
+    //document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-O-O");
     //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavate\nthe site');
 
   } else {
@@ -186,7 +197,10 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
 
     document.querySelector('a-scene').appendChild(entityEl);
 
-    document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-X-O");
+    document.querySelector('#level3').setAttribute('color', '#ef2d5e');
+    document.querySelector('#level4').setAttribute('color', '#fff855');
+
+    //document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-X-O");
     //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Excavation\nResult');
 
 

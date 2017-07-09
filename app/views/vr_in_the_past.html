@@ -111,12 +111,31 @@
 
   <!-- Days Remaining -->
   <a-box id='timerPl' class='' height='5' width='12' depth='-1' position='32 20 6' rotation='20 -30 0' color='gray'
-  onclick="showChoices('timerPl')" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: 1 Day/\n 4 Weeks'></a-box>
-
+    onclick="" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value:Day 1/\n 4 Weeks'></a-box>
+<!--  <a-box id='timerPl' class='' height='5' width='12' depth='-1' position='32 20 6' rotation='20 -30 0' color='gray'
+  onclick="" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: 1 Day/\n 4 Weeks'></a-box>
+-->
   <!-- progress status -->
-  <a-box id='progressPl' class='' height='5' width='12' depth='-1' position='32 12 6' rotation='15 -33 0' color='gray'
-  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-O-O-O"></a-box>
+  <a-entity id='progressPl' class='' height='5' width='12' depth='-1' position='0 19 6' rotation='0 0 0' color='gray'
+  onclick="" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-O-O-O">
 
+  <a-sphere id='level1' onclick="progressStatus('level1')" position='-5 0 0'radius="1.25" color="#ef2d5e"></a-sphere>
+  <a-sphere id='level2' onclick="progressStatus('level2')" position='-2 0 0'radius="1.25" color="#fff855"></a-sphere>
+  <a-sphere id='level3' onclick="progressStatus('level3')" position='1 0 0'radius="1.25" color="#fff855"></a-sphere>
+  <a-sphere id='level4' onclick="progressStatus('level4')" position='4 0 0'radius="1.25" color="#fff855"></a-sphere>
+</a-entity>
+
+<!--  <a-entity id='progressPl' class='' height='5' width='12' depth='-1' position='32 12 6' rotation='15 -33 0' color='gray'
+  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-O-O-O">
+
+  <a-sphere id='level1' onclick="progressStatus('level1')" position='-5 0 0'radius="1.25" color="#ef2d5e"></a-sphere>
+  <a-sphere id='level2' onclick="progressStatus('level2')" position='-2 0 0'radius="1.25" color="#fff855"></a-sphere>
+  <a-sphere id='level3' onclick="progressStatus('level3')" position='1 0 0'radius="1.25" color="#fff855"></a-sphere>
+  <a-sphere id='level4' onclick="progressStatus('level4')" position='4 0 0'radius="1.25" color="#fff855"></a-sphere>
+</a-entity> -->
+  <!-- <a-box id='progressPl' class='' height='5' width='12' depth='-1' position='32 12 6' rotation='15 -33 0' color='gray'
+  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-O-O-O"></a-box>
+-->
   <!-- progress status -->
 <!--  <a-box id='screenPl' class='' height='5' width='20' depth='-1' position='32 4 6' rotation='15 -33 0' color='gray'
   onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Explore\nthe sites">

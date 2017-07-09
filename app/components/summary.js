@@ -98,9 +98,9 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
 avaTxt += "\tStickers earned:\n'I Am Archaeological Museum Keeper'\n'I Dig Archaeology'\n\n";
 avaTxt += "\tDays spent learning: " + daysSpentLearning + "\n\n";
 avaTxt += "\tDays spent overall: " + daysSpentInTotal + "\n\n";
-avaTxt += "\tSite exploration completed on day : " + 0 + "\n\n";
-avaTxt += "\t1st excavation activity completed on day : " + 0 + "\n\n";
-avaTxt += "\t2nd excavation activity completed on day : " + 0 + "\n\n";
+avaTxt += "\tSite exploration completed on day : " + exploredByDay + "\n\n";
+avaTxt += "\t1st excavation activity completed on day : " + firstSiteExcavatedByDay + "\n\n";
+avaTxt += "\t2nd excavation activity completed on day : " + secondSiteExcavatedByDay + "\n\n";
 /*avaTxt += "\tCumulative Days spent in exploration of the sites: " + 0 + "\n\n";
 avaTxt += "\tCumulative Days spent in excavation of the 1st site: " + 0 + "\n\n";
 avaTxt += "\tCumulative Days spent in excavation of the 2nd site: " + 0 + "\n\n";*/

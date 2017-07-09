@@ -74,6 +74,10 @@ function show3dVR(objIdNum){
     document.querySelector('#model' + objIdNum + 'En').setAttribute('visible', 'false');
     isContinue = false;
 
+    if (secondSiteExcavatedByDay == 0) {
+      secondSiteExcavatedByDay = daysSpentInTotal;
+    }
+
     summary();
   } else {
 
@@ -110,6 +114,9 @@ function show3dVR(objIdNum){
         document.querySelector('#process1Pl').setAttribute('text', 'color', 'red');
       }
 
+      if (firstSiteExcavatedByDay == 0) {
+        firstSiteExcavatedByDay = daysSpentInTotal;
+      }
 
       presentScene2();
     }else{
@@ -127,7 +134,9 @@ function show3dVR(objIdNum){
       //if(tlPrVisibility)
         //showChoices();
 
-      document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-X-X");
+      document.querySelector('#level4').setAttribute('color', '#ef2d5e');
+
+      //document.querySelector('#progressPl').setAttribute('text', "color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-X-X-X");
       //document.querySelector('#screenPl').setAttribute('text', 'color: #00FF00; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Explore\nthe model');
 
       isContinue = true;
