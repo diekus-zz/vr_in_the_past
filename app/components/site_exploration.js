@@ -53,7 +53,8 @@ function exploreSite(objId){
     });
 
     entityEl.setAttribute('id','briefPl');
-    entityEl.setAttribute('onclick','hideBriefPl()');
+    entityEl.setAttribute('onclick','hideBriefPl();'); // removeBriefPl();
+    //entityEl.setAttribute('onmouseleave','removeBriefPl();');
     //entityEl.setAttribute('text-align','justify');
 
     var avaTxt = "";
@@ -86,13 +87,29 @@ function exploreSite(objId){
     //entityEl.setAttribute('rotation', cameraEl.getAttribute('rotation'));
 
     //document.querySelector('#posCam').appendChild(entityEl);
+
+
+    var animationEl = document.createElement('a-animation');
+    entityEl.appendChild(animationEl);
+    animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('attribute', 'scale');
+    animationEl.setAttribute('from', '0 0 0');
+    animationEl.setAttribute('to', '1 1 1');
+
     document.querySelector('a-camera').appendChild(entityEl);
     //sceneEl.appendChild(entityEl);
 
   } else {
+alert('abc - unreachable now');
+    var animationEl = document.createElement('a-animation');
+    sceneEl.querySelector('#briefPl').appendChild(animationEl);
+    animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('attribute', 'position');
+    animationEl.setAttribute('from', '0 -1 -5');
+    animationEl.setAttribute('to', '0 -10 -5');
 
     //document.querySelector('#posCam').removeChild(sceneEl.querySelector('#briefPl'));
-    document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
+    //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
     //sceneEl.removeChild(sceneEl.querySelector('#briefPl'));
 
     /*var animationEl = document.createElement('a-animation');
@@ -106,6 +123,24 @@ function exploreSite(objId){
 
  function hideBriefPl(){
    if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
-     document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
+//alert('clicked');
+     var animationEl = document.createElement('a-animation');
+     document.querySelector('a-camera').querySelector('#briefPl').appendChild(animationEl);
+     animationEl.setAttribute('begin', '');
+     animationEl.setAttribute('dur', '2000');
+     animationEl.setAttribute('attribute', 'position');
+     animationEl.setAttribute('from', '0 -1 -5');
+     animationEl.setAttribute('to', '0 -10 -5');
+
+      setTimeout("removeBriefPl()", 2000);
+     //document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
    }
  }
+
+   function removeBriefPl(){
+     //alert('after 3 seconds');
+     if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
+
+       document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
+     }
+   }
