@@ -56,7 +56,7 @@ function found(idNum){
 
     alertInfo('Please select a process');
     //alert('Please select a process');
-
+    daysSpentLearning++;
     return false;
   } if(toolSelected != 'Expert in the field' || processSelected != 'Macroscopic Analysis'){
 

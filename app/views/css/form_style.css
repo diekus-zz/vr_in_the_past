@@ -184,6 +184,22 @@ input {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
+.register-quiz-title {
+  height: 19px;
+  margin-bottom: 15px;
+  padding: 7px;
+  background: #acb244;
+  color: white;
+  border-radius: 2px;
+  text-align: center;
+  background-image: -webkit-linear-gradient(top, #a89f3a, #b0be52);
+  background-image: -moz-linear-gradient(top, #a89f3a, #b0be52);
+  background-image: -o-linear-gradient(top, #a89f3a, #b0be52);
+  background-image: linear-gradient(to bottom, #a89f3a, #b0be52);
+  -webkit-box-shadow: inset 0 1px rgba(0, 0, 0, 0.05), inset 1px 0 rgba(0, 0, 0, 0.02), inset -1px 0 rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.05), inset 1px 0 rgba(0, 0, 0, 0.02), inset -1px 0 rgba(0, 0, 0, 0.02);
+}
+
 :-moz-placeholder {
   color: #aaa;
   font-weight: 300;

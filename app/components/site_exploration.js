@@ -100,13 +100,15 @@ function exploreSite(objId){
     //sceneEl.appendChild(entityEl);
 
   } else {
-alert('abc - unreachable now');
+
+    hideBriefPl();
+    /*alert('abc - unreachable now');
     var animationEl = document.createElement('a-animation');
     sceneEl.querySelector('#briefPl').appendChild(animationEl);
     animationEl.setAttribute('begin', '');
     animationEl.setAttribute('attribute', 'position');
     animationEl.setAttribute('from', '0 -1 -5');
-    animationEl.setAttribute('to', '0 -10 -5');
+    animationEl.setAttribute('to', '0 -10 -5');*/
 
     //document.querySelector('#posCam').removeChild(sceneEl.querySelector('#briefPl'));
     //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));

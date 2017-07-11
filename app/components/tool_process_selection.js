@@ -215,7 +215,8 @@ function exploreToolProcess(objId){
     });
 
     entityEl.setAttribute('id','briefPl');
-    entityEl.setAttribute('onclick','hideBriefPl()');
+    entityEl.setAttribute('onclick','removeBriefPl()');
+    //entityEl.setAttribute('onclick','hideBriefPl()');
 
     var tlPrTxt = "";
 
@@ -287,7 +288,8 @@ function exploreWithPic(objId){
     });
 
     entityEl.setAttribute('id','briefPl');
-    entityEl.setAttribute('onclick','hideBriefPl()');
+    entityEl.setAttribute('onclick','removeBriefPl()');
+    //entityEl.setAttribute('onclick','hideBriefPl()');
 
     var tlPrTxt = "";
 

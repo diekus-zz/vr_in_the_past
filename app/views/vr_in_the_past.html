@@ -42,6 +42,14 @@
     <img id="process2ZoomedImage" src="views/img/art-tl-thermo.jpg">
     <img id="process3ZoomedImage" src="views/img/radiocarbonZoomed.jpg">
 
+<audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
+
+<a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
+    <a-asset-item id="material_beaker" src="models/beaker/beaker_real.mtl"></a-asset-item>
+    <a-asset-item id="object_avaskull" src="models/ava_skull/ava_skull.obj"></a-asset-item>
+    <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
+
+
 <!-- working   <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
 -->
 
@@ -58,11 +66,6 @@
 <a-scene sound="volume: 100; autoplay: true; loop:true; src: #backgroundMusic" physics="debug: false">
 
   <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
-
-  <!-- stickers -->
-  <a-image id="sti1Im" visible=false begin="click" position="1.6 -3.45 43" width="1" height="0.5" rotation="-0.2 -38 0" src="#sti1Image" transparent="true" alpha-test="0.5"></a-image>
-  <a-image id="sti2Im" visible=false begin="click" position="1.6 -4.2 43" width="1" height="1" rotation="-16 -33 0" src="#sti2Image" transparent="true" alpha-test="0.5"></a-image>
-
 
   <!-- Basic plane. -->
   <!-- <a-plane color="red" height="20" width="20"></a-plane> -->
@@ -112,7 +115,16 @@
 
   <!-- Days Remaining -->
   <a-box id='timerPl' class='' height='5' width='12' depth='-1' position='32 20 6' rotation='20 -30 0' color='gray'
-    onclick="" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value:Day 1/\n 4 Weeks'></a-box>
+    onclick="" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value:Day 1/\n 4 Weeks'>
+
+    <!-- stickers -->
+    <a-image id="sti1Im" visible=false begin="click" position="0 -8 0" width="16" height="8" rotation="0 0 0" src="#sti1Image" transparent="true" alpha-test="0.5"></a-image>
+    <a-image id="sti2Im" visible=false begin="click" position="0 -22 0" width="16" height="16" rotation="0 0 0" src="#sti2Image" transparent="true" alpha-test="0.5"></a-image>
+
+
+  </a-box>
+
+
 <!--  <a-box id='timerPl' class='' height='5' width='12' depth='-1' position='32 20 6' rotation='20 -30 0' color='gray'
   onclick="" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: 1 Day/\n 4 Weeks'></a-box>
 -->
@@ -207,7 +219,7 @@
 
   <!-- screen 4 -->
   <!-- model 1  and 2-->
-<!-- working   <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
+ <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
     <a-obj-model onclick="show3dVR(1)" src="#object_beaker" mtl="#material_beaker" >
     </a-obj-model>
     <a-animation attribute="rotation"
@@ -227,10 +239,10 @@
                   to="0 360 0"
                   repeat="indefinite"></a-animation>
     </a-entity>
--->
+
 <!-- model 1 and 2 -->
 
-   <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
+<!-- working     <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
     <a-box  onclick="show3dVR(1)" color="#ff6fcf"></a-box>
     <a-animation attribute="rotation"
                  dur="10000"
@@ -248,7 +260,7 @@
                  to="0 360 0"
                  repeat="indefinite"></a-animation>
   </a-entity>
-
+-->
 
   <a-entity id="posCam" position="0 -5 45">
     <a-camera>

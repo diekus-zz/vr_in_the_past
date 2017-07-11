@@ -50,7 +50,11 @@ function showSummary(){
   entityEl.setAttribute('id','feedbackPl');
   //entityEl.setAttribute('id','resStatus'+ idNum +'Pl');
 
-entityEl.setAttribute('onclick',"window.open('/', '_self');");
+  var summary = 'abc';
+
+//working entityEl.setAttribute('onclick',"window.open('/', '_self');");
+
+
   //entityEl.setAttribute('onclick','window.location.reload();');
   var avaTxt = "";
 
@@ -65,6 +69,16 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
     avaTxt += "You explored ";
 
     var sites = "";
+    var siteLog = "";
+
+    for(var i=0; i < accessLog.length; i++){
+      if (i <= accessLog.length-1) {
+        siteLog += accessLog[i] + "$";
+      }else {
+        siteLog += accessLog[i];
+      }
+    }
+
     for(var i=0; i < accessLog.length; i++){
 
       if(accessLog[i] === 'avaCo'){
@@ -80,17 +94,25 @@ entityEl.setAttribute('onclick',"window.open('/', '_self');");
         accessLog[i] = 'Edinburgh Castle';
       }
       if(accessLog[i] === 'herosCairn'){
-        accessLog[i] = "Swaites Hill 'Hero's cairn' - South Lanarkshire";
+        accessLog[i] = "Swaites Hill - Hero's cairn - South Lanarkshire";
       }
 
-      if(i < accessLog.length-2)
+      if(i < accessLog.length-2){
         sites += accessLog[i] + ", ";
-      if(i == accessLog.length-2)
-        sites += accessLog[i] + " and ";
-      if(i == accessLog.length-1 && accessLog.length != 1)
+      }
+
+      if(i == accessLog.length-2){
+          sites += accessLog[i] + " and ";
+      }
+
+      if(i == accessLog.length-1 && accessLog.length != 1){
         sites += accessLog[i] + " archaeological sites.";
-      if(i == accessLog.length-1 && accessLog.length == 1)
+      }
+
+      if(i == accessLog.length-1 && accessLog.length == 1){
         sites += accessLog[i] + " archaeological site.";
+      }
+
     }
     avaTxt += sites + "\n\n";
   }
@@ -117,7 +139,22 @@ avaTxt += "\tYou selected the tool 'Accelerator Mass Spectrometry' and the proce
 //  avaTxt += "- You excavated Achavanich Beaker Burial Project.\n";
 //  avaTxt += "- You succeeded in finding the beaker and Ava's skull.\n";
 
-  avaTxt += "\nSincerely,\n'VR in the Past' project team"
+  avaTxt += "\nSincerely,\n'VR in the Past' project team\n"
+
+  //summary = "`" + avaTxt + "`";
+  console.log(summary);
+  summary = "?sitesExplored=" + siteLog
+    + "&daysSpentLearning=" + daysSpentLearning
+    + "&daysSpentInTotal=" + daysSpentInTotal
+    + "&exploredByDay=" + exploredByDay
+    + "&firstSiteExcavatedByDay=" + firstSiteExcavatedByDay
+    + "&secondSiteExcavatedByDay=" + secondSiteExcavatedByDay;
+
+  console.log(summary);
+  //entityEl.setAttribute('onclick',"window.open('/post_test?summary=cde', '_self');");
+entityEl.setAttribute('onclick',"window.open('/post_test" + summary + "', '_self');");
+  //entityEl.setAttribute('onclick',"window.open('/post_test?summary=" + summary + "', '_self');");
+
 
   //color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:
 

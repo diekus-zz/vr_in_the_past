@@ -6,29 +6,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>VR in the Past - UoE - Pretest</title>
+  <title>VR in the Past - UoE - Posttest</title>
 
   <link rel="stylesheet" href="views/css/form_style.css">
 
 <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
   <script>
-    function validate(){
-      //validation
-      if(document.getElementById('playerName').value == null
-      || document.getElementById('playerName').value == ''){
-
-        alert('Please enter your name');
-        return false;
-      }
-
-      if(document.getElementById('playerAge').value == null
-      || document.getElementById('playerAge').value == ''){
-
-        alert('Please enter your age');
-        return false;
-      }
-    }
   </script>
 
 </head>
@@ -36,19 +20,10 @@
 
 
 <body>
-  <h1 class="register-title">Welcome</h1>
+  <h1 class="register-title">Test Your Knowledge</h1>
 
-  <form class="register" action="/vr_in_the_past" onsubmit="return validate();" method="get">
-    <input id="playerName" name="name" type="text" class="register-input" placeholder="Full Name">
-    <input id="playerAge" name="age" type="number" class="register-input" placeholder="Age">
-
-    <div class="register-switch">
-      <input type="radio" name="sex" value="F" id="sex_f" class="register-switch-input" checked>
-      <label for="sex_f" class="register-switch-label">Female</label>
-      <input type="radio" name="sex" value="M" id="sex_m" class="register-switch-input">
-      <label for="sex_m" class="register-switch-label">Male</label>
-    </div>
-    <h3 class="register-quiz-title">2 Minutes Quiz - Pretest</h3>
+  <form class="register" action="/credits" onsubmit="return validate();" method="get">
+    <h3 class="register-quiz-title">2 Minutes Quiz - Posttest</h3>
     <p>
       1. Ava's skull and the beaker were found at Achavanic Archeological site.<br>
       <input type="radio" name="q1" value="yes" checked> Yes<br>
@@ -66,7 +41,7 @@
       <input type="radio" name="q5" value="knife" checked> Dagger<br>
       <input type="radio" name="q5" value="dagger"> Knife<br>
     </p>
-    <input type="submit" value="Start the Game" class="register-button">
+    <input type="submit" value="Finish the Game" class="register-button">
   </form>
 </body>
 
