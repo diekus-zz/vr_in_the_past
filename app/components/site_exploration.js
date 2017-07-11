@@ -1,8 +1,9 @@
 function exploreSite(objId){
 //alert('Hi');
   // if tools and processes are visible
-  if(tlPrVisibility)
-  showChoices();
+  showChoices(false);
+  //if(tlPrVisibility)
+    //showChoices(false);
 
   updateLog(objId);
 
@@ -131,13 +132,30 @@ function exploreSite(objId){
      animationEl.setAttribute('begin', '');
      animationEl.setAttribute('dur', '2000');
      animationEl.setAttribute('attribute', 'position');
-     animationEl.setAttribute('from', '0 -1 -5');
+     //animationEl.setAttribute('from', '0 -1 -5');
      animationEl.setAttribute('to', '0 -10 -5');
 
       setTimeout("removeBriefPl()", 2000);
      //document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
    }
  }
+
+ function hideScaleBriefPl(){
+   if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
+ //alert('clicked');
+     var animationEl = document.createElement('a-animation');
+     document.querySelector('a-camera').querySelector('#briefPl').appendChild(animationEl);
+     animationEl.setAttribute('begin', '');
+     animationEl.setAttribute('dur', '2000');
+     animationEl.setAttribute('attribute', 'scale');
+     //animationEl.setAttribute('from', '1 1 1');
+     animationEl.setAttribute('to', '0 0 0');
+
+      setTimeout("removeBriefPl()", 2000);
+     //document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
+   }
+ }
+
 
    function removeBriefPl(){
      //alert('after 3 seconds');

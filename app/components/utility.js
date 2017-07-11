@@ -123,6 +123,7 @@ function alertInfo(infoTxt){
 
   if(!sceneEl.querySelector('#alertInfoPl')){
 
+//alert('called 1');
 
     // create a plane entity
     var entityEl = document.createElement('a-entity');
@@ -151,8 +152,8 @@ function alertInfo(infoTxt){
     //entityEl.setAttribute('onclick',"removePl('alertInfoPl')");
 
     entityEl.setAttribute('material', 'color', 'gray');
-    entityEl.setAttribute('material', 'opacity', '0.8');
-    entityEl.setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 30; letterSpacing: 1; value: ' + infoTxt);
+    entityEl.setAttribute('material', 'opacity', '0');
+    entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 30; letterSpacing: 1; value: ' + infoTxt);
 
     //reset camera to initial rotation
     var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
@@ -160,24 +161,34 @@ function alertInfo(infoTxt){
     //entityEl.setAttribute('rotation', cameraEl.getAttribute('rotation'));
 
     //document.querySelector('#posCam').appendChild(entityEl);
-    document.querySelector('a-camera').appendChild(entityEl);
+
     //sceneEl.appendChild(entityEl);
 
+    //Add animation of scaling up to one for dur eq delay of scaling down
+/*    var animationEl1 = document.createElement('a-animation');
+
+    animationEl1.setAttribute('dur', '1000');
+    animationEl1.setAttribute('attribute', 'scale');
+    animationEl1.setAttribute('from', '0 0 0');
+    animationEl1.setAttribute('to', '1 1 1');
+    entityEl.appendChild(animationEl1);*/
+
+
     //Add animation of scaling down to zero
-    var animationEl = document.createElement('a-animation');
+    var animationEl2 = document.createElement('a-animation');
+    animationEl2.setAttribute('delay', '2000');
+    animationEl2.setAttribute('dur', '1000');
+    animationEl2.setAttribute('attribute', 'scale');
+    animationEl2.setAttribute('from', '1 1 1');
+    animationEl2.setAttribute('to', '0 0 0');
+    entityEl.appendChild(animationEl2);
 
-    //animationEl.setAttribute('begin', '');
-    animationEl.setAttribute('delay', '1000');
-    animationEl.setAttribute('dur', '1000');
-    animationEl.setAttribute('attribute', 'scale');
-    animationEl.setAttribute('from', '1 1 1');
-    animationEl.setAttribute('to', '0 0 0');
-    entityEl.appendChild(animationEl);
-
+    document.querySelector('a-camera').appendChild(entityEl);
     //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
 
-
+    //setTimeout(document.querySelector('a-camera').removeChild(entityEl), 3000);
   } else {
+//alert('called 2');
 
     //document.querySelector('#posCam').removeChild(sceneEl.querySelector('#briefPl'));
     document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
@@ -188,11 +199,63 @@ function alertInfo(infoTxt){
 
 }
 
-function removePl(alertInfoPl){
+function removePl(elementInfoPl){
 
-  if(document.querySelector('a-scene').querySelector('#'+alertInfoPl)!= null)
-    document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#'+alertInfoPl));
+  if(elementInfoPl!= null)
+    document.querySelector('a-camera').removeChild(elementInfoPl);
 
+}
+
+function visItAnimation(entityEl, isVisible){
+
+  if (!isVisible) {
+//alert('scaling down');
+    var animationEl2 = document.createElement('a-animation');
+    animationEl2.setAttribute('dur', '3000');
+    animationEl2.setAttribute('attribute', 'opacity');
+    animationEl2.setAttribute('from', '1');
+    animationEl2.setAttribute('to', '0');
+    //alert(entityEl.getAttribute('text').opacity);
+    //entityEl.getAttribute('text').opacity = 0.1;
+    //animationEl2.setAttribute('text', 'opacity', '0');
+    entityEl.appendChild(animationEl2);
+
+  }
+  if (isVisible) {
+
+    var animationEl1 = document.createElement('a-animation');
+
+    animationEl1.setAttribute('dur', '3000');
+    animationEl1.setAttribute('attribute', 'opacity');
+    animationEl1.setAttribute('from', '0');
+    animationEl1.setAttribute('to', '1');
+    //animationEl1.setAttribute('text', 'opacity', '0.1');
+    entityEl.appendChild(animationEl1);
+  }
+}
+
+
+function scaleItAnimation(entityEl, isVisible){
+
+  if (!isVisible) {
+//alert('scaling down');
+    var animationEl2 = document.createElement('a-animation');
+    animationEl2.setAttribute('dur', '1000');
+    animationEl2.setAttribute('attribute', 'scale');
+    animationEl2.setAttribute('from', '1 1 1');
+    animationEl2.setAttribute('to', '0 0 0');
+    entityEl.appendChild(animationEl2);
+  }
+  if (isVisible) {
+
+    var animationEl1 = document.createElement('a-animation');
+
+    animationEl1.setAttribute('dur', '1000');
+    animationEl1.setAttribute('attribute', 'scale');
+    animationEl1.setAttribute('from', '0 0 0');
+    animationEl1.setAttribute('to', '1 1 1');
+    entityEl.appendChild(animationEl1);
+  }
 }
 
 // Component to change to random color on click.
@@ -234,6 +297,357 @@ AFRAME.registerComponent('cursor-listener', {
   }
 });
 
+// Component to change to random color on click.
+AFRAME.registerComponent('tlpr-listener', {
+  init: function () {
+
+    this.el.addEventListener('click', function (evt) {
+
+      //alert('clicked');
+      //exploreWithPic(this.getAttribute('id'));
+    });
+    this.el.addEventListener('mouseenter', function (evt) {
+
+      if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null
+      || document.querySelector('a-scene').querySelector('#prExcaAni') != null
+      || toolSelectedId != 'tool1Pl'
+      || processSelectedId != 'process1Pl') return false;
+      //alert('mouse entered');
+      // attach tool to cursor
+      var entityEl = document.createElement('a-entity');
+      entityEl.setAttribute('geometry', {
+        primitive: 'box',
+        height: 0.5,
+        width: 0.5,
+        depth: -0.5
+      });
+      entityEl.setAttribute('position', {
+        x: 0.4,
+        y: 0,
+        z: -5
+      });
+
+      entityEl.setAttribute('id','tlExcaAni');
+      entityEl.setAttribute('material', 'color', '#cccccc');
+      entityEl.setAttribute('material', 'src', '#tool1Image');
+      entityEl.setAttribute('opacity', '0.8');
+      entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: T1');
+
+      var cameraEl = document.querySelector('a-camera');
+
+      var animationEl = document.createElement('a-animation');
+      entityEl.appendChild(animationEl);
+      animationEl.setAttribute('begin', '');
+      animationEl.setAttribute('attribute', 'scale');
+      animationEl.setAttribute('from', '0 0 0');
+      animationEl.setAttribute('to', '1 1 1');
+
+      var animationEl2 = document.createElement('a-animation');
+      entityEl.appendChild(animationEl2);
+      animationEl2.setAttribute('delay', '1000');
+      animationEl2.setAttribute('begin', '');
+      animationEl2.setAttribute('dur', '3000');
+      animationEl2.setAttribute('attribute', 'rotation');
+      animationEl2.setAttribute('from', '0 0 0');
+      animationEl2.setAttribute('to', '0 360 0');
+      animationEl2.setAttribute('repeat', 'indefinite');
+
+      document.querySelector('a-camera').appendChild(entityEl);
+
+      // attach process to cursor
+      var entityEl = document.createElement('a-entity');
+      entityEl.setAttribute('geometry', {
+        primitive: 'box',
+        height: 0.5,
+        width: 0.5,
+        depth: -0.5
+      });
+      entityEl.setAttribute('position', {
+        x: -0.4,
+        y: 0,
+        z: -5
+      });
+
+      entityEl.setAttribute('id','prExcaAni');
+      entityEl.setAttribute('material', 'color', '#cccccc');
+      entityEl.setAttribute('material', 'src', '#process1Image');
+      entityEl.setAttribute('opacity', '0.8');
+      entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: P1');
+
+      var cameraEl = document.querySelector('a-camera');
+
+      var animationEl = document.createElement('a-animation');
+      entityEl.appendChild(animationEl);
+      animationEl.setAttribute('begin', '');
+      animationEl.setAttribute('attribute', 'scale');
+      animationEl.setAttribute('from', '0 0 0');
+      animationEl.setAttribute('to', '1 1 1');
+
+      var animationEl2 = document.createElement('a-animation');
+      entityEl.appendChild(animationEl2);
+      animationEl2.setAttribute('delay', '1000');
+      animationEl2.setAttribute('begin', '');
+      animationEl2.setAttribute('dur', '3000');
+      animationEl2.setAttribute('attribute', 'rotation');
+      animationEl2.setAttribute('from', '0 0 0');
+      animationEl2.setAttribute('to', '0 360 0');
+      animationEl2.setAttribute('repeat', 'indefinite');
+
+      document.querySelector('a-camera').appendChild(entityEl);
+
+
+    });
+    this.el.addEventListener('mouseleave', function (evt) {
+
+
+      //alert('mouse left');
+      if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null)
+      document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAni'));
+
+      if(document.querySelector('a-scene').querySelector('#prExcaAni') != null)
+      document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#prExcaAni'));
+    });
+  }
+});
+
+function attachTlPrToCam(idNum){
+  //alert('attached');
+
+  if (idNum == 3 || idNum == 4) return false;
+
+  //alert('idNum' + idNum);
+  //alert('toolSelectedId' + toolSelectedId);
+  //alert('processSelectedId' + processSelectedId);
+
+  if(idNum == 1 && toolSelectedId == 'tool2Pl'&& processSelectedId == 'process2Pl'){
+
+    //alert('mouse entered');
+    // attach tool to cursor
+    var entityEl = document.createElement('a-entity');
+    entityEl.setAttribute('geometry', {
+      primitive: 'box',
+      height: 0.5,
+      width: 0.5,
+      depth: -0.5
+    });
+    entityEl.setAttribute('position', {
+      x: 0.4,
+      y: 0,
+      z: -5
+    });
+
+    entityEl.setAttribute('id','tlExcaAniLarge');
+    //color='#cccccc'
+    entityEl.setAttribute('material', 'color', '#cccccc');
+    //entityEl.setAttribute('material', 'src', '#tool2Image');
+    entityEl.setAttribute('opacity', '0.8');
+    entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: T2');
+
+    var cameraEl = document.querySelector('a-camera');
+
+    var animationEl = document.createElement('a-animation');
+    entityEl.appendChild(animationEl);
+    animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('duration', '1000');
+    animationEl.setAttribute('attribute', 'scale');
+    animationEl.setAttribute('from', '0 0 0');
+    animationEl.setAttribute('to', '1 1 1');
+
+    var animationEl2 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl2);
+    animationEl2.setAttribute('delay', '1000');
+    animationEl2.setAttribute('begin', '');
+    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('attribute', 'material.color');
+    animationEl2.setAttribute('from', '#cccccc');
+    animationEl2.setAttribute('to', 'red');
+    animationEl2.setAttribute('repeat', 'indefinite');
+
+    var animationEl3 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl3);
+    animationEl3.setAttribute('delay', '1000');
+    animationEl3.setAttribute('begin', '');
+    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('attribute', 'rotation');
+    animationEl3.setAttribute('from', '0 0 0');
+    animationEl3.setAttribute('to', '0 360 0');
+    animationEl3.setAttribute('repeat', 'indefinite');
+
+    document.querySelector('a-camera').appendChild(entityEl);
+
+    // attach process to cursor
+    var entityEl = document.createElement('a-entity');
+    entityEl.setAttribute('geometry', {
+      primitive: 'box',
+      height: 0.5,
+      width: 0.5,
+      depth: -0.5
+    });
+    entityEl.setAttribute('position', {
+      x: -0.4,
+      y: 0,
+      z: -5
+    });
+
+    entityEl.setAttribute('id','prExcaAniLarge');
+    entityEl.setAttribute('material', 'color', '#cccccc');
+    //entityEl.setAttribute('material', 'src', '#process2Image');
+    entityEl.setAttribute('opacity', '0.8');
+    entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: P2');
+
+    var cameraEl = document.querySelector('a-camera');
+
+    var animationEl = document.createElement('a-animation');
+    entityEl.appendChild(animationEl);
+    animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('duration', '1000');
+    animationEl.setAttribute('attribute', 'scale');
+    animationEl.setAttribute('from', '0 0 0');
+    animationEl.setAttribute('to', '1 1 1');
+
+    var animationEl2 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl2);
+    animationEl2.setAttribute('delay', '1000');
+    animationEl2.setAttribute('begin', '');
+    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('attribute', 'material.color');
+    animationEl2.setAttribute('from', '#cccccc');
+    animationEl2.setAttribute('to', 'red');
+    animationEl2.setAttribute('repeat', 'indefinite');
+
+    var animationEl3 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl3);
+    animationEl3.setAttribute('delay', '1000');
+    animationEl3.setAttribute('begin', '');
+    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('attribute', 'rotation');
+    animationEl3.setAttribute('from', '0 0 0');
+    animationEl3.setAttribute('to', '0 360 0');
+    animationEl3.setAttribute('repeat', 'indefinite');
+
+    document.querySelector('a-camera').appendChild(entityEl);
+
+  }
+
+  if(idNum == 2 && toolSelectedId == 'tool3Pl'&& processSelectedId == 'process3Pl'){
+
+    //alert('mouse entered');
+    // attach tool to cursor
+    var entityEl = document.createElement('a-entity');
+    entityEl.setAttribute('geometry', {
+      primitive: 'box',
+      height: 0.5,
+      width: 0.5,
+      depth: -0.5
+    });
+    entityEl.setAttribute('position', {
+      x: 0.4,
+      y: 0,
+      z: -5
+    });
+
+    entityEl.setAttribute('id','tlExcaAniLarge');
+    entityEl.setAttribute('material', 'color', '#cccccc');
+    //entityEl.setAttribute('material', 'src', '#tool3Image');
+    entityEl.setAttribute('opacity', '0.8');
+    entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: T3');
+
+    var cameraEl = document.querySelector('a-camera');
+
+    var animationEl = document.createElement('a-animation');
+    entityEl.appendChild(animationEl);
+    animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('duration', '1000');
+    animationEl.setAttribute('attribute', 'scale');
+    animationEl.setAttribute('from', '0 0 0');
+    animationEl.setAttribute('to', '1 1 1');
+
+    var animationEl2 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl2);
+    animationEl2.setAttribute('delay', '1000');
+    animationEl2.setAttribute('begin', '');
+    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('attribute', 'material.color');
+    animationEl2.setAttribute('from', '#cccccc');
+    animationEl2.setAttribute('to', 'red');
+    animationEl2.setAttribute('repeat', 'indefinite');
+
+    var animationEl3 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl3);
+    animationEl3.setAttribute('delay', '1000');
+    animationEl3.setAttribute('begin', '');
+    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('attribute', 'rotation');
+    animationEl3.setAttribute('from', '0 0 0');
+    animationEl3.setAttribute('to', '0 360 0');
+    animationEl3.setAttribute('repeat', 'indefinite');
+
+    document.querySelector('a-camera').appendChild(entityEl);
+
+    // attach process to cursor
+    var entityEl = document.createElement('a-entity');
+    entityEl.setAttribute('geometry', {
+      primitive: 'box',
+      height: 0.5,
+      width: 0.5,
+      depth: -0.5
+    });
+    entityEl.setAttribute('position', {
+      x: -0.4,
+      y: 0,
+      z: -5
+    });
+
+    entityEl.setAttribute('id','prExcaAniLarge');
+    entityEl.setAttribute('material', 'color', '#cccccc');
+    //entityEl.setAttribute('material', 'src', '#process3Image');
+    entityEl.setAttribute('opacity', '0.8');
+    entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: P3');
+
+    var cameraEl = document.querySelector('a-camera');
+
+    var animationEl = document.createElement('a-animation');
+    entityEl.appendChild(animationEl);
+    animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('dur', '1000');
+    animationEl.setAttribute('attribute', 'scale');
+    animationEl.setAttribute('from', '0 0 0');
+    animationEl.setAttribute('to', '1 1 1');
+
+    var animationEl2 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl2);
+    animationEl2.setAttribute('delay', '1000');
+    animationEl2.setAttribute('begin', '');
+    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('attribute', 'material.color');
+    animationEl2.setAttribute('from', '#cccccc');
+    animationEl2.setAttribute('to', 'red');
+    animationEl2.setAttribute('repeat', 'indefinite');
+
+    var animationEl3 = document.createElement('a-animation');
+    entityEl.appendChild(animationEl3);
+    animationEl3.setAttribute('delay', '1000');
+    animationEl3.setAttribute('begin', '');
+    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('attribute', 'rotation');
+    animationEl3.setAttribute('from', '0 0 0');
+    animationEl3.setAttribute('to', '0 360 0');
+    animationEl3.setAttribute('repeat', 'indefinite');
+
+    document.querySelector('a-camera').appendChild(entityEl);
+
+  }
+
+}
+function removeTlPrFromCam(){
+  //alert('dettached');
+  if(document.querySelector('a-scene').querySelector('#tlExcaAniLarge') != null)
+  document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAniLarge'));
+
+  if(document.querySelector('a-scene').querySelector('#prExcaAniLarge') != null)
+  document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#prExcaAniLarge'));
+
+}
 
 function progressStatus(levelId){
 

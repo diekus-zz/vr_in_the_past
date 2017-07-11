@@ -89,7 +89,8 @@ function show3dVR(objIdNum){
       // reset tool to excavation state
       toolSelected = 'Expert in the field';
       processSelected = 'Macroscopic Analysis';
-
+      toolSelectedId = 'tool1Pl';
+      processSelectedId = 'process1Pl';
       var tlEls = document.querySelector('a-scene').querySelectorAll('.tools');
 
       for (var i = 0; i < tlEls.length; i++) {
@@ -108,10 +109,10 @@ function show3dVR(objIdNum){
 
       // reset to excavation status
       if(document.querySelector('#tool1Pl') != ''){
-        document.querySelector('#tool1Pl').setAttribute('text', 'color', 'red');
+        document.querySelector('#tool1Pl').setAttribute('text', 'color', '#23ef54');
       }
       if(document.querySelector('#process1Pl') != ''){
-        document.querySelector('#process1Pl').setAttribute('text', 'color', 'red');
+        document.querySelector('#process1Pl').setAttribute('text', 'color', '#23ef54');
       }
 
       if (firstSiteExcavatedByDay == 0) {
@@ -122,10 +123,12 @@ function show3dVR(objIdNum){
     }else{
 
       //2st sticker earned
-      if (!document.querySelector('#sti2Im').getAttribute('visible')) {
+      if (document.querySelector('#sti2Im').getAttribute('opacity') == 0) {
+      //if (!document.querySelector('#sti2Im').getAttribute('visible')) {
 
         alertInfo('Sticker earned!');
-        document.querySelector('#sti2Im').setAttribute('visible', 'true');
+        visItAnimation(document.querySelector('#sti2Im'), true);
+        //document.querySelector('#sti2Im').setAttribute('visible', 'true');
       }
 
       renderModel(objIdNum);

@@ -18,8 +18,8 @@ function hideGamePanes(){
   document.querySelector('#sti1Im').setAttribute('visible', 'false');
   document.querySelector('#sti2Im').setAttribute('visible', 'false');
   // if tools and processes are visible
-  if(tlPrVisibility)
-    showChoices();
+  //if(tlPrVisibility)
+    showChoices(false);
 
 }
 
@@ -138,6 +138,8 @@ avaTxt += "\tYou selected the tool 'Accelerator Mass Spectrometry' and the proce
 
 //  avaTxt += "- You excavated Achavanich Beaker Burial Project.\n";
 //  avaTxt += "- You succeeded in finding the beaker and Ava's skull.\n";
+
+  avaTxt += "\tPlease remove the VR headset and complete the posttest after clicking on this summary table!\n\n";
 
   avaTxt += "\nSincerely,\n'VR in the Past' project team\n"
 

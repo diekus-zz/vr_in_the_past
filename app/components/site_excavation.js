@@ -37,32 +37,38 @@ function presentScene2(){
 var isZoom = false;
 function found(idNum){
 
+  var sceneEl =  document.querySelector('a-scene');
   //console.log(tlPrVisibility);
   if(toolSelected === '' && processSelected === ''){
 
     alertInfo('Please select a tool and a process');
     //alert('Please select a tool and a process');
-    daysSpentLearning++;
+    if(sceneEl.querySelector('#alertInfoPl'))
+      daysSpentLearning++;
+
     console.log(daysSpentLearning);
     return false;
   }else if(toolSelected === ''){
 
     alertInfo('Please select a tool');
     //alert('Please select a tool');
-    daysSpentLearning++;
+    if(sceneEl.querySelector('#alertInfoPl'))
+      daysSpentLearning++;
     return false;
   }
   else if(processSelected === ''){
 
     alertInfo('Please select a process');
     //alert('Please select a process');
-    daysSpentLearning++;
+    if(sceneEl.querySelector('#alertInfoPl'))
+      daysSpentLearning++;
     return false;
   } if(toolSelected != 'Expert in the field' || processSelected != 'Macroscopic Analysis'){
 
     alertInfo('Reselect for correct site-identity');
     //alert('Please select a tool and a process');
-    daysSpentLearning++;
+    if(sceneEl.querySelector('#alertInfoPl'))
+      daysSpentLearning++;
     return false;
   }
 
@@ -93,10 +99,12 @@ function found(idNum){
 //document.querySelector('a-scene').removeChild(document.querySelector('a-scene').querySelector('#alertInfoPl'));
 
 //1st sticker earned
-if (!document.querySelector('#sti1Im').getAttribute('visible')) {
+if (document.querySelector('#sti1Im').getAttribute('opacity') == 0) {
+//if (!document.querySelector('#sti1Im').getAttribute('visible')) {
 
   alertInfo('Sticker earned!');
-  document.querySelector('#sti1Im').setAttribute('visible', 'true');
+  visItAnimation(document.querySelector('#sti1Im'), true);
+  //document.querySelector('#sti1Im').setAttribute('visible', 'true');
 }
 
 
@@ -128,6 +136,8 @@ if (!document.querySelector('#sti1Im').getAttribute('visible')) {
     //id="terrain4Pl" onclick="found(4)" src="#terrain4Image" visible=false position="10 -10 0" rotation="0 0 0" width="20" height="20"
     largePlEl.setAttribute('id', 'terrain'+ i + 'Pl');
     largePlEl.setAttribute('onclick','show3dVR('+idNum+')');
+    largePlEl.setAttribute('onmouseenter', 'attachTlPrToCam('+idNum+')');
+    largePlEl.setAttribute('onmouseleave', 'removeTlPrFromCam('+idNum+')');
     //largePlEl.setAttribute('onclick','found(5)');
     largePlEl.setAttribute('src', '#terrain' + idNum + 'Image');
     largePlEl.setAttribute('position', '0 0 0');

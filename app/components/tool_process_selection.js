@@ -1,10 +1,16 @@
-var tlPrVisibility = false;
-function showChoices(){
+var toolSelected = '';
+var processSelected = '';
+var toolSelectedId = '';
+var processSelectedId = '';
 
-  if(!tlPrVisibility)
+var tlPrVisibility = false;
+function showChoices(isTrue){
+
+  tlPrVisibility = isTrue;
+  /*if(!tlPrVisibility)
   tlPrVisibility = true;
   else
-  tlPrVisibility = false;
+  tlPrVisibility = false;*/
 
   //alert('showChoices);
   var tlEls = document.querySelector('a-scene').querySelectorAll('.tools');
@@ -22,6 +28,7 @@ function showChoices(){
   //alert(toolNames);
 
   for (var i = 0; i < tlEls.length; i++) {
+    //scaleItAnimation(tlEls[i], tlPrVisibility);
     tlEls[i].setAttribute('visible', tlPrVisibility);
     tlEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: T' + (i+1));
     //tlEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value: '+toolNames[i]);
@@ -34,13 +41,19 @@ function showChoices(){
 // tools and processes info start
 var tlInfoEls = document.querySelector('a-scene').querySelectorAll('.toolsInfo');
 for (var i = 0; i < tlInfoEls.length; i++) {
+  //scaleItAnimation(tlInfoEls[i], tlPrVisibility);
+  //setTimeout(, 2000);
+  //tlInfoEls[i].setAttribute('visible', tlPrVisibility);
   tlInfoEls[i].setAttribute('visible', tlPrVisibility);
   tlInfoEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value: ?');
 }
 
 var prInfoEls = document.querySelector('a-scene').querySelectorAll('.processesInfo');
 for (var i = 0; i < prInfoEls.length; i++) {
+  //scaleItAnimation(prInfoEls[i], tlPrVisibility);
   prInfoEls[i].setAttribute('visible', tlPrVisibility);
+  //prInfoEls[i].setAttribute('visible', tlPrVisibility);
+
   //prInfoEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value: ?');
 }
 
@@ -61,7 +74,10 @@ for (var i = 0; i < prInfoEls.length; i++) {
   //alert(processNames);
 
   for (var i = 0; i < prEls.length; i++) {
-    prEls[i].setAttribute('visible', tlPrVisibility);
+    //scaleItAnimation(prEls[i], tlPrVisibility);
+    prEls[i].setAttribute('visible', tlPrVisibility)
+    //prEls[i].setAttribute('visible', tlPrVisibility);
+
     prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: P'+ (i+1));
     //prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value: '+processNames[i]);
     //console.log(prEls[i]);
@@ -69,28 +85,24 @@ for (var i = 0; i < prInfoEls.length; i++) {
 
   var exEls = document.querySelector('a-scene').querySelectorAll('.excavated');
 
-  if (true) {
-
-  }
   for (var i = 0; i < exEls.length; i++) {
-    exEls[i].setAttribute('visible', tlPrVisibility);
+    //scaleItAnimation(exEls[i], tlPrVisibility);
+    exEls[i].setAttribute('visible', tlPrVisibility)
+    //exEls[i].setAttribute('visible', tlPrVisibility);
+
     //prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value: '+processNames[i]);
     //console.log(prEls[i]);
   }
 
 // reset to excavation status
-  if(document.querySelector('#'+toolSelectedId) != ''){
-    document.querySelector('#'+toolSelectedId).setAttribute('text', 'color', 'red');
+  if(toolSelectedId != '' && document.querySelector('#'+toolSelectedId) != ''){
+    document.querySelector('#'+toolSelectedId).setAttribute('text', 'color', '#23ef54');
   }
-  if(document.querySelector('#'+processSelectedId) != ''){
-    document.querySelector('#'+processSelectedId).setAttribute('text', 'color', 'red');
+  if(processSelectedId != '' && document.querySelector('#'+processSelectedId) != ''){
+    document.querySelector('#'+processSelectedId).setAttribute('text', 'color', '#23ef54');
   }
 }
 
-var toolSelected = '';
-var processSelected = '';
-var toolSelectedId = '';
-var processSelectedId = '';
 function selectChoice(tlPrId, objCl){
   //alert(tlPrId);
 
@@ -109,7 +121,7 @@ function selectChoice(tlPrId, objCl){
     }
   }
 
-  document.querySelector('#'+tlPrId).setAttribute('text', 'color', 'red');
+  document.querySelector('#'+tlPrId).setAttribute('text', 'color', '#23ef54');
 
   if(objCl === 'tools'){
     toolSelected = getSelectedTlPr(tlPrId);
@@ -215,8 +227,8 @@ function exploreToolProcess(objId){
     });
 
     entityEl.setAttribute('id','briefPl');
-    entityEl.setAttribute('onclick','removeBriefPl()');
-    //entityEl.setAttribute('onclick','hideBriefPl()');
+    //entityEl.setAttribute('onclick','removeBriefPl()');
+    entityEl.setAttribute('onclick','hideBriefPl()');
 
     var tlPrTxt = "";
 
@@ -248,11 +260,20 @@ function exploreToolProcess(objId){
 
     //reset camera to initial rotation
     var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
+
+    var animationEl = document.createElement('a-animation');
+    entityEl.appendChild(animationEl);
+    animationEl.setAttribute('begin', '');
+    animationEl.setAttribute('attribute', 'scale');
+    animationEl.setAttribute('from', '0 0 0');
+    animationEl.setAttribute('to', '1 1 1');
+
     document.querySelector('a-camera').appendChild(entityEl);
 
   } else {
 
-    document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
+    hideBriefPl();
+    //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
   }
 }
 
@@ -288,7 +309,8 @@ function exploreWithPic(objId){
     });
 
     entityEl.setAttribute('id','briefPl');
-    entityEl.setAttribute('onclick','removeBriefPl()');
+    entityEl.setAttribute('onclick','hideScaleBriefPl()');
+    //entityEl.setAttribute('onclick','removeBriefPl()');
     //entityEl.setAttribute('onclick','hideBriefPl()');
 
     var tlPrTxt = "";
@@ -329,17 +351,25 @@ function exploreWithPic(objId){
     var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
     document.querySelector('a-camera').appendChild(entityEl);
 
+    //Add animation of scaling up to one for dur < delay of scaling down
+    var animationEl1 = document.createElement('a-animation');
+
+    animationEl1.setAttribute('dur', '2000');
+    animationEl1.setAttribute('attribute', 'scale');
+    animationEl1.setAttribute('from', '0 0 0');
+    animationEl1.setAttribute('to', '1 1 1');
+    entityEl.appendChild(animationEl1);
 
     //Add animation of scaling down to zero
-    var animationEl = document.createElement('a-animation');
+    var animationEl2 = document.createElement('a-animation');
 
     //animationEl.setAttribute('begin', '');
-    animationEl.setAttribute('delay', '10000');
-    animationEl.setAttribute('dur', '2000');
-    animationEl.setAttribute('attribute', 'scale');
-    animationEl.setAttribute('from', '1 1 1');
-    animationEl.setAttribute('to', '0 0 0');
-    entityEl.appendChild(animationEl);
+    animationEl2.setAttribute('delay', '10000');
+    animationEl2.setAttribute('dur', '2000');
+    animationEl2.setAttribute('attribute', 'scale');
+    animationEl2.setAttribute('from', '1 1 1');
+    animationEl2.setAttribute('to', '0 0 0');
+    entityEl.appendChild(animationEl2);
 
 
   } else {
