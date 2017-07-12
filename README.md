@@ -1,11 +1,9 @@
-================
   Motivation
 ================
 
   The principal goal is to develop an application using virtual reality technology to increase the public engagement in archaeological processes. The overall objective is to create engaging narratives using cost effective VR setup through the manipulation of virtual objects using natural user interfaces through simple gesture and pose controls.
 
 
-================================================
  Current Setup (Functional Requirements)
 ================================================
 
@@ -13,7 +11,6 @@
 2. Languages and framework: HTML, CSS, Javascript, A-Frame
 
 
-================================================
  Current Setup (Non-Functional Requirements)
 ================================================
 
@@ -21,7 +18,6 @@
 2. Platform as a Service (PaaS): Heroku
 
 
-================
  How to Run?
 ================
 
@@ -33,7 +29,6 @@
 2. Access the application at the browser URL http://localhost:12810/
 
 
-================================================================
   Areas of Improvements/Scope for further development
 ================================================================
 
@@ -44,7 +39,6 @@
 5. (Non-Functional Requirement) Static code analysis using Sonarqube to reduce code duplicacy and improve coding standards
 
 
-================
   References
 ================
 
