@@ -1,3 +1,5 @@
+// Tool/Process Selection
+
 var toolSelected = '';
 var processSelected = '';
 var toolSelectedId = '';
@@ -7,94 +9,52 @@ var tlPrVisibility = false;
 function showChoices(isTrue){
 
   tlPrVisibility = isTrue;
-  /*if(!tlPrVisibility)
-  tlPrVisibility = true;
-  else
-  tlPrVisibility = false;*/
 
-  //alert('showChoices);
+  // tools
   var tlEls = document.querySelector('a-scene').querySelectorAll('.tools');
 
   var toolNames = [];
   for (var i = 0; i < tlEls.length; i++) {
     toolNames.push(tlEls[i].getAttribute('text').value);
-    //console.log(tlEls[i]);
   }
-
-// move at start of each new game only
-  //alert(toolNames);
-//  if(tlPrVisibility) // For each visibility request, randomize tool names
-//  toolNames = shuffle(toolNames);
-  //alert(toolNames);
 
   for (var i = 0; i < tlEls.length; i++) {
-    //scaleItAnimation(tlEls[i], tlPrVisibility);
     tlEls[i].setAttribute('visible', tlPrVisibility);
     tlEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: T' + (i+1));
-    //tlEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 19; letterSpacing: 4; value: '+toolNames[i]);
-    //console.log(tlEls[i]);
   }
 
-  //tlEls = shuffle(tlEls);
+  // tools and processes info
+  var tlInfoEls = document.querySelector('a-scene').querySelectorAll('.toolsInfo');
+  for (var i = 0; i < tlInfoEls.length; i++) {
+    tlInfoEls[i].setAttribute('visible', tlPrVisibility);
+    tlInfoEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value: ?');
+  }
 
+  var prInfoEls = document.querySelector('a-scene').querySelectorAll('.processesInfo');
+  for (var i = 0; i < prInfoEls.length; i++) {
+    prInfoEls[i].setAttribute('visible', tlPrVisibility);
+  }
 
-// tools and processes info start
-var tlInfoEls = document.querySelector('a-scene').querySelectorAll('.toolsInfo');
-for (var i = 0; i < tlInfoEls.length; i++) {
-  //scaleItAnimation(tlInfoEls[i], tlPrVisibility);
-  //setTimeout(, 2000);
-  //tlInfoEls[i].setAttribute('visible', tlPrVisibility);
-  tlInfoEls[i].setAttribute('visible', tlPrVisibility);
-  tlInfoEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value: ?');
-}
-
-var prInfoEls = document.querySelector('a-scene').querySelectorAll('.processesInfo');
-for (var i = 0; i < prInfoEls.length; i++) {
-  //scaleItAnimation(prInfoEls[i], tlPrVisibility);
-  prInfoEls[i].setAttribute('visible', tlPrVisibility);
-  //prInfoEls[i].setAttribute('visible', tlPrVisibility);
-
-  //prInfoEls[i].setAttribute('text', 'color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value: ?');
-}
-
-// tools and processes info end
-
+  // processes
   var prEls = document.querySelector('a-scene').querySelectorAll('.processes');
 
   var processNames = [];
   for (var i = 0; i < prEls.length; i++) {
     processNames.push(prEls[i].getAttribute('text').value);
-    //console.log(tlEls[i]);
   }
 
-// move shuffle to beginning of each new game
-  //alert(toolNames);
-//  if(tlPrVisibility) // For each visibility request, randomize process names
-//  processNames = shuffle(processNames);
-  //alert(processNames);
-
   for (var i = 0; i < prEls.length; i++) {
-    //scaleItAnimation(prEls[i], tlPrVisibility);
     prEls[i].setAttribute('visible', tlPrVisibility)
-    //prEls[i].setAttribute('visible', tlPrVisibility);
-
     prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: P'+ (i+1));
-    //prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value: '+processNames[i]);
-    //console.log(prEls[i]);
   }
 
   var exEls = document.querySelector('a-scene').querySelectorAll('.excavated');
 
   for (var i = 0; i < exEls.length; i++) {
-    //scaleItAnimation(exEls[i], tlPrVisibility);
     exEls[i].setAttribute('visible', tlPrVisibility)
-    //exEls[i].setAttribute('visible', tlPrVisibility);
-
-    //prEls[i].setAttribute('text', 'color: #66ccff; alphaTest: 0; align: center; wrapCount: 20; letterSpacing: 4; value: '+processNames[i]);
-    //console.log(prEls[i]);
   }
 
-// reset to excavation status
+  // reset to excavation status
   if(toolSelectedId != '' && document.querySelector('#'+toolSelectedId) != ''){
     document.querySelector('#'+toolSelectedId).setAttribute('text', 'color', '#23ef54');
   }
@@ -104,14 +64,11 @@ for (var i = 0; i < prInfoEls.length; i++) {
 }
 
 function selectChoice(tlPrId, objCl){
-  //alert(tlPrId);
 
   var objEls = document.querySelector('a-scene').querySelectorAll('.'+objCl);
 
   for (var i = 0; i < objEls.length; i++) {
     objEls[i].setAttribute('color', '#cccccc');
-
-    //console.log(tlEls[i]);
 
     if(objCl === 'tools'){
       objEls[i].setAttribute('text', 'color', '#ccff66');
@@ -126,21 +83,13 @@ function selectChoice(tlPrId, objCl){
   if(objCl === 'tools'){
     toolSelected = getSelectedTlPr(tlPrId);
     toolSelectedId = tlPrId;
-    //toolSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
-    //tip(toolSelected);
   }
 
 
   if(objCl === 'processes'){
     processSelected = getSelectedTlPr(tlPrId);
     processSelectedId = tlPrId;
-    //processSelected = document.querySelector('#'+tlPrId).getAttribute('text').value;
-    //tip(processSelected);
   }
-
-
-  //alert(toolSelected);
-  //alert(processSelected);
 }
 
 function getSelectedTlPr(tlPrSelectedId){
@@ -163,7 +112,6 @@ function getSelectedTlPr(tlPrSelectedId){
 function tip(tlPrSelectedId){
 
   if (tlPrSelectedId === 'tool1Pl') {
-    //exploreWithPic(tlPrSelectedId);
     alertInfo('Identification');
   } else if (tlPrSelectedId === 'tool2Pl') {
     alertInfo('Dating of inorganic material');
@@ -178,31 +126,7 @@ function tip(tlPrSelectedId){
   }
 }
 
-/*function tip(tlPrSelectedTxt){
-
-  if (tlPrSelectedTxt === 'Expert in the field') {
-    alertInfo('Identification');
-  } else if (tlPrSelectedTxt === 'Riso Minisys Machine') {
-    alertInfo('Dating of inorganic material');
-  } else if (tlPrSelectedTxt === 'Accelerator Mass Spectrometry') {
-    alertInfo('Dating of organic material');
-  } else if (tlPrSelectedTxt === 'Macroscopic Analysis') {
-    alertInfo('Identification');
-  } else if (tlPrSelectedTxt === 'Thermoluminescence Dating') {
-    alertInfo('Dating of inorganic material');
-  } else if (tlPrSelectedTxt === 'Radiocarbon Dating') {
-    alertInfo('Dating of organic material');
-  }
-}*/
-
-
 function exploreToolProcess(objId){
-//alert('Hi');
-  // if tools and processes are visible
-  //if(tlPrVisibility)
-    //showChoices();
-
-  //updateLog(objId);
 
   var sceneEl = document.querySelector('a-scene');
 
@@ -216,10 +140,6 @@ function exploreToolProcess(objId){
       height: 'auto',
       width: 5
     });
-
-    var xCamOffset = document.querySelector('a-camera').getAttribute('position').x-20;
-    var yCamOffset = document.querySelector('a-camera').getAttribute('position').y-20;
-
     entityEl.setAttribute('position', {
       x: 0,
       y: 0,
@@ -227,7 +147,6 @@ function exploreToolProcess(objId){
     });
 
     entityEl.setAttribute('id','briefPl');
-    //entityEl.setAttribute('onclick','removeBriefPl()');
     entityEl.setAttribute('onclick','hideBriefPl()');
 
     var tlPrTxt = "";
@@ -235,7 +154,6 @@ function exploreToolProcess(objId){
     if(objId === 'tool1PlInfo'){
 
       tlPrTxt = "Tool:-Expert in the Field like Osteoarchaeologist is consulted for identifying the excation sites. This (tool) is used with the process Macroscopic Analysis (P1).\n\nThe consultation, usually, does not cost anything.\n";
-      //tlPrTxt = "Welcome to the Achavanich Beaker Burial Project!\n\nIn 1987 the remains of an individual buried over 3,700 years ago was discovered at Achavanich in Caithness in the north of Scotland. The site was rescued and excavated by the Highland Regional Council Archaeology Unit. However, unfortunate circumstances led to the site being mostly forgotten about over the next three decades, but it still had so much to offer and to teach us about the Middle Bronze Age in Northern Scotland.\n";
     }
     if(objId === 'tool2PlInfo'){
 
@@ -273,18 +191,11 @@ function exploreToolProcess(objId){
   } else {
 
     hideBriefPl();
-    //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
   }
 }
 
 
 function exploreWithPic(objId){
-//alert('Hi');
-  // if tools and processes are visible
-  //if(tlPrVisibility)
-    //showChoices();
-
-  //updateLog(objId);
 
   var sceneEl = document.querySelector('a-scene');
 
@@ -298,24 +209,16 @@ function exploreWithPic(objId){
       height: 5,
       width: 5
     });
-
-    var xCamOffset = document.querySelector('a-camera').getAttribute('position').x-20;
-    var yCamOffset = document.querySelector('a-camera').getAttribute('position').y-20;
-
     entityEl.setAttribute('position', {
       x: 0,
       y: 0,
       z: -5
     });
-
     entityEl.setAttribute('id','briefPl');
     entityEl.setAttribute('onclick','hideScaleBriefPl()');
-    //entityEl.setAttribute('onclick','removeBriefPl()');
-    //entityEl.setAttribute('onclick','hideBriefPl()');
 
     var tlPrTxt = "";
 
-    //alert(objId);
     if(objId === 'tool1Pl'){
       entityEl.setAttribute('material','src','#tool1ZoomedImage');
       tlPrTxt = "";
@@ -348,7 +251,7 @@ function exploreWithPic(objId){
     entityEl.setAttribute('text', 'align: left; value: ' + tlPrTxt);
 
     //reset camera to initial rotation
-    var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
+    var cameraEl = document.querySelector('a-camera');
     document.querySelector('a-camera').appendChild(entityEl);
 
     //Add animation of scaling up to one for dur < delay of scaling down
@@ -363,15 +266,12 @@ function exploreWithPic(objId){
     //Add animation of scaling down to zero
     var animationEl2 = document.createElement('a-animation');
 
-    //animationEl.setAttribute('begin', '');
     animationEl2.setAttribute('delay', '10000');
     animationEl2.setAttribute('dur', '2000');
     animationEl2.setAttribute('attribute', 'scale');
     animationEl2.setAttribute('from', '1 1 1');
     animationEl2.setAttribute('to', '0 0 0');
     entityEl.appendChild(animationEl2);
-
-
   } else {
 
     document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));

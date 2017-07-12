@@ -1,32 +1,30 @@
-// screen 5 summary
-function summary(){
-  //alert('summary');
+// summaryLog
+
+function summaryLog(){
 
   // hide game planes
   hideGamePanes();
 
-  // show feedback
+  // show summary
   showSummary();
-
 }
 
 function hideGamePanes(){
+
   document.querySelector('#timerPl').setAttribute('visible', 'false');
   document.querySelector('#progressPl').setAttribute('visible', 'false');
-  //document.querySelector('#screenPl').setAttribute('visible', 'false');
   document.querySelector('#toolPrPl').setAttribute('visible', 'false');
   document.querySelector('#sti1Im').setAttribute('visible', 'false');
   document.querySelector('#sti2Im').setAttribute('visible', 'false');
-  // if tools and processes are visible
-  //if(tlPrVisibility)
-    showChoices(false);
 
+  // if tools and processes are visible
+  showChoices(false);
 }
 
 function showSummary(){
+
   // create a plane entity
   var entityEl = document.createElement('a-entity');
-  //entityEl.setAttribute('do-something-once-loaded', '');
 
   entityEl.setAttribute('geometry', {
     primitive: 'box',
@@ -34,39 +32,29 @@ function showSummary(){
     width: 60,
     depth: -1
   });
-
   entityEl.setAttribute('position', {
     x: 0,
-    y: -5,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
+    y: -5,
     z:6
   });
-
   entityEl.setAttribute('rotation', {
     x: 0,
     y: 0,
     z:0
   });
-
   entityEl.setAttribute('id','feedbackPl');
-  //entityEl.setAttribute('id','resStatus'+ idNum +'Pl');
 
-  var summary = 'abc';
+  var summaryLog = '';
+  var summaryTxt = "";
 
-//working entityEl.setAttribute('onclick',"window.open('/', '_self');");
-
-
-  //entityEl.setAttribute('onclick','window.location.reload();');
-  var avaTxt = "";
-
-
-  avaTxt += "Dear player,\n\n"
-  avaTxt += "\tThank you for playing the game 'VR in the Past'.\n\n"
+  summaryTxt += "Dear player,\n\n"
+  summaryTxt += "\tThank you for playing the game 'VR in the Past'.\n\n"
 
   if(accessLog.length == 0){
 
-    avaTxt += "You did not explore any archaeological site.\n\n";
+    summaryTxt += "You did not explore any archaeological site.\n\n";
   } else{
-    avaTxt += "You explored ";
+    summaryTxt += "You explored ";
 
     var sites = "";
     var siteLog = "";
@@ -100,71 +88,40 @@ function showSummary(){
       if(i < accessLog.length-2){
         sites += accessLog[i] + ", ";
       }
-
       if(i == accessLog.length-2){
           sites += accessLog[i] + " and ";
       }
-
       if(i == accessLog.length-1 && accessLog.length != 1){
         sites += accessLog[i] + " archaeological sites.";
       }
-
       if(i == accessLog.length-1 && accessLog.length == 1){
         sites += accessLog[i] + " archaeological site.";
       }
-
     }
-    avaTxt += sites + "\n\n";
+    summaryTxt += sites + "\n\n";
   }
 
-avaTxt += "\tStickers earned:\n'I Am Archaeological Museum Keeper'\n'I Dig Archaeology'\n\n";
-avaTxt += "\tDays spent learning: " + daysSpentLearning + "\n\n";
-avaTxt += "\tDays spent overall: " + daysSpentInTotal + "\n\n";
-avaTxt += "\tSite exploration completed on day : " + exploredByDay + "\n\n";
-avaTxt += "\t1st excavation activity completed on day : " + firstSiteExcavatedByDay + "\n\n";
-avaTxt += "\t2nd excavation activity completed on day : " + secondSiteExcavatedByDay + "\n\n";
-/*avaTxt += "\tCumulative Days spent in exploration of the sites: " + 0 + "\n\n";
-avaTxt += "\tCumulative Days spent in excavation of the 1st site: " + 0 + "\n\n";
-avaTxt += "\tCumulative Days spent in excavation of the 2nd site: " + 0 + "\n\n";*/
-/*avaTxt += "\tYou spent around " + daysSpentLearning + " days in learning.\n\n";
-avaTxt += "\tYou spent overall " + daysSpentInTotal + " days on this Archaeological adventure.\n\n";
-avaTxt += "\tYou selected the tool 'Expert in the field' and the process 'Macroscopic Analysis' for carrying out the excavation at Achavanich.\n\n";
-avaTxt += "\tYou selected the tool 'Riso Minisys Machine' and the process 'Thermoluminescence Dating' for carrying out the inorganic dating at Achavanich.\n\n";
-avaTxt += "\tYou selected the tool 'Accelerator Mass Spectrometry' and the process 'Radiocarbon Dating' for carrying out the organic at Achavanich.\n\n";  //avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + " for carrying out the excavation at Achavanich.\n";
-*/
+  summaryTxt += "\tStickers earned:\n'I Am Archaeological Museum Keeper'\n'I Dig Archaeology'\n\n";
+  summaryTxt += "\tDays spent learning: " + daysSpentLearning + "\n\n";
+  summaryTxt += "\tDays spent overall: " + daysSpentInTotal + "\n\n";
+  summaryTxt += "\tSite exploration completed on day : " + exploredByDay + "\n\n";
+  summaryTxt += "\t1st excavation activity completed on day : " + firstSiteExcavatedByDay + "\n\n";
+  summaryTxt += "\t2nd excavation activity completed on day : " + secondSiteExcavatedByDay + "\n\n";
+  summaryTxt += "\tPlease remove the VR headset and complete the posttest after clicking on this summaryLog table!\n\n";
+  summaryTxt += "\nSincerely,\n'VR in the Past' project team\n"
 
-//  avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + "for dating of the beaker artifact.\n";
-//  avaTxt += "\tYou selected the tool " + toolSelected + " and the process " + processSelected + "for dating of the skull/bones remains.\n";
-
-//  avaTxt += "- You excavated Achavanich Beaker Burial Project.\n";
-//  avaTxt += "- You succeeded in finding the beaker and Ava's skull.\n";
-
-  avaTxt += "\tPlease remove the VR headset and complete the posttest after clicking on this summary table!\n\n";
-
-  avaTxt += "\nSincerely,\n'VR in the Past' project team\n"
-
-  //summary = "`" + avaTxt + "`";
-  console.log(summary);
-  summary = "?sitesExplored=" + siteLog
+  summaryLog = "?sitesExplored=" + siteLog
     + "&daysSpentLearning=" + daysSpentLearning
     + "&daysSpentInTotal=" + daysSpentInTotal
     + "&exploredByDay=" + exploredByDay
     + "&firstSiteExcavatedByDay=" + firstSiteExcavatedByDay
     + "&secondSiteExcavatedByDay=" + secondSiteExcavatedByDay;
 
-  console.log(summary);
-  //entityEl.setAttribute('onclick',"window.open('/post_test?summary=cde', '_self');");
-entityEl.setAttribute('onclick',"window.open('/post_test" + summary + "', '_self');");
-  //entityEl.setAttribute('onclick',"window.open('/post_test?summary=" + summary + "', '_self');");
-
-
-  //color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:
-
+  entityEl.setAttribute('onclick',"window.open('/post_test" + summaryLog + "', '_self');");
   entityEl.setAttribute('material', 'color', 'gray');
   entityEl.setAttribute('text',
   'color: #fff855; alphaTest: 0; align: left; wrapCount: 60; letterSpacing: 10; value: '
-  + avaTxt);
+  + summaryTxt);
 
   document.querySelector('a-scene').appendChild(entityEl);
-
 }

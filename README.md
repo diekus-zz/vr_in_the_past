@@ -27,6 +27,7 @@
 
 1. To run this application locally, nodejs and npm needs to be present on the machine.Run below command from the root folder.
 
+	$>npm install
 	$>node server.js
 
 2. Access the application at the browser URL http://localhost:12810/
@@ -61,12 +62,11 @@ https://www.architectsjournal.co.uk/pictures/2000x2000fit/1/0/2/1265102_AJ01___A
 
 5. Skybox image update with google street view
 google maps : national museum of scotland
-street view : panaroma id F:-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB
-panaroma url : https://www.google.com/maps/@55.9472138,-3.1888878,3a,75y,226.15h,90t/data=!3m8!1e1!3m6!1s-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB!2e4!3e11!6s//lh4.googleusercontent.com/-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB/w203-h100-k-no-pi-0-ya51.24083-ro-0-fo100/!7i6144!8i3072
-Image courtesy of  Davide Rizzo
-application used : https://istreetview.com/F:-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB
-and Street View 360 Windows application
-- also possible with google streetview android app
+street view panaroma id: F:-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB
+Panaroma Image courtesy of  Davide Rizzo
+Application and Panaroma link : https://istreetview.com/F:-HzAAlrq1WUQ/V9IqaOTbsYI/AAAAAAAAidQ/8KOdrpWzouIEE2OA1NEPhs4QQi2LgxRRQCLIB
+Street View 360 Windows application to download as a skybox
+(Skybox creation is also possible with google streetview android app)
 
 
 6. DOM introduction
@@ -90,13 +90,13 @@ https://git.heroku.com/boiling-falls-96383.git
 11. Heroku application URL
 https://boiling-falls-96383.herokuapp.com/
 
-12. Sticker 1 
+12. Sticker 1
 https://rlv.zcache.com/trust_me_im_an_archaeological_museum_keeper_square_sticker-rc8c229401eb542ffbaa8033fc2b76caf_v9wf3_8byvr_324.jpg
 
-13. Sticker 2 
+13. Sticker 2
 https://rlv.zcache.com/i_dig_archaeology_classic_round_sticker-r068df2d2f1fa41cb96b74510dcd8e510_v9waf_8byvr_324.jpg
 
-14. Models of Ava's skull and the beaker
+14. Models of Ava's skull and the beaker (Decimated to around 10MB from 600MB with Blender application)
 https://sketchfab.com/models/b7d543087d3d4754834db766b1b247c9
 https://sketchfab.com/models/48e90ca2a90a4c118be13b261c03e7b5
 
@@ -120,4 +120,9 @@ Thermoluminescence Dating http://www.scientificarttests.com/images/art-tl-thermo
 Radiocarbon Dating http://722836920996307078.weebly.com/radiocarbon-dating.html
 http://rses.anu.edu.au/files/radiocarbon_sub1.jpg
 
+18. Shuffle algorithm
+https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
+19. Timer code
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
+https://stackoverflow.com/questions/1197928/how-to-add-30-minutes-to-a-javascript-date-object

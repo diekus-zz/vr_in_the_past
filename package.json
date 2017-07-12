@@ -17,5 +17,10 @@
     "express": "^4.15.3",
     "fs": "0.0.1-security",
     "nodemailer": "^4.0.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/boiling-falls-96383.git"
   }
 }

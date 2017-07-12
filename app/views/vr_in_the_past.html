@@ -16,8 +16,8 @@
 
 <body>
   <a-assets>
-  <!-- <a-assets timeout="60000"> -->
-    <img id="transpImage" src="views/img/map2.png">
+    <!-- <a-assets timeout="60000"> -->
+    <img id="transpImage" src="views/img/map.png">
 
     <img id="sti1Image" src="views/img/sticker1.png">
     <img id="sti2Image" src="views/img/sticker2.png">
@@ -42,225 +42,150 @@
     <img id="process2ZoomedImage" src="views/img/art-tl-thermo.jpg">
     <img id="process3ZoomedImage" src="views/img/radiocarbonZoomed.jpg">
 
-<audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
+    <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
 
-<!-- working   <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
--->
-<a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
+    <a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
     <a-asset-item id="material_beaker" src="models/beaker/beaker_real.mtl"></a-asset-item>
     <a-asset-item id="object_avaskull" src="models/ava_skull/ava_skull.obj"></a-asset-item>
     <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
-<!-- working  <a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
-    <a-asset-item id="material_beaker" src="models/beaker/beaker_real.mtl"></a-asset-item>
-    <a-asset-item id="object_avaskull" src="models/ava_skull/ava_skull.obj"></a-asset-item>
-    <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
--->
   </a-assets>
 
   <script>
   </script>
 
-<a-scene sound="volume: 100; autoplay: true; loop:true; src: #backgroundMusic" physics="debug: false">
+  <a-scene sound="volume: 100; autoplay: true; loop:true; src: #backgroundMusic" physics="debug: false">
 
-  <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
+    <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
 
-  <!-- Basic plane. -->
-  <!-- <a-plane color="red" height="20" width="20"></a-plane> -->
-  <!-- Textured plane. -->
-  <!-- <a-plane src="#texture" height="67" width="84" rotation="-5 0 0"></a-plane> -->
+    <!-- Site Exploration -->
+    <a-cone id='avaCo' onclick="exploreSite('avaCo')" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" position="3 5 0" rotation="0 0 0" ></a-cone>
+    <a-cone id='mysteriesOfMummies' onclick="exploreSite('mysteriesOfMummies')" position="-19.8 -6.8 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" ></a-cone>
+    <a-cone id='rignOfStones' onclick="exploreSite('rignOfStones')" position="2.6 -8.6 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" ></a-cone>
+    <a-cone id='edinburghCastle' onclick="exploreSite('edinburghCastle')" position="8.5 -22.7 0"  color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" ></a-cone>
+    <a-cone id='herosCairn' onclick="exploreSite('herosCairn')" position="4 -28 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" ></a-cone>
 
-  <a-cone id='avaCo' onclick="exploreSite('avaCo')" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" position="3 5 0" rotation="0 0 0" >
+    <!-- Site Excavation -->
+    <a-cone id='avaExCo' onclick="presentScene2()" color="#00FF00" radius-bottom="1" height="2" radius-top="0" position="5 5 3" rotation="0 0 0" ></a-cone>
 
-  <!--  <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
--->
-  </a-cone>
-
-  <a-cone id='avaExCo' onclick="presentScene2()" color="#00FF00" radius-bottom="1" height="2" radius-top="0" position="5 5 3" rotation="0 0 0" >
-
-<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
--->
-  </a-cone>
-
-
-  <a-cone id='mysteriesOfMummies' onclick="exploreSite('mysteriesOfMummies')" position="-19.8 -6.8 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
-
-<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
--->
-  </a-cone>
-
-
-  <a-cone id='rignOfStones' onclick="exploreSite('rignOfStones')" position="2.6 -8.6 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
-
-<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
--->
-  </a-cone>
-
-
-  <a-cone id='edinburghCastle' onclick="exploreSite('edinburghCastle')" position="8.5 -22.7 0"  color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
-
-<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
--->
-  </a-cone>
-
-
-  <a-cone id='herosCairn' onclick="exploreSite('herosCairn')" position="4 -28 0" color="#FFFF00" radius-bottom="1" height="2" radius-top="0" rotation="0 0 0" >
-
-<!--    <a-animation begin="click" attribute="scale" from="1 1 1" to="2 2 2"></a-animation>
--->
-  </a-cone>
-
-
-  <!-- Days Remaining -->
-  <a-box id='timerPl' class='' height='5' width='12' depth='-1' position='32 20 6' rotation='20 -30 0' color='gray'
+    <!-- Days Remaining -->
+    <a-box id='timerPl' class='' height='5' width='12' depth='-1' position='32 20 6' rotation='20 -30 0' color='gray'
     onclick="" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value:Day 1/\n 4 Weeks'>
 
     <!-- stickers -->
     <a-image id="sti1Im" opacity="0" begin="click" position="0 -8 0" width="16" height="8" rotation="0 0 0" src="#sti1Image" transparent="true" alpha-test="0.5"></a-image>
     <a-image id="sti2Im" opacity="0" begin="click" position="0 -22 0" width="16" height="16" rotation="0 0 0" src="#sti2Image" transparent="true" alpha-test="0.5"></a-image>
 
-
   </a-box>
 
-
-<!--  <a-box id='timerPl' class='' height='5' width='12' depth='-1' position='32 20 6' rotation='20 -30 0' color='gray'
-  onclick="" text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: 1 Day/\n 4 Weeks'></a-box>
--->
   <!-- progress status -->
   <a-entity id='progressPl' class='' height='9' width='12' depth='-1' position='0 19 6' rotation='0 0 0' color='gray'
   onclick="" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-O-O-O">
 
-<a-sphere id='level1' onmouseenter="progressStatus('level1')" onmouseleave="progressStatus('level1')" position='-5 0 0'radius="1.25" color="#ef2d5e"></a-sphere>
-  <!--<a-sphere id='level1' onclick="progressStatus('level1')" position='-5 0 0'radius="1.25" color="#ef2d5e"></a-sphere>
--->  <a-sphere id='level2' onmouseenter="progressStatus('level2')" onmouseleave="progressStatus('level2')" position='-2 0 0'radius="1.25" color="#fff855"></a-sphere>
-  <a-sphere id='level3' onmouseenter="progressStatus('level3')" onmouseleave="progressStatus('level3')" position='1 0 0'radius="1.25" color="#fff855"></a-sphere>
-  <a-sphere id='level4' onmouseenter="progressStatus('level4')" onmouseleave="progressStatus('level4')" position='4 0 0'radius="1.25" color="#fff855"></a-sphere>
-</a-entity>
+    <a-sphere id='level1' onmouseenter="progressStatus('level1')" onmouseleave="progressStatus('level1')" position='-5 0 0'radius="1.25" color="#ef2d5e"></a-sphere>
+    <a-sphere id='level2' onmouseenter="progressStatus('level2')" onmouseleave="progressStatus('level2')" position='-2 0 0'radius="1.25" color="#fff855"></a-sphere>
+    <a-sphere id='level3' onmouseenter="progressStatus('level3')" onmouseleave="progressStatus('level3')" position='1 0 0'radius="1.25" color="#fff855"></a-sphere>
+    <a-sphere id='level4' onmouseenter="progressStatus('level4')" onmouseleave="progressStatus('level4')" position='4 0 0'radius="1.25" color="#fff855"></a-sphere>
+  </a-entity>
 
-<!--  <a-entity id='progressPl' class='' height='5' width='12' depth='-1' position='32 12 6' rotation='15 -33 0' color='gray'
-  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-O-O-O">
+<!-- Tools/Processes -->
+<a-entity id="tlprEn" position='-36 16 9' rotation='0 45 0'>
 
-  <a-sphere id='level1' onclick="progressStatus('level1')" position='-5 0 0'radius="1.25" color="#ef2d5e"></a-sphere>
-  <a-sphere id='level2' onclick="progressStatus('level2')" position='-2 0 0'radius="1.25" color="#fff855"></a-sphere>
-  <a-sphere id='level3' onclick="progressStatus('level3')" position='1 0 0'radius="1.25" color="#fff855"></a-sphere>
-  <a-sphere id='level4' onclick="progressStatus('level4')" position='4 0 0'radius="1.25" color="#fff855"></a-sphere>
-</a-entity> -->
-  <!-- <a-box id='progressPl' class='' height='5' width='12' depth='-1' position='32 12 6' rotation='15 -33 0' color='gray'
-  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: X-O-O-O"></a-box>
--->
-  <!-- progress status -->
-<!--  <a-box id='screenPl' class='' height='5' width='20' depth='-1' position='32 4 6' rotation='15 -33 0' color='gray'
-  onclick="showChoices('timerPl')" text="color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Explore\nthe sites">
--->
+  <a-box id='toolPrPl' height='5' width='12' depth='-1'  color='gray'
+  onmouseenter='showChoices(true)' text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: Tool\nProcess'></a-box>
+
+  <a-box id='tool1Pl' cursor-listener src="#tool1Image" class='tools' position='-3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
+  visible="false" opacity="1" onclick="selectChoice('tool1Pl','tools')" text='opacity: 1; color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T1'>
+</a-box>
+
+<a-box id='tool1PlInfo' class='toolsInfo' position='3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="exploreToolProcess('tool1PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+</a-box>
+
+<a-box id='tool2Pl' cursor-listener src="#tool2Image" class='tools' position='-3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="selectChoice('tool2Pl','tools')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T2'></a-box>
+
+<a-box id='tool2PlInfo' class='toolsInfo' position='3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="exploreToolProcess('tool2PlInfo')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'></a-box>
+
+<a-box id='tool3Pl' cursor-listener src="#tool3Image" class='tools' position='-3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="selectChoice('tool3Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T3'></a-box>
+
+<a-box id='tool3PlInfo' class='toolsInfo' position='3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="exploreToolProcess('tool3PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
 </a-box>
 
 
-  <!-- Tools/Processes -->
-  <a-entity id="tlprEn" position='-36 16 9' rotation='0 45 0'>
+<a-box id='process1Pl' cursor-listener src="#process1Image" class='processes' position='-3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="selectChoice('process1Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P1'></a-box>
 
-    <a-box id='toolPrPl' height='5' width='12' depth='-1'  color='gray'
-    onmouseenter='showChoices(true)' text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: Tool\nProcess'></a-box>
+<a-box id='process1PlInfo' class='processesInfo' position='3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="exploreToolProcess('process1PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+</a-box>
 
-    <a-box id='tool1Pl' cursor-listener src="#tool1Image" class='tools' position='-3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" opacity="1" onclick="selectChoice('tool1Pl','tools')" text='opacity: 1; color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T1'>
-    </a-box>
+<a-box id='process2Pl' cursor-listener src="#process2Image" class='processes' position='-3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="selectChoice('process2Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P2'></a-box>
 
-    <a-box id='tool1PlInfo' class='toolsInfo' position='3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="exploreToolProcess('tool1PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
-    </a-box>
+<a-box id='process2PlInfo' class='processesInfo' position='3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="exploreToolProcess('process2PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+</a-box>
 
-    <a-box id='tool2Pl' cursor-listener src="#tool2Image" class='tools' position='-3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('tool2Pl','tools')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T2'></a-box>
+<a-box id='process3Pl' cursor-listener src="#process3Image" class='processes' position='-3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="selectChoice('process3Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P3'></a-box>
 
-    <a-box id='tool2PlInfo' class='toolsInfo' position='3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="exploreToolProcess('tool2PlInfo')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'></a-box>
-
-    <a-box id='tool3Pl' cursor-listener src="#tool3Image" class='tools' position='-3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('tool3Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T3'></a-box>
-
-    <a-box id='tool3PlInfo' class='toolsInfo' position='3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="exploreToolProcess('tool3PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
-    </a-box>
-
-
-    <a-box id='process1Pl' cursor-listener src="#process1Image" class='processes' position='-3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('process1Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P1'></a-box>
-
-    <a-box id='process1PlInfo' class='processesInfo' position='3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="exploreToolProcess('process1PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
-    </a-box>
-
-
-    <a-box id='process2Pl' cursor-listener src="#process2Image" class='processes' position='-3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('process2Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P2'></a-box>
-
-    <a-box id='process2PlInfo' class='processesInfo' position='3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="exploreToolProcess('process2PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
-    </a-box>
-
-
-    <a-box id='process3Pl' cursor-listener src="#process3Image" class='processes' position='-3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="selectChoice('process3Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P3'></a-box>
-
-    <a-box id='process3PlInfo' class='processesInfo' position='3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
-    visible="false" onclick="exploreToolProcess('process3PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
-    </a-box>
-
-
-  </a-entity>
-
-  </a-box>
-
-<a-entity id="terrainPls" >
+<a-box id='process3PlInfo' class='processesInfo' position='3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
+visible="false" onclick="exploreToolProcess('process3PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
+</a-box>
 
 </a-entity>
-  <a-plane id="terrain1Pl" tlpr-listener onclick="found(1)" src="#terrain1Image" visible=false position="-10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
-  <a-plane id="terrain3Pl" tlpr-listener onclick="found(3)" src="#terrain3Image" visible=false position="10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
-  <a-plane id="terrain4Pl" tlpr-listener onclick="found(4)" src="#terrain4Image" visible=false position="-10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
-  <a-plane id="terrain2Pl" tlpr-listener onclick="found(2)" src="#terrain2Image" visible=false position="10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
 
-  <!-- screen 4 -->
-  <!-- model 1  and 2-->
- <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
-    <a-obj-model onclick="show3dVR(1)" src="#object_beaker" mtl="#material_beaker" >
-    </a-obj-model>
-    <a-animation attribute="rotation"
-                dur="10000"
-                fill="forwards"
-                to="0 360 0"
-                repeat="indefinite"></a-animation>
-  </a-entity>
+<!-- Excavation Site Terrains -->
+<a-plane id="terrain1Pl" tlpr-listener onclick="found(1)" src="#terrain1Image" visible=false position="-10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+<a-plane id="terrain3Pl" tlpr-listener onclick="found(3)" src="#terrain3Image" visible=false position="10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+<a-plane id="terrain4Pl" tlpr-listener onclick="found(4)" src="#terrain4Image" visible=false position="-10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+<a-plane id="terrain2Pl" tlpr-listener onclick="found(2)" src="#terrain2Image" visible=false position="10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+
+<!-- model 1  and 2-->
+<a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
+  <a-obj-model onclick="show3dVR(1)" src="#object_beaker" mtl="#material_beaker" >
+  </a-obj-model>
+  <a-animation attribute="rotation"
+  dur="10000"
+  fill="forwards"
+  to="0 360 0"
+  repeat="indefinite"></a-animation>
+</a-entity>
 
 
-  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -12.5 8">
-      <a-obj-model onclick="show3dVR(2)" src="#object_avaskull" mtl="#material_avaskull" >
-      </a-obj-model>
-      <a-animation attribute="rotation"
-                  dur="10000"
-                  fill="forwards"
-                  to="0 360 0"
-                  repeat="indefinite"></a-animation>
-    </a-entity>
+<a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -12.5 8">
+  <a-obj-model onclick="show3dVR(2)" src="#object_avaskull" mtl="#material_avaskull" >
+  </a-obj-model>
+  <a-animation attribute="rotation"
+  dur="10000"
+  fill="forwards"
+  to="0 360 0"
+  repeat="indefinite"></a-animation>
+</a-entity>
 
 <!-- model 1 and 2 -->
 
-<!-- working     <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
-    <a-box  onclick="show3dVR(1)" color="#ff6fcf"></a-box>
-    <a-animation attribute="rotation"
-                 dur="10000"
-                 fill="forwards"
-                 to="0 360 0"
-                 repeat="indefinite"></a-animation>
-  </a-entity>
+<!-- working-develop with lightweight models     <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -3.5 37">
+<a-box  onclick="show3dVR(1)" color="#ff6fcf"></a-box>
+<a-animation attribute="rotation"
+dur="10000"
+fill="forwards"
+to="0 360 0"
+repeat="indefinite"></a-animation>
+</a-entity>
 
 
-  <a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 37">
-    <a-plane  onclick="show3dVR(2)" color="#ff6fcf"></a-plane>
-    <a-animation attribute="rotation"
-                 dur="10000"
-                 fill="forwards"
-                 to="0 360 0"
-                 repeat="indefinite"></a-animation>
-  </a-entity>
+<a-entity id="model2En" visible="false" rotation="0 0 0" position="0 -3.5 37">
+<a-plane  onclick="show3dVR(2)" color="#ff6fcf"></a-plane>
+<a-animation attribute="rotation"
+dur="10000"
+fill="forwards"
+to="0 360 0"
+repeat="indefinite"></a-animation>
+</a-entity>
 -->
 
   <a-entity id="posCam" position="0 -5 45">
@@ -269,14 +194,7 @@
     </a-camera>
   </a-entity>
 
-  <!-- <a-sky src="views/img/nmos.in.jpg" color="#FFFFFF" rotation="1  0 0 0"></a-sky> -->
-
-<a-sky src="views/img/Street View 360.jpg" color="#FFFFFF" rotation="0 180 0"></a-sky>
-  <!-- <a-sky src="views/img/homegoogleStreet360.jpg" color="#FFFFFF" rotation="1  0 0 0"></a-sky> -->
-
-  <!--   <a-sky src="img/nmos.in.jpg" color="#FFFFFF" rotation="1  0 0 0"></a-sky>
-  <a-sky src="img/nmos.in.jpg" color="#FFFFFF" rotation="1  0 0 0"></a-sky>
-  <a-sky src="img/p4.jpg" color="#FFFFFF" rotation="1  0 0 0"></a-sky>
---> </a-scene>
+  <a-sky src="views/img/Street View 360.jpg" color="#FFFFFF" rotation="0 180 0"></a-sky>
+</a-scene>
 </body>
 </html>

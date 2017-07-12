@@ -1,62 +1,30 @@
+// Site Exploration
+
 function exploreSite(objId){
-//alert('Hi');
+
   // if tools and processes are visible
   showChoices(false);
-  //if(tlPrVisibility)
-    //showChoices(false);
-
   updateLog(objId);
-
-  //alert('exploreSite');
 
   var sceneEl = document.querySelector('a-scene');
 
-  //alert(sceneEl.querySelector('#'+objId).getAttribute('position').y);
-  /*AFRAME.registerComponent('do-something-once-loaded', {
-  init: function () {
-  // This will be called after the entity has properly attached and loaded.
-  //console.log('I am ready'!);
-  //alert('ready alert');
-}
-});*/
-
   if(!sceneEl.querySelector('#briefPl')){
-
-    /*var animationEl = document.createElement('a-animation');
-
-    animationEl.setAttribute('begin', 'click');
-    animationEl.setAttribute('attribute', 'scale');
-    animationEl.setAttribute('from', '2 2 2');
-    animationEl.setAttribute('to', '1 1 1');
-    sceneEl.querySelector('#'+objId).appendChild(animationEl);*/
-
 
     // create a plane entity
     var entityEl = document.createElement('a-entity');
-    //entityEl.setAttribute('do-something-once-loaded', '');
 
     entityEl.setAttribute('geometry', {
       primitive: 'plane',
       height: 'auto',
       width: 5
     });
-
-//document.querySelector('a-camera')
-//sceneEl.querySelector('#posCam')
-//document.querySelector('a-cursor')
-    var xCamOffset = document.querySelector('a-camera').getAttribute('position').x-20;
-    var yCamOffset = document.querySelector('a-camera').getAttribute('position').y-20;
-
     entityEl.setAttribute('position', {
-      x: 0,//5,//xCamOffset, //-30
-      y: -1,//-5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
-      z: -5//40
+      x: 0,
+      y: -1,
+      z: -5
     });
-
     entityEl.setAttribute('id','briefPl');
-    entityEl.setAttribute('onclick','hideBriefPl();'); // removeBriefPl();
-    //entityEl.setAttribute('onmouseleave','removeBriefPl();');
-    //entityEl.setAttribute('text-align','justify');
+    entityEl.setAttribute('onclick','hideBriefPl();');
 
     var avaTxt = "";
 
@@ -83,12 +51,7 @@ function exploreSite(objId){
     entityEl.setAttribute('text', 'align: left; value: ' + avaTxt);
 
     //reset camera to initial rotation
-    var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
-
-    //entityEl.setAttribute('rotation', cameraEl.getAttribute('rotation'));
-
-    //document.querySelector('#posCam').appendChild(entityEl);
-
+    var cameraEl = document.querySelector('a-camera');
 
     var animationEl = document.createElement('a-animation');
     entityEl.appendChild(animationEl);
@@ -98,69 +61,46 @@ function exploreSite(objId){
     animationEl.setAttribute('to', '1 1 1');
 
     document.querySelector('a-camera').appendChild(entityEl);
-    //sceneEl.appendChild(entityEl);
-
   } else {
 
     hideBriefPl();
-    /*alert('abc - unreachable now');
-    var animationEl = document.createElement('a-animation');
-    sceneEl.querySelector('#briefPl').appendChild(animationEl);
-    animationEl.setAttribute('begin', '');
-    animationEl.setAttribute('attribute', 'position');
-    animationEl.setAttribute('from', '0 -1 -5');
-    animationEl.setAttribute('to', '0 -10 -5');*/
-
-    //document.querySelector('#posCam').removeChild(sceneEl.querySelector('#briefPl'));
-    //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));
-    //sceneEl.removeChild(sceneEl.querySelector('#briefPl'));
-
-    /*var animationEl = document.createElement('a-animation');
-    sceneEl.querySelector('#'+objId).appendChild(animationEl);
-    animationEl.setAttribute('begin', 'click');
-    animationEl.setAttribute('attribute', 'scale');
-    animationEl.setAttribute('from', '1 1 1');
-    animationEl.setAttribute('to', '2 2 2');*/
   }
 }
 
  function hideBriefPl(){
+
    if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
-//alert('clicked');
+
      var animationEl = document.createElement('a-animation');
      document.querySelector('a-camera').querySelector('#briefPl').appendChild(animationEl);
      animationEl.setAttribute('begin', '');
      animationEl.setAttribute('dur', '2000');
      animationEl.setAttribute('attribute', 'position');
-     //animationEl.setAttribute('from', '0 -1 -5');
      animationEl.setAttribute('to', '0 -10 -5');
 
-      setTimeout("removeBriefPl()", 2000);
-     //document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
+     setTimeout("removeBriefPl()", 2000); // call method after 2 seconds of complete animation
    }
  }
 
  function hideScaleBriefPl(){
+
    if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
- //alert('clicked');
+
      var animationEl = document.createElement('a-animation');
      document.querySelector('a-camera').querySelector('#briefPl').appendChild(animationEl);
      animationEl.setAttribute('begin', '');
      animationEl.setAttribute('dur', '2000');
      animationEl.setAttribute('attribute', 'scale');
-     //animationEl.setAttribute('from', '1 1 1');
      animationEl.setAttribute('to', '0 0 0');
 
       setTimeout("removeBriefPl()", 2000);
-     //document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
    }
  }
 
+function removeBriefPl(){
 
-   function removeBriefPl(){
-     //alert('after 3 seconds');
-     if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
+  if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
 
-       document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
-     }
-   }
+   document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
+  }
+ }

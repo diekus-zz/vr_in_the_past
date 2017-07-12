@@ -1,11 +1,6 @@
-var accessLog = [];
+// Utility
 
-/*AFRAME.registerComponent('alpha-test', {
-  dependencies: ['material'],
-  init: function () {
-    //this.el.getObject3D('mesh').material.alphaTest = 0.5;
-  }
-});*/
+var accessLog = [];
 
 function updateLog(objId){
 
@@ -22,7 +17,7 @@ function updateLog(objId){
   }
 }
 
-// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+// shuffle algorithm
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -43,24 +38,18 @@ function shuffle(array) {
 }
 
 // penality for each try
-var minutes = 0; // day eq in-game minute
+var minutes = 0; // A day equals to an in-game minute
 var daysSpentLearning = 0;
 var daysSpentInTotal = 0;
 var exploredByDay = 0;
 var firstSiteExcavatedByDay = 0;
 var secondSiteExcavatedByDay = 0;
+
 // timer in days / 4 weeks
-//https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
-//https://stackoverflow.com/questions/1197928/how-to-add-30-minutes-to-a-javascript-date-object
-
-// Set the date we're counting down to
-//var countDownDate = new Date("Jun 14, 2017 20:20:00").getTime();
-
 var d1 = new Date (),
 d2 = new Date ( d1 );
 d2.setMinutes ( d1.getMinutes() + 21 );
 
-//alert ( d2 );
 countDownDate = d2;
 
 // Update the count down every 1 second
@@ -81,21 +70,9 @@ var x = setInterval(function() {
 
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-
-  //console.log('daysSpentLearning ' + daysSpentLearning + ' minutes ' + minutes + ' seconds ' + seconds);
-  // Output the result in an element with id="timerPl"
   document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: Day ' + daysSpentInTotal  +'/\n 4 Weeks');
-  //document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value:' + minutes  +' Day(s)/\n 4 Weeks');
 
-  //alert('min b4 penality ' + minutes);
-
-  //alert('min after penality ' + minutes);
-  // If the count down is over, write some text
-
-
-  /*if(minutes == 20 && seconds < 58 && seconds > 56)
-    alertInfo(minutes + ' days remaining');*/
-
+  // Gentle per minute reminder in last 4 minutes
   if(minutes == 4 && seconds < 50 && seconds > 48)
     alertInfo(minutes + ' days remaining');
 
@@ -113,66 +90,36 @@ var x = setInterval(function() {
     document.querySelector('#timerPl').setAttribute('text', 'color: #fff855; alphaTest: 0; align: center; wrapCount: 15; letterSpacing: 10; value: Out of\n Funds');
     window.open('/', '_self');
   }
-  //daysSpentLearning = 0;
 }, 1000);
 
-// Alert plane
+// Alert Info
 function alertInfo(infoTxt){
 
   var sceneEl =  document.querySelector('a-scene');
 
   if(!sceneEl.querySelector('#alertInfoPl')){
 
-//alert('called 1');
-
     // create a plane entity
     var entityEl = document.createElement('a-entity');
-    //entityEl.setAttribute('do-something-once-loaded', '');
 
     entityEl.setAttribute('geometry', {
       primitive: 'plane',
       height: 0.5,
-      width: 4//,
-      //depth: -1
+      width: 4
     });
-
-//document.querySelector('a-camera')
-//sceneEl.querySelector('#posCam')
-//document.querySelector('a-cursor')
-    var xCamOffset = document.querySelector('a-camera').getAttribute('position').x-20;
-    var yCamOffset = document.querySelector('a-camera').getAttribute('position').y-20;
-
     entityEl.setAttribute('position', {
-      x: 0,//5,//xCamOffset, //-30
-      y: -0.3,//-5,//yCamOffset,//sceneEl.querySelector('#'+objId).getAttribute('position').y-20,
-      z: -4.5//40
+      x: 0,
+      y: -0.3,
+      z: -4.5
     });
 
     entityEl.setAttribute('id','alertInfoPl');
-    //entityEl.setAttribute('onclick',"removePl('alertInfoPl')");
-
     entityEl.setAttribute('material', 'color', 'gray');
     entityEl.setAttribute('material', 'opacity', '0');
     entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 30; letterSpacing: 1; value: ' + infoTxt);
 
     //reset camera to initial rotation
-    var cameraEl = document.querySelector('a-camera');//sceneEl.querySelector('#posCam');//
-
-    //entityEl.setAttribute('rotation', cameraEl.getAttribute('rotation'));
-
-    //document.querySelector('#posCam').appendChild(entityEl);
-
-    //sceneEl.appendChild(entityEl);
-
-    //Add animation of scaling up to one for dur eq delay of scaling down
-/*    var animationEl1 = document.createElement('a-animation');
-
-    animationEl1.setAttribute('dur', '1000');
-    animationEl1.setAttribute('attribute', 'scale');
-    animationEl1.setAttribute('from', '0 0 0');
-    animationEl1.setAttribute('to', '1 1 1');
-    entityEl.appendChild(animationEl1);*/
-
+    var cameraEl = document.querySelector('a-camera');
 
     //Add animation of scaling down to zero
     var animationEl2 = document.createElement('a-animation');
@@ -184,19 +131,10 @@ function alertInfo(infoTxt){
     entityEl.appendChild(animationEl2);
 
     document.querySelector('a-camera').appendChild(entityEl);
-    //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
-
-    //setTimeout(document.querySelector('a-camera').removeChild(entityEl), 3000);
   } else {
-//alert('called 2');
 
-    //document.querySelector('#posCam').removeChild(sceneEl.querySelector('#briefPl'));
     document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
-    //sceneEl.removeChild(sceneEl.querySelector('#briefPl'));
   }
-
-
-
 }
 
 function removePl(elementInfoPl){
@@ -209,27 +147,21 @@ function removePl(elementInfoPl){
 function visItAnimation(entityEl, isVisible){
 
   if (!isVisible) {
-//alert('scaling down');
+
     var animationEl2 = document.createElement('a-animation');
     animationEl2.setAttribute('dur', '3000');
     animationEl2.setAttribute('attribute', 'opacity');
     animationEl2.setAttribute('from', '1');
     animationEl2.setAttribute('to', '0');
-    //alert(entityEl.getAttribute('text').opacity);
-    //entityEl.getAttribute('text').opacity = 0.1;
-    //animationEl2.setAttribute('text', 'opacity', '0');
     entityEl.appendChild(animationEl2);
-
   }
   if (isVisible) {
 
     var animationEl1 = document.createElement('a-animation');
-
     animationEl1.setAttribute('dur', '3000');
     animationEl1.setAttribute('attribute', 'opacity');
     animationEl1.setAttribute('from', '0');
     animationEl1.setAttribute('to', '1');
-    //animationEl1.setAttribute('text', 'opacity', '0.1');
     entityEl.appendChild(animationEl1);
   }
 }
@@ -238,7 +170,7 @@ function visItAnimation(entityEl, isVisible){
 function scaleItAnimation(entityEl, isVisible){
 
   if (!isVisible) {
-//alert('scaling down');
+
     var animationEl2 = document.createElement('a-animation');
     animationEl2.setAttribute('dur', '1000');
     animationEl2.setAttribute('attribute', 'scale');
@@ -249,7 +181,6 @@ function scaleItAnimation(entityEl, isVisible){
   if (isVisible) {
 
     var animationEl1 = document.createElement('a-animation');
-
     animationEl1.setAttribute('dur', '1000');
     animationEl1.setAttribute('attribute', 'scale');
     animationEl1.setAttribute('from', '0 0 0');
@@ -258,61 +189,33 @@ function scaleItAnimation(entityEl, isVisible){
   }
 }
 
-// Component to change to random color on click.
+// Component to zoom in tool/process image on click
 AFRAME.registerComponent('cursor-listener', {
   init: function () {
-    //var COLORS = ['red', 'green', 'blue'];
+
     this.el.addEventListener('click', function (evt) {
-      //alert('click');
-//alert(this.getAttribute('id'));
+
       exploreWithPic(this.getAttribute('id'));
-      //tip(this.getAttribute('id'));
-      //tip(this.getAttribute('text').value);
-
-      //document.querySelector('a-camera').removeChild(sceneEl.querySelector('#alertInfoPl'));
-      //var randomIndex = Math.floor(Math.random() * COLORS.length);
-      //this.setAttribute('material', 'color', COLORS[randomIndex]);
-      //console.log('I was clicked at: ', evt.detail.intersection.point);
-    });
-    this.el.addEventListener('mouseenter', function (evt) {
-      //alert('mouseenter');
-
-      //tlPrId, objCl
-      //alert(this.getAttribute('id'));
-      //alert(this.getAttribute('class'));
-
-      //var randomIndex = Math.floor(Math.random() * COLORS.length);
-      //this.setAttribute('material', 'color', COLORS[randomIndex]);
-      //console.log('I was clicked at: ', evt.detail.intersection.point);
     });
     this.el.addEventListener('mouseleave', function (evt) {
-      //alert('mouseleave');
 
       if(document.querySelector('a-scene').querySelector('#alertInfoPl') != null)
       document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#alertInfoPl'));
-      //var randomIndex = Math.floor(Math.random() * COLORS.length);
-      //this.setAttribute('material', 'color', COLORS[randomIndex]);
-      //console.log('I was clicked at: ', evt.detail.intersection.point);
     });
   }
 });
 
-// Component to change to random color on click.
+// Component to animate selected tool and process on mouse enter and on mouse leave
 AFRAME.registerComponent('tlpr-listener', {
   init: function () {
 
-    this.el.addEventListener('click', function (evt) {
-
-      //alert('clicked');
-      //exploreWithPic(this.getAttribute('id'));
-    });
     this.el.addEventListener('mouseenter', function (evt) {
 
       if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null
       || document.querySelector('a-scene').querySelector('#prExcaAni') != null
       || toolSelectedId != 'tool1Pl'
       || processSelectedId != 'process1Pl') return false;
-      //alert('mouse entered');
+
       // attach tool to cursor
       var entityEl = document.createElement('a-entity');
       entityEl.setAttribute('geometry', {
@@ -326,7 +229,6 @@ AFRAME.registerComponent('tlpr-listener', {
         y: 0,
         z: -5
       });
-
       entityEl.setAttribute('id','tlExcaAni');
       entityEl.setAttribute('material', 'color', '#cccccc');
       entityEl.setAttribute('material', 'src', '#tool1Image');
@@ -367,7 +269,6 @@ AFRAME.registerComponent('tlpr-listener', {
         y: 0,
         z: -5
       });
-
       entityEl.setAttribute('id','prExcaAni');
       entityEl.setAttribute('material', 'color', '#cccccc');
       entityEl.setAttribute('material', 'src', '#process1Image');
@@ -394,13 +295,9 @@ AFRAME.registerComponent('tlpr-listener', {
       animationEl2.setAttribute('repeat', 'indefinite');
 
       document.querySelector('a-camera').appendChild(entityEl);
-
-
     });
     this.el.addEventListener('mouseleave', function (evt) {
 
-
-      //alert('mouse left');
       if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null)
       document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAni'));
 
@@ -411,17 +308,11 @@ AFRAME.registerComponent('tlpr-listener', {
 });
 
 function attachTlPrToCam(idNum){
-  //alert('attached');
 
   if (idNum == 3 || idNum == 4) return false;
 
-  //alert('idNum' + idNum);
-  //alert('toolSelectedId' + toolSelectedId);
-  //alert('processSelectedId' + processSelectedId);
-
   if(idNum == 1 && toolSelectedId == 'tool2Pl'&& processSelectedId == 'process2Pl'){
 
-    //alert('mouse entered');
     // attach tool to cursor
     var entityEl = document.createElement('a-entity');
     entityEl.setAttribute('geometry', {
@@ -437,9 +328,7 @@ function attachTlPrToCam(idNum){
     });
 
     entityEl.setAttribute('id','tlExcaAniLarge');
-    //color='#cccccc'
     entityEl.setAttribute('material', 'color', '#cccccc');
-    //entityEl.setAttribute('material', 'src', '#tool2Image');
     entityEl.setAttribute('opacity', '0.8');
     entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: T2');
 
@@ -488,10 +377,8 @@ function attachTlPrToCam(idNum){
       y: 0,
       z: -5
     });
-
     entityEl.setAttribute('id','prExcaAniLarge');
     entityEl.setAttribute('material', 'color', '#cccccc');
-    //entityEl.setAttribute('material', 'src', '#process2Image');
     entityEl.setAttribute('opacity', '0.8');
     entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: P2');
 
@@ -526,12 +413,10 @@ function attachTlPrToCam(idNum){
     animationEl3.setAttribute('repeat', 'indefinite');
 
     document.querySelector('a-camera').appendChild(entityEl);
-
   }
 
   if(idNum == 2 && toolSelectedId == 'tool3Pl'&& processSelectedId == 'process3Pl'){
 
-    //alert('mouse entered');
     // attach tool to cursor
     var entityEl = document.createElement('a-entity');
     entityEl.setAttribute('geometry', {
@@ -548,7 +433,6 @@ function attachTlPrToCam(idNum){
 
     entityEl.setAttribute('id','tlExcaAniLarge');
     entityEl.setAttribute('material', 'color', '#cccccc');
-    //entityEl.setAttribute('material', 'src', '#tool3Image');
     entityEl.setAttribute('opacity', '0.8');
     entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: T3');
 
@@ -600,7 +484,6 @@ function attachTlPrToCam(idNum){
 
     entityEl.setAttribute('id','prExcaAniLarge');
     entityEl.setAttribute('material', 'color', '#cccccc');
-    //entityEl.setAttribute('material', 'src', '#process3Image');
     entityEl.setAttribute('opacity', '0.8');
     entityEl.setAttribute('text', 'color: #23ef54; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value: P3');
 
@@ -640,7 +523,8 @@ function attachTlPrToCam(idNum){
 
 }
 function removeTlPrFromCam(){
-  //alert('dettached');
+
+
   if(document.querySelector('a-scene').querySelector('#tlExcaAniLarge') != null)
   document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAniLarge'));
 

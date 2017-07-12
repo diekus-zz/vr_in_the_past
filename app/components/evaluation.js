@@ -1,9 +1,9 @@
+// Evaluation/Records Keeping
+
 module.exports = {
   recordPreTest: function (query, playerCount) {
-  //recordPreTest: function (name, age, sex) { //eval.recordPreTest(query.name, query.age, query.sex);
 
     var fs = require('fs');
-
     var data = '\n';
 
     // Player data
@@ -37,16 +37,15 @@ module.exports = {
       text: data
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
+    /*transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
       }
-    });
+    });*/
   },
   recordSummary: function (query, playerCount) {
-  //recordPreTest: function (name, age, sex) { //eval.recordPreTest(query.name, query.age, query.sex);
 
     var fs = require('fs');
     var data = '';
@@ -84,19 +83,17 @@ module.exports = {
       text: data
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
+    /*transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
       }
-    });
+    });*/
   },
   recordPostTest: function (query, playerCount) {
-  //recordPreTest: function (name, age, sex) { //eval.recordPreTest(query.name, query.age, query.sex);
 
     var fs = require('fs');
-
     var data = '';
 
     // post test data
@@ -132,12 +129,12 @@ module.exports = {
       ]
     };
 
-    transporter.sendMail(mailOptions, function(error, info){
+    /*transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
       }
-    });
+    });*/
   }
 };
