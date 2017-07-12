@@ -1,6 +1,0 @@
-
-@player 1
-Simba*21*F
-yes*yes*no*false*dagger
-avaCo$rignOfStones$edinburghCastle$herosCairn$mysteriesOfMummies$*1*18*14*17*18
-yes*yes*no*false*dagger
