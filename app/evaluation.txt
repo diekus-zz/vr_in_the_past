@@ -1,6 +1,0 @@
-
-@player 1
-qq*2*F
-yes*yes*yes*true*knife
-avaCo$*0*2*1*2*2
-yes*yes*yes*true*knife

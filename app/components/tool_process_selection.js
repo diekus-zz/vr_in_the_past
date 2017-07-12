@@ -157,19 +157,19 @@ function exploreToolProcess(objId){
     }
     if(objId === 'tool2PlInfo'){
 
-      tlPrTxt = "Tool:-Riso Minisys Machine is used for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is used with the process Thermoluminescence Dating (P2).\n\nIt costs £250 per sample.\n";
+      tlPrTxt = "Tool:-Riso Minisys Machine is used for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is used with the process Thermoluminescence Dating (P2).\n\nIt costs 250 pounds per sample.\n";
     }
     if(objId === 'tool3PlInfo'){
-      tlPrTxt = "Tool:-Accelerator Mass Spectrometry is used for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is used with the process Radiocarbon Dating (P3).\n\nIt costs £350 per sample.\n";
+      tlPrTxt = "Tool:-Accelerator Mass Spectrometry is used for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is used with the process Radiocarbon Dating (P3).\n\nIt costs 350 pounds per sample.\n";
     }
     if(objId === 'process1PlInfo'){
       tlPrTxt = 'Process:-Macroscopic Analysis is done for identifying excation sites. It is carried out with an Expert in the field (T1).\n\nThe consultation, usually, does not cost anything.\n';
     }
     if(objId === 'process2PlInfo'){
-      tlPrTxt = "Process:-Thermoluminescence Dating is done for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is carried out with the tool Riso Minisys Machine (T2).\n\nIt costs £250 per sample.\n";
+      tlPrTxt = "Process:-Thermoluminescence Dating is done for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is carried out with the tool Riso Minisys Machine (T2).\n\nIt costs 250 pounds per sample.\n";
     }
     if(objId === 'process3PlInfo'){
-      tlPrTxt = "Process:-Radiocarbon Dating is done for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is carried out with the tool Accelerator Mass Spectrometry (T3).\n\nIt costs £350 per sample.\n";
+      tlPrTxt = "Process:-Radiocarbon Dating is done for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is carried out with the tool Accelerator Mass Spectrometry (T3).\n\nIt costs 350 pounds per sample.\n";
     }
 
     entityEl.setAttribute('material', 'color', 'gray');

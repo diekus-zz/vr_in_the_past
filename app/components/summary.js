@@ -1,6 +1,6 @@
 // summaryLog
 
-function summaryLog(){
+function summary(){
 
   // hide game planes
   hideGamePanes();

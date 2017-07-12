@@ -37,13 +37,13 @@ module.exports = {
       text: data
     };
 
-    /*transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
       }
-    });*/
+    });
   },
   recordSummary: function (query, playerCount) {
 
@@ -83,13 +83,13 @@ module.exports = {
       text: data
     };
 
-    /*transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
       }
-    });*/
+    });
   },
   recordPostTest: function (query, playerCount) {
 
@@ -129,12 +129,12 @@ module.exports = {
       ]
     };
 
-    /*transporter.sendMail(mailOptions, function(error, info){
+    transporter.sendMail(mailOptions, function(error, info){
       if (error) {
         console.log(error);
       } else {
         console.log('Email sent: ' + info.response);
       }
-    });*/
+    });
   }
 };
