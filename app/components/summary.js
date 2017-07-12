@@ -46,6 +46,16 @@ function showSummary(){
 
   var summaryLog = '';
   var summaryTxt = "";
+  var sites = "";
+  var siteLog = "";
+
+  for(var i=0; i < accessLog.length; i++){
+    if (i <= accessLog.length-1) {
+      siteLog += accessLog[i] + "$";
+    }else {
+      siteLog += accessLog[i];
+    }
+  }
 
   summaryTxt += "Dear player,\n\n"
   summaryTxt += "\tThank you for playing the game 'VR in the Past'.\n\n"
@@ -53,19 +63,9 @@ function showSummary(){
   if(accessLog.length == 0){
 
     summaryTxt += "You did not explore any archaeological site.\n\n";
+    siteLog = "none";
   } else{
     summaryTxt += "You explored ";
-
-    var sites = "";
-    var siteLog = "";
-
-    for(var i=0; i < accessLog.length; i++){
-      if (i <= accessLog.length-1) {
-        siteLog += accessLog[i] + "$";
-      }else {
-        siteLog += accessLog[i];
-      }
-    }
 
     for(var i=0; i < accessLog.length; i++){
 
