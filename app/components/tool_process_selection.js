@@ -234,24 +234,24 @@ function exploreToolProcess(objId){
 
     if(objId === 'tool1PlInfo'){
 
-      tlPrTxt = "Tool:-Expert in the Field like Osteoarchaeologist is consulted for identifying the excation sites. This (tool) is used with the process 'Macroscopic Analysis'.\n\nThe consultation, usually, does not cost anything.\n";
+      tlPrTxt = "Tool:-Expert in the Field like Osteoarchaeologist is consulted for identifying the excation sites. This (tool) is used with the process Macroscopic Analysis (P1).\n\nThe consultation, usually, does not cost anything.\n";
       //tlPrTxt = "Welcome to the Achavanich Beaker Burial Project!\n\nIn 1987 the remains of an individual buried over 3,700 years ago was discovered at Achavanich in Caithness in the north of Scotland. The site was rescued and excavated by the Highland Regional Council Archaeology Unit. However, unfortunate circumstances led to the site being mostly forgotten about over the next three decades, but it still had so much to offer and to teach us about the Middle Bronze Age in Northern Scotland.\n";
     }
     if(objId === 'tool2PlInfo'){
 
-      tlPrTxt = "Tool:-Riso Minisys Machine is used for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is used with the process Thermoluminescence Dating.\n\nIt costs £250 per sample.\n";
+      tlPrTxt = "Tool:-Riso Minisys Machine is used for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is used with the process Thermoluminescence Dating (P2).\n\nIt costs £250 per sample.\n";
     }
     if(objId === 'tool3PlInfo'){
-      tlPrTxt = "Tool:-Accelerator Mass Spectrometry is used for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is used with the process Radiocarbon Dating.\n\nIt costs £350 per sample.\n";
+      tlPrTxt = "Tool:-Accelerator Mass Spectrometry is used for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is used with the process Radiocarbon Dating (P3).\n\nIt costs £350 per sample.\n";
     }
     if(objId === 'process1PlInfo'){
-      tlPrTxt = 'Process:-Macroscopic Analysis is done for identifying excation sites. It is carried out with an Expert in the field (tool).\n\nThe consultation, usually, does not cost anything.\n';
+      tlPrTxt = 'Process:-Macroscopic Analysis is done for identifying excation sites. It is carried out with an Expert in the field (T1).\n\nThe consultation, usually, does not cost anything.\n';
     }
     if(objId === 'process2PlInfo'){
-      tlPrTxt = "Process:-Thermoluminescence Dating is done for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is carried out with the tool Riso Minisys Machine.\n\nIt costs £250 per sample.\n";
+      tlPrTxt = "Process:-Thermoluminescence Dating is done for dating of inorganic materials like Ceramic pottery (for example, the beaker). It is carried out with the tool Riso Minisys Machine (T2).\n\nIt costs £250 per sample.\n";
     }
     if(objId === 'process3PlInfo'){
-      tlPrTxt = "Process:-Radiocarbon Dating is done for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is carried out with the tool Accelerator Mass Spectrometry.\n\nIt costs £350 per sample.\n";
+      tlPrTxt = "Process:-Radiocarbon Dating is done for dating of organic materials like human remains, flora and fauna (for example, Ava's skull). It is carried out with the tool Accelerator Mass Spectrometry (T3).\n\nIt costs £350 per sample.\n";
     }
 
     entityEl.setAttribute('material', 'color', 'gray');
