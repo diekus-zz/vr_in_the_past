@@ -132,6 +132,7 @@ function exploreToolProcess(objId){
 
   if(!sceneEl.querySelector('#briefPl')){
 
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
     // create a plane entity
     var entityEl = document.createElement('a-entity');
 
@@ -201,6 +202,7 @@ function exploreWithPic(objId){
 
   if(!sceneEl.querySelector('#briefPl')){
 
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
     // create a plane entity
     var entityEl = document.createElement('a-entity');
 
@@ -263,15 +265,6 @@ function exploreWithPic(objId){
     animationEl1.setAttribute('to', '1 1 1');
     entityEl.appendChild(animationEl1);
 
-    //Add animation of scaling down to zero
-    var animationEl2 = document.createElement('a-animation');
-
-    animationEl2.setAttribute('delay', '10000');
-    animationEl2.setAttribute('dur', '2000');
-    animationEl2.setAttribute('attribute', 'scale');
-    animationEl2.setAttribute('from', '1 1 1');
-    animationEl2.setAttribute('to', '0 0 0');
-    entityEl.appendChild(animationEl2);
   } else {
 
     document.querySelector('a-camera').removeChild(sceneEl.querySelector('#briefPl'));

@@ -211,6 +211,8 @@ AFRAME.registerComponent('tlpr-listener', {
 
     this.el.addEventListener('mouseenter', function (evt) {
 
+      document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+
       if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null
       || document.querySelector('a-scene').querySelector('#prExcaAni') != null
       || toolSelectedId != 'tool1Pl'
@@ -298,16 +300,20 @@ AFRAME.registerComponent('tlpr-listener', {
     });
     this.el.addEventListener('mouseleave', function (evt) {
 
+      document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'true');
+
       if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null)
-      document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAni'));
+        document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAni'));
 
       if(document.querySelector('a-scene').querySelector('#prExcaAni') != null)
-      document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#prExcaAni'));
+        document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#prExcaAni'));
     });
   }
 });
 
 function attachTlPrToCam(idNum){
+
+  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
 
   if (idNum == 3 || idNum == 4) return false;
 
@@ -417,6 +423,7 @@ function attachTlPrToCam(idNum){
 
   if(idNum == 2 && toolSelectedId == 'tool3Pl'&& processSelectedId == 'process3Pl'){
 
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
     // attach tool to cursor
     var entityEl = document.createElement('a-entity');
     entityEl.setAttribute('geometry', {
@@ -524,6 +531,7 @@ function attachTlPrToCam(idNum){
 }
 function removeTlPrFromCam(){
 
+  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'true');
 
   if(document.querySelector('a-scene').querySelector('#tlExcaAniLarge') != null)
   document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAniLarge'));

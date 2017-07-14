@@ -10,6 +10,7 @@ function exploreSite(objId){
 
   if(!sceneEl.querySelector('#briefPl')){
 
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
     // create a plane entity
     var entityEl = document.createElement('a-entity');
 
@@ -100,7 +101,7 @@ function exploreSite(objId){
 function removeBriefPl(){
 
   if(document.querySelector('a-camera').querySelector('#briefPl')!= null){
-
+   document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'true');
    document.querySelector('a-camera').removeChild(document.querySelector('a-camera').querySelector('#briefPl'));
   }
  }

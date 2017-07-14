@@ -1,0 +1,73 @@
+
+@player 1
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 2
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 3
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 4
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 5
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 6
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 7
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 8
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 9
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 10
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 11
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 12
+qw*17*F
+yes*yes*yes*true*knife
+
+@player 13
+qw*17*F
+yes*yes*yes*true*knife
+mysteriesOfMummies$*4*8*1*5*8
+yes*yes*yes*true*knife
+
+@player 14
+ki*34*F
+yes*yes*yes*true*knife
+
+@player 15
+ki*34*F
+yes*yes*yes*true*knife
+
+@player 16
+ki*34*F
+yes*yes*yes*true*knife
+none*6*13*1*9*13
+yes*yes*yes*true*knife
+
+@player 17
+ado*32*M
+yes*yes*yes*true*knife
+avaCo$mysteriesOfMummies$*2*7*2*6*7

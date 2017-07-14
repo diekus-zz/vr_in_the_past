@@ -2,6 +2,8 @@
 
 function summary(){
 
+  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+
   // hide game planes
   hideGamePanes();
 
