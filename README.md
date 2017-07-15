@@ -38,6 +38,20 @@
 4. Inclusion of any media files like audio, video and texts regarding archaeological domain to make the user experience better
 5. (Non-Functional Requirement) Static code analysis using Sonarqube to reduce code duplicacy and improve coding standards
 
+  Testing
+================
+  Tested with Mozilla Firefox, Google Chrome and Amazon Silk web browsers
+  Tested on Ubuntu laptop and Android mobiles
+
+
+  Known Issues
+================
+
+1. SetTimeout is not working, ie timing out immediately, in Google Chrome web browser
+2. Audio is loaded twice so as to enable backbround music on laptop Firefox browser
+3. Images are not in the power of two so A-frame spends time in converting them to the power of two (width x height in pixels)
+4. Faced the error 'Rats! WebGL hit a snag!' on Amazon Silk browser while loading obj model on Kindle Fire
+
 
   References
 ================

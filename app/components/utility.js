@@ -190,7 +190,7 @@ function scaleItAnimation(entityEl, isVisible){
 }
 
 // Component to zoom in tool/process image on click
-AFRAME.registerComponent('cursor-listener', {
+AFRAME.registerComponent('tlprimg-listener', {
   init: function () {
 
     this.el.addEventListener('click', function (evt) {
@@ -206,12 +206,12 @@ AFRAME.registerComponent('cursor-listener', {
 });
 
 // Component to animate selected tool and process on mouse enter and on mouse leave
-AFRAME.registerComponent('tlpr-listener', {
+AFRAME.registerComponent('selectedtlpr-listener', {
   init: function () {
 
     this.el.addEventListener('mouseenter', function (evt) {
 
-      document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+      document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor','fuse', false);
 
       if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null
       || document.querySelector('a-scene').querySelector('#prExcaAni') != null
@@ -300,7 +300,7 @@ AFRAME.registerComponent('tlpr-listener', {
     });
     this.el.addEventListener('mouseleave', function (evt) {
 
-      document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'true');
+      document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', true);
 
       if(document.querySelector('a-scene').querySelector('#tlExcaAni') != null)
         document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAni'));
@@ -313,7 +313,7 @@ AFRAME.registerComponent('tlpr-listener', {
 
 function attachTlPrToCam(idNum){
 
-  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false);
 
   if (idNum == 3 || idNum == 4) return false;
 
@@ -352,7 +352,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl2);
     animationEl2.setAttribute('delay', '1000');
     animationEl2.setAttribute('begin', '');
-    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('dur', '3000');
     animationEl2.setAttribute('attribute', 'material.color');
     animationEl2.setAttribute('from', '#cccccc');
     animationEl2.setAttribute('to', 'red');
@@ -362,7 +362,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl3);
     animationEl3.setAttribute('delay', '1000');
     animationEl3.setAttribute('begin', '');
-    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('dur', '3000');
     animationEl3.setAttribute('attribute', 'rotation');
     animationEl3.setAttribute('from', '0 0 0');
     animationEl3.setAttribute('to', '0 360 0');
@@ -402,7 +402,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl2);
     animationEl2.setAttribute('delay', '1000');
     animationEl2.setAttribute('begin', '');
-    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('dur', '3000');
     animationEl2.setAttribute('attribute', 'material.color');
     animationEl2.setAttribute('from', '#cccccc');
     animationEl2.setAttribute('to', 'red');
@@ -412,7 +412,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl3);
     animationEl3.setAttribute('delay', '1000');
     animationEl3.setAttribute('begin', '');
-    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('dur', '3000');
     animationEl3.setAttribute('attribute', 'rotation');
     animationEl3.setAttribute('from', '0 0 0');
     animationEl3.setAttribute('to', '0 360 0');
@@ -423,7 +423,7 @@ function attachTlPrToCam(idNum){
 
   if(idNum == 2 && toolSelectedId == 'tool3Pl'&& processSelectedId == 'process3Pl'){
 
-    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false);
     // attach tool to cursor
     var entityEl = document.createElement('a-entity');
     entityEl.setAttribute('geometry', {
@@ -457,7 +457,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl2);
     animationEl2.setAttribute('delay', '1000');
     animationEl2.setAttribute('begin', '');
-    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('dur', '3000');
     animationEl2.setAttribute('attribute', 'material.color');
     animationEl2.setAttribute('from', '#cccccc');
     animationEl2.setAttribute('to', 'red');
@@ -467,7 +467,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl3);
     animationEl3.setAttribute('delay', '1000');
     animationEl3.setAttribute('begin', '');
-    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('dur', '3000');
     animationEl3.setAttribute('attribute', 'rotation');
     animationEl3.setAttribute('from', '0 0 0');
     animationEl3.setAttribute('to', '0 360 0');
@@ -508,7 +508,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl2);
     animationEl2.setAttribute('delay', '1000');
     animationEl2.setAttribute('begin', '');
-    animationEl2.setAttribute('dur', '4000');
+    animationEl2.setAttribute('dur', '3000');
     animationEl2.setAttribute('attribute', 'material.color');
     animationEl2.setAttribute('from', '#cccccc');
     animationEl2.setAttribute('to', 'red');
@@ -518,7 +518,7 @@ function attachTlPrToCam(idNum){
     entityEl.appendChild(animationEl3);
     animationEl3.setAttribute('delay', '1000');
     animationEl3.setAttribute('begin', '');
-    animationEl3.setAttribute('dur', '6000');
+    animationEl3.setAttribute('dur', '3000');
     animationEl3.setAttribute('attribute', 'rotation');
     animationEl3.setAttribute('from', '0 0 0');
     animationEl3.setAttribute('to', '0 360 0');
@@ -531,7 +531,7 @@ function attachTlPrToCam(idNum){
 }
 function removeTlPrFromCam(){
 
-  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'true');
+  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', true);
 
   if(document.querySelector('a-scene').querySelector('#tlExcaAniLarge') != null)
   document.querySelector('a-camera').removeChild(document.querySelector('a-scene').querySelector('#tlExcaAniLarge'));

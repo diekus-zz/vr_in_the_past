@@ -16,9 +16,12 @@
 
 <body>
 
+
   <a-scene sound="volume: 100; autoplay: true; loop:true; src: #backgroundMusic" physics="debug: false">
 
     <a-assets>
+      <audio id="backgroundMusic" src="./sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
+
       <img id="transpImage" src="views/img/map.png">
 
       <img id="sti1Image" src="views/img/sticker1.png">
@@ -44,14 +47,13 @@
       <img id="process2ZoomedImage" src="views/img/art-tl-thermo.jpg">
       <img id="process3ZoomedImage" src="views/img/radiocarbonZoomed.jpg">
 
-      <audio id="backgroundMusic" src="sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
-
       <a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
       <a-asset-item id="material_beaker" src="models/beaker/beaker_real.mtl"></a-asset-item>
       <a-asset-item id="object_avaskull" src="models/ava_skull/ava_skull.obj"></a-asset-item>
       <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
     </a-assets>
 
+    <a-sound volume="100" autoplay="true" loop="true"  src="#backgroundMusic" position="0 0 -25"></a-sound>
     <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
 
     <!-- Site Exploration -->
@@ -90,7 +92,7 @@
   <a-box id='toolPrPl' height='5' width='12' depth='-1'  color='gray'
   onmouseenter='showChoices(true)' text='color: #fff855; alphaTest: 0; align: center; wrapCount: 10; letterSpacing: 10; value: Tool\nProcess'></a-box>
 
-  <a-box id='tool1Pl' cursor-listener src="#tool1Image" class='tools' position='-3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
+  <a-box id='tool1Pl' tlprimg-listener src="#tool1Image" class='tools' position='-3 -6 0' height='5' width='5' depth='-1' color='#cccccc'
   visible="false" opacity="1" onclick="selectChoice('tool1Pl','tools')" text='opacity: 1; color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T1'>
 </a-box>
 
@@ -98,13 +100,13 @@
 visible="false" onclick="exploreToolProcess('tool1PlInfo')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
 </a-box>
 
-<a-box id='tool2Pl' cursor-listener src="#tool2Image" class='tools' position='-3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
+<a-box id='tool2Pl' tlprimg-listener src="#tool2Image" class='tools' position='-3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="selectChoice('tool2Pl','tools')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T2'></a-box>
 
 <a-box id='tool2PlInfo' class='toolsInfo' position='3 -12 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="exploreToolProcess('tool2PlInfo')" text='color:#ccff66; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'></a-box>
 
-<a-box id='tool3Pl' cursor-listener src="#tool3Image" class='tools' position='-3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
+<a-box id='tool3Pl' tlprimg-listener src="#tool3Image" class='tools' position='-3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="selectChoice('tool3Pl','tools')" text='color: #ccff66; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:T3'></a-box>
 
 <a-box id='tool3PlInfo' class='toolsInfo' position='3 -18 0' height='5' width='5' depth='-1' color='#cccccc'
@@ -112,21 +114,21 @@ visible="false" onclick="exploreToolProcess('tool3PlInfo')" text='color: #ccff66
 </a-box>
 
 
-<a-box id='process1Pl' cursor-listener src="#process1Image" class='processes' position='-3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
+<a-box id='process1Pl' tlprimg-listener src="#process1Image" class='processes' position='-3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="selectChoice('process1Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P1'></a-box>
 
 <a-box id='process1PlInfo' class='processesInfo' position='3 -24 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="exploreToolProcess('process1PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
 </a-box>
 
-<a-box id='process2Pl' cursor-listener src="#process2Image" class='processes' position='-3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
+<a-box id='process2Pl' tlprimg-listener src="#process2Image" class='processes' position='-3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="selectChoice('process2Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P2'></a-box>
 
 <a-box id='process2PlInfo' class='processesInfo' position='3 -30 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="exploreToolProcess('process2PlInfo')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 1; letterSpacing: 4; value:?'>
 </a-box>
 
-<a-box id='process3Pl' cursor-listener src="#process3Image" class='processes' position='-3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
+<a-box id='process3Pl' tlprimg-listener src="#process3Image" class='processes' position='-3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
 visible="false" onclick="selectChoice('process3Pl','processes')" text='color: #66ccff; alphaTest: 0; align: center; wrapCount: 3; letterSpacing: 4; value:P3'></a-box>
 
 <a-box id='process3PlInfo' class='processesInfo' position='3 -36 0' height='5' width='5' depth='-1' color='#cccccc'
@@ -136,10 +138,10 @@ visible="false" onclick="exploreToolProcess('process3PlInfo')" text='color: #66c
 </a-entity>
 
 <!-- Excavation Site Terrains -->
-<a-plane id="terrain1Pl" tlpr-listener onclick="found(1)" src="#terrain1Image" visible=false position="-10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
-<a-plane id="terrain3Pl" tlpr-listener onclick="found(3)" src="#terrain3Image" visible=false position="10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
-<a-plane id="terrain4Pl" tlpr-listener onclick="found(4)" src="#terrain4Image" visible=false position="-10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
-<a-plane id="terrain2Pl" tlpr-listener onclick="found(2)" src="#terrain2Image" visible=false position="10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+<a-plane id="terrain1Pl" selectedtlpr-listener onclick="found(1)" src="#terrain1Image" visible=false position="-10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+<a-plane id="terrain3Pl" selectedtlpr-listener onclick="found(3)" src="#terrain3Image" visible=false position="10 10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+<a-plane id="terrain4Pl" selectedtlpr-listener onclick="found(4)" src="#terrain4Image" visible=false position="-10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
+<a-plane id="terrain2Pl" selectedtlpr-listener onclick="found(2)" src="#terrain2Image" visible=false position="10 -10 0" rotation="0 0 0" width="20" height="20"></a-plane>
 
 <!-- model 1  and 2-->
 <a-entity id="model1En" visible="false" rotation="0 0 0" position="0 -12.5 8">
@@ -199,7 +201,7 @@ repeat="indefinite"></a-animation>
         <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
              fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
       </a-entity>
-      
+
     </a-camera>
   </a-entity>
 

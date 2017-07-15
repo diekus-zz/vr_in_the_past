@@ -107,7 +107,8 @@ if (document.querySelector('#sti1Im').getAttribute('opacity') == 0) {
       document.querySelector('#terrain'+ i + 'Pl').setAttribute('visible', 'false');
     }
 
-    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false);
+
     // create element for a new terrain plane and append to the sceneEl
     var largePlEl = document.createElement('a-plane');
 
@@ -144,7 +145,7 @@ if (document.querySelector('#sti1Im').getAttribute('opacity') == 0) {
     });
     entityEl.setAttribute('id','resStatusPl');
 
-    //entityEl.setAttribute('onmouseenter',"document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false')");
+    //entityEl.setAttribute('onmouseenter',"document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false)");
 
     var avaTxt = "";
 
@@ -154,12 +155,12 @@ if (document.querySelector('#sti1Im').getAttribute('opacity') == 0) {
     }
 
     if(idNum == 3){
-      //entityEl.setAttribute('onmouseenter',"document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false')");
+      //entityEl.setAttribute('onmouseenter',"document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false)");
       avaTxt = "This riverbank does not have any archaeological artifacts\nPlease try again!";
     }
 
     if(idNum == 4){
-      //entityEl.setAttribute('onmouseenter',"document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false')");
+      //entityEl.setAttribute('onmouseenter',"document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false)");
       avaTxt = "This plane does not have any archaeological remains\nPlease try again";
     }
 

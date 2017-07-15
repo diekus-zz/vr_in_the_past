@@ -132,7 +132,7 @@ function exploreToolProcess(objId){
 
   if(!sceneEl.querySelector('#briefPl')){
 
-    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false);
     // create a plane entity
     var entityEl = document.createElement('a-entity');
 
@@ -202,7 +202,7 @@ function exploreWithPic(objId){
 
   if(!sceneEl.querySelector('#briefPl')){
 
-    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', 'false');
+    document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false);
     // create a plane entity
     var entityEl = document.createElement('a-entity');
 
