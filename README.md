@@ -135,9 +135,11 @@ https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascrip
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown
 https://stackoverflow.com/questions/1197928/how-to-add-30-minutes-to-a-javascript-date-object
 
-Meeting Notes with Diego - 17 July 2017
 
-instructions + performance + graphics, performance and 7 years old playbale - arrows in process - more info with dots - side panel instructions progress text splash screen to have vr image
+Meeting Notes with Diego and Jun - 17 July 2017
+----------------------------------------
+
+instructions + performance + graphics, performance and 7 years old playable - arrows in process - more info with dots - side panel instructions progress text splash screen to have vr image
 
 roomscaping
 google blocks
