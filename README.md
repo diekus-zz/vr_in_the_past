@@ -15,7 +15,7 @@
 ================================================
 
 1. Source Code Repository Manager: Git
-2. Platform as a Service (PaaS): Heroku
+2. Platform as a Service (PaaS): Heroku (http://boiling-falls-96383.herokuapp.com/)
 
 
  How to Run?
