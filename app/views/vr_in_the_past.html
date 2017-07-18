@@ -6,6 +6,7 @@
 
   <script src="https://aframe.io/releases/0.5.0/aframe.js"></script>
 
+  <script src="../components/aframe-particle-system-component.min.js"></script>
   <script src="../components/utility.js"></script>
   <script src="../components/site_exploration.js"></script>
   <script src="../components/tool_process_selection.js"></script>
@@ -21,8 +22,6 @@
 
     <a-assets>
       <audio id="backgroundMusic" src="./sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
-
-      <!-- Game instructions -->
 
       <!-- Scotland Map -->
       <img id="transpImage" src="views/img/map.png">
@@ -60,7 +59,10 @@
       <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
     </a-assets>
 
-    <!-- Instructions -->
+    <!-- Particle system uses 'default' preset, setting custom colors. -->
+    <a-entity position="0 -1.6 35" particle-system="preset: dust; maxParticleCount: 10010; color: #EF0000,#44CC00, #FFF"></a-entity>
+
+    <!-- Game instructions -->
     <a-box id="instructionPn" opacity="0.7" color="#237ec8" position="0 -5 10"
     width="40" height="30" depth="-0.5"
     onclick="mvToRight('instructionPn');"
