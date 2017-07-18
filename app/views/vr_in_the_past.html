@@ -22,17 +22,23 @@
     <a-assets>
       <audio id="backgroundMusic" src="./sound/320497__frankum__jazzy-drum-base.mp3" preload="auto"></audio>
 
+      <!-- Game instructions -->
+
+      <!-- Scotland Map -->
       <img id="transpImage" src="views/img/map.png">
 
+      <!-- Stickers -->
       <img id="sti1Image" src="views/img/sticker1.png">
       <img id="sti2Image" src="views/img/sticker2.png">
 
+      <!-- Terrains -->
       <img id="terrain1Image" src="views/img/1987-excavations.jpg">
       <img id="terrain3Image" src="views/img/GrassLakes14_WEB.jpg">
       <img id="terrain4Image" src="views/img/NE306_salisbury.jpg">
       <img id="terrain2Image" src="views/img/Skull-shown-in-excavation.jpg">
       <img id="tooltip" src="views/img/tooltip.png">
 
+      <!-- Tools and Processes -->
       <img id="tool1Image" src="views/img/expert1.jpg">
       <img id="tool2Image" src="views/img/Reso.jpg">
       <img id="tool3Image" src="views/img/AMS_system_layout.jpg">
@@ -47,13 +53,41 @@
       <img id="process2ZoomedImage" src="views/img/art-tl-thermo.jpg">
       <img id="process3ZoomedImage" src="views/img/radiocarbonZoomed.jpg">
 
+      <!-- Scanned Models -->
       <a-asset-item id="object_beaker" src="models/beaker/beaker_real.obj"></a-asset-item>
       <a-asset-item id="material_beaker" src="models/beaker/beaker_real.mtl"></a-asset-item>
       <a-asset-item id="object_avaskull" src="models/ava_skull/ava_skull.obj"></a-asset-item>
       <a-asset-item id="material_avaskull" src="models/ava_skull/ava_skull.mtl"></a-asset-item>
     </a-assets>
 
+    <!-- Instructions -->
+    <a-box id="instructionPn" opacity="0.7" color="#237ec8" position="0 -5 10"
+    width="40" height="30" depth="-0.5"
+    onclick="mvToRight('instructionPn');"
+    text="color: #fff; alphaTest: 0; align: center; wrapCount: 45; letterSpacing: 1;
+    value:Game Instructions
+    \n----------------------------------
+    \nYellow Cones: Archaeological site exploration
+    \nGreen Cone: Archaeological site excavation
+    \nTool-Process: Each pair of tool-process serves unique purpose (excavation, inorganic dating or organic dating)
+    \n'?' Icon: Assists in learning about a tool/process
+    \nFour spheres at the top represent game progress
+    \nTimer on the right indicates days passed out of 4 weeks (20 working days)"></a-box>
+
+    <!-- Stickers to be earned -->
+    <a-box id="stickersEn" position="-55 0 45" rotation="0 90 0"
+    opacity="0.2" color="#237ec8"
+    width="40" height="35" depth="-0.5"
+    text="color: #fff; alphaTest: 0; align: center; wrapCount: 42; letterSpacing: 10;
+    value:Stickers To Be Earned
+    \n----------------------------------
+    \n\n\n\n\n\n\n\n\n\n\n\n">
+      <a-image id="sti1Im" opacity="0.8" begin="click" position="0 4 0" width="16" height="8" rotation="0 0 0" src="#sti1Image" transparent="true" alpha-test="0.5"></a-image>
+      <a-image id="sti2Im" opacity="0.8" begin="click" position="0 -9 0" width="16" height="16" rotation="0 0 0" src="#sti2Image" transparent="true" alpha-test="0.5"></a-image>
+    </a-box>
+
     <a-sound volume="100" autoplay="true" loop="true"  src="#backgroundMusic" position="0 0 -25"></a-sound>
+
     <a-image id="mapIm" brief begin="click" position="0 0 -3" width="67" height="84" rotation="0 0 0" src="#transpImage" transparent="true" alpha-test="0.5"></a-image>
 
     <!-- Site Exploration -->

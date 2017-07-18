@@ -15,9 +15,10 @@ function exploreSite(objId){
     var entityEl = document.createElement('a-entity');
 
     entityEl.setAttribute('geometry', {
-      primitive: 'plane',
+      primitive: 'box',
       height: 'auto',
-      width: 5
+      width: 5,
+      depth: -0.1
     });
     entityEl.setAttribute('position', {
       x: 0,
@@ -47,7 +48,7 @@ function exploreSite(objId){
       avaTxt = "Swaites Hill 'Hero's cairn' - South Lanarkshire\nWho was the cairn built for, and why?\n\nIn 1976, a small excavation helped establish the chronology and morphology of burial cairns in the area. There are another 25 nearby, and the type of urn associated with them is known as a ‘Food Vessel’, broadly dated to the Early Bronze Age (2200-1750BC). The finds from the cist are now carefully housed in our National Museum and available for further study.\n";
     }
 
-    entityEl.setAttribute('material', 'color', 'gray');
+    entityEl.setAttribute('material', 'color', '#237ec8');
     entityEl.setAttribute('material', 'opacity', '0.8');
     entityEl.setAttribute('text', 'align: left; value: ' + avaTxt);
 

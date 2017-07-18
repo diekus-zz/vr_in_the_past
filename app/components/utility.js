@@ -556,3 +556,27 @@ function progressStatus(levelId){
     alertInfo('3D model!');
   }
 }
+
+
+function mvToRight(instructionPn){
+
+  document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', false);
+
+  var animationEl = document.createElement('a-animation');
+  document.querySelector('#'+instructionPn).appendChild(animationEl);
+  animationEl.setAttribute('delay', '10000');
+  animationEl.setAttribute('begin', '');
+  animationEl.setAttribute('dur', '6000');
+  animationEl.setAttribute('attribute', 'position');
+  animationEl.setAttribute('to', '55 -5 45');
+
+  var animationEl = document.createElement('a-animation');
+  document.querySelector('#'+instructionPn).appendChild(animationEl);
+  animationEl.setAttribute('delay', '10000');
+  animationEl.setAttribute('begin', '');
+  animationEl.setAttribute('dur', '6000');
+  animationEl.setAttribute('attribute', 'rotation');
+  animationEl.setAttribute('to', '0 -90 0');
+
+  setTimeout("document.querySelector('a-scene').querySelector('#cursorId').setAttribute('cursor', 'fuse', true)", 6000);
+}
